@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="FolderSecurityViewer.Views.Share.ShareDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:FolderSecurityViewer.Controls"
+             xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <StackPanel Orientation="Horizontal"
+                    Visibility="{Binding IsWorking, Converter={StaticResource FalseCollapsedConverter}}"
+                    VerticalAlignment="Top">
+            <ProgressBar IsIndeterminate="{Binding IsWorking}" IsEnabled="{Binding IsWorking}" Margin="0, 0, 10, 0" />
+            <TextBlock Text="{x:Static res:CommonResource.LoadingText}" Style="{StaticResource TextInfoStyle}" />
+        </StackPanel>
+        <TextBlock Text="{Binding ErrorMessage}"
+                   Visibility="{Binding ErrorMessage, Converter={StaticResource StringNullCollapsedConverter}}"
+                   Style="{StaticResource TabHeadingStyle}" />
+        <Grid ScrollViewer.CanContentScroll="True">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Setter Property="Visibility" Value="Visible" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsWorking}" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding ErrorMessage, Converter={StaticResource StringNullCollapsedConverter}}"
+                            Value="Visible">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <Grid.Resources>
+                <Style TargetType="{x:Type controls:TextLabel}" BasedOn="{StaticResource {x:Type controls:TextLabel}}">
+                    <Setter Property="Margin" Value="8" />
+                </Style>
+                <Style TargetType="{x:Type controls:TextLabel}" BasedOn="{StaticResource {x:Type controls:TextLabel}}"
+                       x:Key="CaptionTextBlockStyle">
+                    <!--<Setter Property="Padding" Value="0, 5, 10, 5" />-->
+                    <Setter Property="FontWeight" Value="SemiBold" />
+                </Style>
+                <Style TargetType="Border">
+                    <Setter Property="BorderBrush" Value="{StaticResource ControlBorderBrush}" />
+                </Style>
+                <Style TargetType="Border" x:Key="TopLeftBorderStyle" BasedOn="{StaticResource {x:Type Border}}">
+                    <Setter Property="BorderThickness" Value="0, 1, 0, 0" />
+                </Style>
+                <Style TargetType="Border" x:Key="BottomLeftBorderStyle" BasedOn="{StaticResource {x:Type Border}}">
+                    <Setter Property="BorderThickness" Value="0, 1, 0, 1" />
+                </Style>
+                <Style TargetType="Border" x:Key="TopRightBorderStyle" BasedOn="{StaticResource {x:Type Border}}">
+                    <Setter Property="BorderThickness" Value="0, 1, 0, 0" />
+                </Style>
+                <Style TargetType="Border" x:Key="BottomRightBorderStyle" BasedOn="{StaticResource {x:Type Border}}">
+                    <Setter Property="BorderThickness" Value="0, 1, 0, 1" />
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource TopLeftBorderStyle}" />
+            <controls:TextLabel Grid.Row="1" Grid.Column="0" Text="{x:Static res:SharedServersResource.PathCaption}"
+                                Style="{StaticResource CaptionTextBlockStyle}" />
+            <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource TopRightBorderStyle}" />
+            <controls:TextLabel Grid.Row="1" Grid.Column="1" Text="{Binding Path, Mode=OneWay}" />
+
+            <Border Grid.Row="2" Grid.Column="0" Style="{StaticResource TopLeftBorderStyle}" />
+            <controls:TextLabel Grid.Row="2" Grid.Column="0"
+                                Text="{x:Static res:SharedServersResource.DescriptionCaption}"
+                                Style="{StaticResource CaptionTextBlockStyle}" />
+            <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource TopRightBorderStyle}" />
+            <controls:TextLabel Grid.Row="2" Grid.Column="1" Text="{Binding Description, Mode=OneWay}" />
+
+            <Border Grid.Row="3" Grid.Column="0" Style="{StaticResource TopLeftBorderStyle}" />
+            <controls:TextLabel Grid.Row="3" Grid.Column="0"
+                                Text="{x:Static res:SharedServersResource.MaxUsersCaption}"
+                                Style="{StaticResource CaptionTextBlockStyle}" />
+            <Border Grid.Row="3" Grid.Column="1" Style="{StaticResource TopRightBorderStyle}" />
+            <controls:TextLabel Grid.Row="3" Grid.Column="1" Text="{Binding MaxUsers, Mode=OneWay}" />
+
+            <Border Grid.Row="4" Grid.Column="0" Style="{StaticResource TopLeftBorderStyle}" />
+            <controls:TextLabel Grid.Row="4" Grid.Column="0"
+                                Text="{x:Static res:SharedServersResource.ClientConnectionsCaption}"
+                                Style="{StaticResource CaptionTextBlockStyle}" />
+            <Border Grid.Row="4" Grid.Column="1" Style="{StaticResource TopRightBorderStyle}" />
+            <controls:TextLabel Grid.Row="4" Grid.Column="1" Text="{Binding ClientConnections, Mode=OneWay}" />
+
+            <Border Grid.Row="5" Grid.Column="0" Style="{StaticResource BottomLeftBorderStyle}" />
+            <controls:TextLabel Grid.Row="5" Grid.Column="0"
+                                Text="{x:Static res:SharedServersResource.TrusteesCaption}"
+                                Style="{StaticResource CaptionTextBlockStyle}" />
+
+            <Border Grid.Row="5" Grid.Column="1" Style="{StaticResource BottomRightBorderStyle}" Padding="3">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <DataGrid ItemsSource="{Binding Trustees}" Height="300" />
+                </ScrollViewer>
+            </Border>
+
+            <Button Grid.Row="6" Style="{StaticResource PrimaryButtonStyle}"
+                    Content="{x:Static res:SharedServersResource.NtfsReportCaption}"
+                    Command="{Binding PermissionReportCommand}" Margin="0, 8" />
+        </Grid>
+    </Grid>
+</UserControl>

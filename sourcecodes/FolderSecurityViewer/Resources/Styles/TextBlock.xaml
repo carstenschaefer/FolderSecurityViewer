@@ -1,0 +1,105 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:FolderSecurityViewer.Controls">
+
+    <Style TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="{StaticResource DisabledOpacity}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="controls:TextLabel" BasedOn="{StaticResource {x:Type TextBlock}}">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundColorBrush}" />
+        <Setter Property="FontSize" Value="{StaticResource TextFontSize}" />
+    </Style>
+
+    <Style TargetType="controls:TextLabel" BasedOn="{StaticResource {x:Type TextBlock}}"
+           x:Key="CountTextLabelStyle">
+        <Setter Property="Foreground" Value="{StaticResource AccentColorBrush2}" />
+        <Setter Property="FontFamily" Value="Monospace" />
+        <Setter Property="FontSize" Value="50" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="PanelHeadingStyle" BasedOn="{StaticResource {x:Type TextBlock}}">
+        <Setter Property="Foreground" Value="{StaticResource AccentColorBrush}" />
+        <Setter Property="FontSize" Value="{StaticResource MediumHeaderFontSize}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="Padding" Value="0, 5" />
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="HeaderedContainerHeadingStyle"
+           BasedOn="{StaticResource {x:Type TextBlock}}">
+        <Setter Property="Background" Value="{StaticResource ContainerColorBrush}" />
+        <Setter Property="TextBlock.FontWeight" Value="Light" />
+        <Setter Property="TextBlock.FontSize" Value="{StaticResource MediumHeaderFontSize}" />
+        <Setter Property="TextBlock.Foreground" Value="{StaticResource AccentColorBrush}" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Padding" Value="8, 5" />
+        <Setter Property="Margin" Value="0, 8" />
+    </Style>
+
+    <Style TargetType="{x:Type Label}" x:Key="WindowTitleLabelStyle">
+        <Setter Property="Background" Value="{StaticResource AccentColorBrush}" />
+        <Setter Property="TextBlock.FontWeight" Value="Medium" />
+        <Setter Property="TextBlock.FontSize" Value="{StaticResource SmallHeaderFontSize}" />
+        <Setter Property="TextBlock.Foreground" Value="{StaticResource ForegroundOnAccentColorBrush}" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Padding" Value="8, 5" />
+        <Setter Property="Margin" Value="8" />
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="TextInfoStyle" BasedOn="{StaticResource {x:Type TextBlock}}">
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="FontSize" Value="{StaticResource SmallHeaderFontSize}" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundColorBrush}" />
+        <Setter Property="Typography.CapitalSpacing" Value="True" />
+        <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="TextNoteStyle" BasedOn="{StaticResource {x:Type TextBlock}}">
+        <Setter Property="FontSize" Value="{StaticResource NoteFontSize}" />
+        <Setter Property="Foreground" Value="{StaticResource AccentColorBrush3}" />
+        <Setter Property="Typography.CapitalSpacing" Value="True" />
+        <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="EmptyListTextBlockStyle" BasedOn="{StaticResource TextInfoStyle}">
+        <Setter Property="Visibility" Value="Collapsed" />
+        <Setter Property="Foreground" Value="{StaticResource EmptyForegroundBrush}" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="ErrorInfoStyle" BasedOn="{StaticResource TextInfoStyle}">
+        <Setter Property="Visibility" Value="Collapsed" />
+        <Setter Property="Foreground" Value="{StaticResource ErrorBrush}" />
+        <Setter Property="TextTrimming" Value="None" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="TabHeadingStyle" BasedOn="{StaticResource {x:Type TextBlock}}">
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="FontSize" Value="{StaticResource SmallHeaderFontSize}" />
+        <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="SelectedTabHeadingStyle" BasedOn="{StaticResource TabHeadingStyle}">
+        <Setter Property="FontWeight" Value="Medium" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="ReportTypeTextBlockStyle">
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="PagingTextStyle" BasedOn="{StaticResource {x:Type TextBlock}}">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundColorBrush}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+</ResourceDictionary>

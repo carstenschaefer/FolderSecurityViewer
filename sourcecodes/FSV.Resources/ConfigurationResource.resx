@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <!-- 
+      Microsoft ResX Schema 
+      
+      Version 2.0
+      
+      The primary goals of this format is to allow a simple XML format 
+      that is mostly human readable. The generation and parsing of the 
+      various data types are done through the TypeConverter classes 
+      associated with the data types.
+      
+      Example:
+      
+      ... ado.net/XML headers & schema ...
+      <resheader name="resmimetype">text/microsoft-resx</resheader>
+      <resheader name="version">2.0</resheader>
+      <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+      <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+      <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+      <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+      <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+          <value>[base64 mime encoded serialized .NET Framework object]</value>
+      </data>
+      <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+          <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+          <comment>This is a comment</comment>
+      </data>
+                  
+      There are any number of "resheader" rows that contain simple 
+      name/value pairs.
+      
+      Each data row contains a name, and value. The row also contains a 
+      type or mimetype. Type corresponds to a .NET class that support 
+      text/value conversion through the TypeConverter architecture. 
+      Classes that don't support this are serialized and stored with the 
+      mimetype set.
+      
+      The mimetype is used for serialized objects, and tells the 
+      ResXResourceReader how to depersist the object. This is currently not 
+      extensible. For a given mimetype the value must be set accordingly:
+      
+      Note - application/x-microsoft.net.object.binary.base64 is the format 
+      that the ResXResourceWriter will generate, however the reader can 
+      read any of the formats listed below.
+      
+      mimetype: application/x-microsoft.net.object.binary.base64
+      value   : The object must be serialized with 
+              : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+              : and then encoded with base64 encoding.
+      
+      mimetype: application/x-microsoft.net.object.soap.base64
+      value   : The object must be serialized with 
+              : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+              : and then encoded with base64 encoding.
+  
+      mimetype: application/x-microsoft.net.object.bytearray.base64
+      value   : The object must be serialized into a byte array 
+              : using a System.ComponentModel.TypeConverter
+              : and then encoded with base64 encoding.
+      -->
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                id="root"
+                xmlns="">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string"/>
+                            <xsd:attribute name="type" type="xsd:string"/>
+                            <xsd:attribute name="mimetype" type="xsd:string"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string"/>
+                            <xsd:attribute name="name" type="xsd:string"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <data name="AclGridVisibleCaption" xml:space="preserve">
+    <value>Show ACL</value>
+  </data>
+    <data name="ADGroupCaption" xml:space="preserve">
+    <value>Excluded Active Directory Groups</value>
+  </data>
+    <data name="ADPropertiesCaption" xml:space="preserve">
+    <value>Shown Active Directory User Properties</value>
+  </data>
+    <data name="ConfigurationCaption" xml:space="preserve">
+    <value>General</value>
+  </data>
+    <data name="DisplayNameCaption" xml:space="preserve">
+    <value>Display Name</value>
+  </data>
+    <data name="GroupNameCaption" xml:space="preserve">
+    <value>Group Name</value>
+  </data>
+    <data name="LogEnableCaption" xml:space="preserve">
+    <value>Enable Logging</value>
+  </data>
+    <data name="NameCaption" xml:space="preserve">
+    <value>Name</value>
+  </data>
+    <data name="RestoreDefaultCaption" xml:space="preserve">
+    <value>Restore Default Settings</value>
+  </data>
+    <data name="SaveCaption" xml:space="preserve">
+    <value>Save</value>
+  </data>
+    <data name="ScanLevelCaption" xml:space="preserve">
+    <value>Scan Depth:</value>
+  </data>
+    <data name="SearchADCaption" xml:space="preserve">
+    <value>Search in Active Directory</value>
+  </data>
+    <data name="SelectedCaption" xml:space="preserve">
+    <value>Selected</value>
+  </data>
+    <data name="TranslatedNameCaption" xml:space="preserve">
+    <value>Translation</value>
+  </data>
+    <data name="TranslationItemCaption" xml:space="preserve">
+    <value>Translations for Permission Entries</value>
+  </data>
+    <data name="PermissionPageSizeCaption" xml:space="preserve">
+    <value>Shown Results on Page</value>
+  </data>
+    <data name="ExclusionGroupNoResultText" xml:space="preserve">
+    <value>0 results found for '{0}'</value>
+  </data>
+    <data name="AddCaption" xml:space="preserve">
+    <value>Add</value>
+  </data>
+    <data name="DeleteCaption" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+    <data name="EditCaption" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+    <data name="NewGroupDescription" xml:space="preserve">
+    <value>Doubleclick a row to add a group</value>
+  </data>
+    <data name="AboutText" xml:space="preserve">
+    <value>Software to analyze the effective permissions of a Windows share or folder. &lt;LineBreak /&gt;Working PC must be a member of a Active Directory domain. &lt;LineBreak /&gt;Made by &lt;Bold&gt;&lt;Hyperlink NavigateUri="https://www.g-tac.de/Software"&gt;G-TAC Software UG&lt;/Hyperlink&gt; &lt;/Bold&gt; (haftungsbeschraenkt).</value>
+  </data>
+    <data name="BuiltInGroupCaption" xml:space="preserve">
+    <value>Excluded Built-in Groups</value>
+  </data>
+    <data name="BuiltInGroupDescriptionCaption" xml:space="preserve">
+    <value>Description</value>
+  </data>
+    <data name="BuiltInGroupExcludedCaption" xml:space="preserve">
+    <value>Exclude</value>
+  </data>
+    <data name="BuiltInGroupNameCaption" xml:space="preserve">
+    <value>Name</value>
+  </data>
+    <data name="SIDCaption" xml:space="preserve">
+    <value>SID</value>
+  </data>
+    <data name="Version" xml:space="preserve">
+    <value>Version: {0}.{1}.{2}</value>
+  </data>
+    <data name="CheckForUpdateCaption" xml:space="preserve">
+    <value>Check for Updates</value>
+  </data>
+    <data name="CheckingForUpdatesText" xml:space="preserve">
+    <value>Checking...</value>
+  </data>
+    <data name="ReportCaption" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+    <data name="ReportPermissionCaption" xml:space="preserve">
+    <value>Permissions</value>
+  </data>
+    <data name="ScanLevelAllCaption" xml:space="preserve">
+    <value>All</value>
+  </data>
+    <data name="UpdateDownloadCompleteText" xml:space="preserve">
+    <value>Download complete.</value>
+  </data>
+    <data name="UpdateDownloadingError" xml:space="preserve">
+    <value>Error while downloading setup file. Please check your internet connection. Error: {0}</value>
+  </data>
+    <data name="UpdateDownloadingProgressText" xml:space="preserve">
+    <value>Downloading {0}%...</value>
+  </data>
+    <data name="UpdateDownloadingText" xml:space="preserve">
+    <value>Downloading...</value>
+  </data>
+    <data name="UpdatesCaption" xml:space="preserve">
+    <value>Updates</value>
+  </data>
+    <data name="UpdateUpToDateText" xml:space="preserve">
+    <value>FolderSecurityViewer is up to date.</value>
+  </data>
+    <data name="AboutCaption" xml:space="preserve">
+    <value>About</value>
+  </data>
+    <data name="EditTranslationCaption" xml:space="preserve">
+    <value>Configure Permission Set</value>
+  </data>
+    <data name="LogCaption" xml:space="preserve">
+    <value>Log</value>
+  </data>
+    <data name="NetworkCaption" xml:space="preserve">
+    <value>Network</value>
+  </data>
+    <data name="UsersCountCaption" xml:space="preserve">
+    <value>Show User Count</value>
+  </data>
+    <data name="UsersCountText" xml:space="preserve">
+    <value>User Count at Installation: {0}</value>
+  </data>
+    <data name="UsersNotCountedText" xml:space="preserve">
+    <value>Users have not been counted yet.</value>
+  </data>
+    <data name="RestartRequired" xml:space="preserve">
+    <value>Please restart FolderSecurityViewer for changes to take effect.</value>
+  </data>
+    <data name="ExcludeDisabledUsers" xml:space="preserve">
+    <value>Exclude Disabled Users</value>
+  </data>
+    <data name="ExcludeDisabledUsersDescription" xml:space="preserve">
+    <value>Run FSV as Administrator to use this feature!</value>
+  </data>
+    <data name="ReportUserCaption" xml:space="preserve">
+    <value>User Permissions</value>
+  </data>
+    <data name="ExclusionGroupSearchTitle" xml:space="preserve">
+    <value>Search AD Group for Exclusion</value>
+  </data>
+    <data name="ConnectionStringChangeError" xml:space="preserve">
+    <value>Connection string cannot be saved. {0}</value>
+  </data>
+    <data name="CultureCaption" xml:space="preserve">
+    <value>Language</value>
+  </data>
+    <data name="SelectHeaderCaption" xml:space="preserve">
+    <value>Select</value>
+  </data>
+    <data name="NetworkCustomProxyCaption" xml:space="preserve">
+    <value>Use custom proxy settings</value>
+  </data>
+    <data name="NetworkNoProxyCaption" xml:space="preserve">
+    <value>No Proxy</value>
+  </data>
+    <data name="NetworkOSProxyCaption" xml:space="preserve">
+    <value>Use default operating system settings</value>
+  </data>
+    <data name="NetworkProxyCaption" xml:space="preserve">
+    <value>Proxy Server Settings</value>
+  </data>
+    <data name="NetworkProxyCredentialsRequiredCaption" xml:space="preserve">
+    <value>Proxy server requires username and password.</value>
+  </data>
+    <data name="NetworkProxyPasswordCaption" xml:space="preserve">
+    <value>Password</value>
+  </data>
+    <data name="NetworkProxyPortCaption" xml:space="preserve">
+    <value>Port</value>
+  </data>
+    <data name="NetworkProxyServerCaption" xml:space="preserve">
+    <value>Server</value>
+  </data>
+    <data name="NetworkProxyUserNameCaption" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+    <data name="OpenLogFolderCaption" xml:space="preserve">
+    <value>Open Log Folder</value>
+  </data>
+    <data name="TranslationACLCaption" xml:space="preserve">
+    <value>Access Control Type</value>
+  </data>
+    <data name="TranslationInheritanceCaption" xml:space="preserve">
+    <value>Inheritance</value>
+  </data>
+    <data name="TranslationNameCaption" xml:space="preserve">
+    <value>Set Name</value>
+  </data>
+    <data name="TranslationPermissionsCaption" xml:space="preserve">
+    <value>Permissions</value>
+  </data>
+    <data name="PermissionBuiltInGroupsHeader" xml:space="preserve">
+    <value>Built-in Groups</value>
+  </data>
+    <data name="PermissionExclusionHeader" xml:space="preserve">
+    <value>Excluded AD Groups</value>
+  </data>
+    <data name="PermissionGeneralHeader" xml:space="preserve">
+    <value>General</value>
+  </data>
+    <data name="PermissionReportColumnHeader" xml:space="preserve">
+    <value>Report Columns</value>
+  </data>
+    <data name="PermissionTranslationHeader" xml:space="preserve">
+    <value>Translations</value>
+  </data>
+    <data name="CleanADCacheCaption" xml:space="preserve">
+    <value>Clear AD Cache</value>
+  </data>
+</root>

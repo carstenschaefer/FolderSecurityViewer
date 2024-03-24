@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="FolderSecurityViewer.Controls.Pagination"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ctrl="clr-namespace:FolderSecurityViewer.Controls"
+             xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+             xmlns:vm="clr-namespace:FSV.ViewModel;assembly=FSV.ViewModel"
+             mc:Ignorable="d" x:Name="Pager"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel Orientation="Horizontal">
+        <StackPanel.Style>
+            <Style TargetType="StackPanel" BasedOn="{StaticResource PagingStackPanelStyle}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding TotalPages}" Value="0">
+                        <Setter Property="IsEnabled" Value="False" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </StackPanel.Style>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <ctrl:IconButton Grid.Column="0" Icon="{StaticResource FirstIcon}"
+                             ToolTip="{x:Static res:CommonResource.PageFirstTip}"
+                             Command="{Binding ChangePageCommand}"
+                             CommandParameter="{x:Static vm:PageChangeMode.First}"
+                             IconSize="Small" />
+            <ctrl:IconButton Grid.Column="1" Icon="{StaticResource PreviousIcon}"
+                             ToolTip="{x:Static res:CommonResource.PagePreviousTip}"
+                             Command="{Binding ChangePageCommand}"
+                             CommandParameter="{x:Static vm:PageChangeMode.Previous}"
+                             IconSize="Small" />
+            <TextBlock Grid.Column="2">
+                <Run Text="{Binding CurrentPage, Mode=OneWay}" />
+                <Run Text="{x:Static res:CommonResource.PaginationOfText}" />
+                <Run Text="{Binding TotalPages, Mode=OneWay}" />
+            </TextBlock>
+            <ctrl:IconButton Grid.Column="3" Icon="{StaticResource NextIcon}"
+                             ToolTip="{x:Static res:CommonResource.PageNextTip}"
+                             Command="{Binding ChangePageCommand}" CommandParameter="{x:Static vm:PageChangeMode.Next}"
+                             IconSize="Small" />
+            <ctrl:IconButton Grid.Column="4" Icon="{StaticResource LastIcon}"
+                             ToolTip="{x:Static res:CommonResource.PageLastTip}"
+                             Command="{Binding ChangePageCommand}" CommandParameter="{x:Static vm:PageChangeMode.Last}"
+                             IconSize="Small" />
+        </Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBlock Text="{x:Static res:CommonResource.PageSizeShowCaption}" Margin="0, 0, 5, 0" />
+            <ComboBox IsEditable="False" ItemsSource="{Binding PageSizes}" DisplayMemberPath="Key"
+                      SelectedValuePath="Value"
+                      SelectedValue="{Binding PageSize}" />
+            <TextBlock Text="{Binding ShowText}" Margin="5, 0, 0, 0" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>

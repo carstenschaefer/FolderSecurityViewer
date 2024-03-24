@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F637CDFC-D5E9-419A-BD7F-F7D320BEA3C0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FSV.Business</RootNamespace>
+    <AssemblyName>FSV.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstractions\BusinessServiceException.cs" />
+    <Compile Include="Abstractions\PermissionTaskExecutionException.cs" />
+    <Compile Include="BusinessModule.cs" />
+    <Compile Include="FolderTask.cs" />
+    <Compile Include="Abstractions\IAclCompareTask.cs" />
+    <Compile Include="Abstractions\IFolderTask.cs" />
+    <Compile Include="Abstractions\IUserPermissionTask.cs" />
+    <Compile Include="PathUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceCollectionExtensions.cs" />
+    <Compile Include="UserPermissionTaskResult.cs" />
+    <Compile Include="UserPermissionTask.cs" />
+    <Compile Include="Worker\AclComparerWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AclCompareTask.cs" />
+    <Compile Include="Worker\FolderWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Abstractions\IPermissionListTask.cs" />
+    <Compile Include="Abstractions\IPermissionTask.cs" />
+    <Compile Include="Abstractions\IWorkerTask.cs" />
+    <Compile Include="Worker\OwnerWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PermissionListTask.cs" />
+    <Compile Include="PermissionTask.cs" />
+    <Compile Include="Worker\PermissionWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Worker\GroupSearcher.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Worker\UserWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Worker\AclComparerWorker.resx">
+      <DependentUpon>AclComparerWorker.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FSV.AdServices\FSV.AdServices.csproj">
+      <Project>{544ef25e-75dc-4166-9ff2-f0005388146f}</Project>
+      <Name>FSV.AdServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSV.Configuration\FSV.Configuration.csproj">
+      <Project>{0bdc0c6c-06bb-4dcd-ab93-e7fc035eb0af}</Project>
+      <Name>FSV.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj">
+      <Project>{0B87440C-CE77-4D3F-AD5D-1EA72363A51E}</Project>
+      <Name>FSV.Extensions.DependencyInjection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Abstractions\FSV.FileSystem.Interop.Abstractions.csproj">
+      <Project>{2c724fb3-debf-4044-ab29-f31f3f35da3b}</Project>
+      <Name>FSV.FileSystem.Interop.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Core.Abstractions\FSV.FileSystem.Interop.Core.Abstractions.csproj">
+      <Project>{150c7c23-af8d-4e03-bbec-0c75d31e4a64}</Project>
+      <Name>FSV.FileSystem.Interop.Core.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Core\FSV.FileSystem.Interop.Core.csproj">
+      <Project>{afa58ad0-d547-4d95-87de-03443e02066c}</Project>
+      <Name>FSV.FileSystem.Interop.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSV.FileSystem.Interop\FSV.FileSystem.Interop.csproj">
+      <Project>{cd590216-ff4e-4ab6-a6d3-f1d45e3615a0}</Project>
+      <Name>FSV.FileSystem.Interop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSV.Models\FSV.Models.csproj">
+      <Project>{f268923f-4e6d-4c52-9b38-b4e370582283}</Project>
+      <Name>FSV.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSV.Resources\FSV.Resources.csproj">
+      <Project>{7f0dcb46-1b42-4000-a481-6bdfb2103a87}</Project>
+      <Name>FSV.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection">
+      <Version>3.1.32</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions">
+      <Version>3.1.32</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+</Project>

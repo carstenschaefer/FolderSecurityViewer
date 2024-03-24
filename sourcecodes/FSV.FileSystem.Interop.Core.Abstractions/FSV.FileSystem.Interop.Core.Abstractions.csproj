@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <SignAssembly>true</SignAssembly>
+        <LangVersion>latest</LangVersion>
+        <Copyright>Copyright © 2015 - 2022 G-TAC Software UG</Copyright>
+        <Description>Part of G-TAC's NTFS Permissions Reporter 'FolderSecurityViewer'</Description>
+        <PackageVersion>2.4.4</PackageVersion>
+        <Title>FSV.FileSystem.Interop.Core.Abstractions</Title>
+        <AssemblyVersion>2.7.0.0</AssemblyVersion>
+        <FileVersion>2.7.0.0</FileVersion>
+        <Authors>G-TAC</Authors>
+        <Company>G-TAC</Company>
+        <Version>2.4.4.0</Version>
+        <Product>FolderSecurityViewer</Product>
+    </PropertyGroup>
+
+</Project>

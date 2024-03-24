@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0BDC0C6C-06BB-4DCD-AB93-E7FC035EB0AF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FSV.Configuration</RootNamespace>
+    <AssemblyName>FSV.Configuration</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstractions\ConfigurationException.cs" />
+    <Compile Include="Abstractions\DatabaseConfigurationChangedEventArgs.cs" />
+    <Compile Include="Abstractions\ICultureManager.cs" />
+    <Compile Include="BuiltInGroup.cs" />
+    <Compile Include="ConfigPath.cs" />
+    <Compile Include="ConfigItem.cs" />
+    <Compile Include="ConfigurationManager.cs" />
+    <Compile Include="ConfigurationManagerExtensions.cs" />
+    <Compile Include="ConfigurationModule.cs" />
+    <Compile Include="CultureManager.cs" />
+    <Compile Include="DatabaseConfigurationManagerExtensions.cs" />
+    <Compile Include="Database\BaseConfiguration.cs" />
+    <Compile Include="DatabaseConfigurationManager.cs" />
+    <Compile Include="Database\NoneConfiguration.cs" />
+    <Compile Include="Database\ProtectedConnectionString.cs" />
+    <Compile Include="Database\SQLiteConfiguration.cs" />
+    <Compile Include="Database\SqlServerConfiguration.cs" />
+    <Compile Include="Database\DatabaseProvider.cs" />
+    <Compile Include="Database\DatabaseProviders.cs" />
+    <Compile Include="Extensions\XElementExtension.cs" />
+    <Compile Include="Abstractions\IDatabaseConfigurationManager.cs" />
+    <Compile Include="Abstractions\IShareConfigurationManager.cs" />
+    <Compile Include="Abstractions\IConfigurationManager.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="EnvironmentManager.cs" />
+    <Compile Include="NetworkConfigurationManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProxyType.cs" />
+    <Compile Include="Sections\BaseSection.cs" />
+    <Compile Include="Sections\ConfigXml\ConfigItemFactory.cs" />
+    <Compile Include="Sections\ConfigItemList.cs" />
+    <Compile Include="Sections\ConfigXml\ConfigRoot.cs" />
+    <Compile Include="Sections\ConfigXml\ExcludedBuiltInGroupList.cs" />
+    <Compile Include="Sections\ConfigXml\ExclusionGroupItem.cs" />
+    <Compile Include="Sections\ConfigXml\Report.cs" />
+    <Compile Include="Sections\ConfigXml\ReportFolder.cs" />
+    <Compile Include="Sections\ConfigXml\ReportTrustee.cs" />
+    <Compile Include="Sections\ConfigXml\ReportTrusteeSettings.cs" />
+    <Compile Include="Sections\ConfigXml\ReportUser.cs" />
+    <Compile Include="Sections\ConfigXml\RightsTranslationItem.cs" />
+    <Compile Include="Sections\ShareConfigXml\ShareConfigRoot.cs" />
+    <Compile Include="Sections\ShareConfigXml\ShareCredentials.cs" />
+    <Compile Include="Sections\ConfigXml\TrusteeGridColumnItem.cs" />
+    <Compile Include="ServiceCollectionExtensions.cs" />
+    <Compile Include="ShareConfigurationManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Defaults\BuiltInGroups.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Defaults\Config.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Defaults\ShareConfig.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection">
+      <Version>3.1.32</Version>
+    </PackageReference>
+    <PackageReference Include="System.Data.SQLite">
+      <Version>1.0.118</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FSV.Configuration.Abstractions\FSV.Configuration.Abstractions.csproj">
+      <Project>{6ef8b753-c9ef-4f1a-bdeb-58efa7dd3487}</Project>
+      <Name>FSV.Configuration.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSV.Crypto.Abstractions\FSV.Crypto.Abstractions.csproj">
+      <Project>{a9dbba78-ee29-43d0-a67f-a92af66531e1}</Project>
+      <Name>FSV.Crypto.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj">
+      <Project>{0B87440C-CE77-4D3F-AD5D-1EA72363A51E}</Project>
+      <Name>FSV.Extensions.DependencyInjection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSV.Extensions.Logging\FSV.Extensions.Logging.csproj">
+      <Project>{10ef5d74-77e9-4f8c-b0fb-ab44fb908119}</Project>
+      <Name>FSV.Extensions.Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+</Project>

@@ -1,0 +1,108 @@
+<UserControl x:Class="FolderSecurityViewer.Views.ADBrowserView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ctrl="clr-namespace:FolderSecurityViewer.Controls"
+             xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+             xmlns:vm="clr-namespace:FSV.ViewModel.AdBrowser;assembly=FSV.ViewModel"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300"
+             d:DataContext="{d:DesignInstance Type=vm:ADBrowserViewModel}">
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Visibility="{Binding DomainsVisible, Converter={StaticResource FalseCollapsedConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ctrl:IconButton Grid.Row="0" HorizontalAlignment="Right"
+                             ToolTip="{x:Static res:CommonResource.CancelButtonCaption}"
+                             Icon="{StaticResource CloseIcon}" IconSize="Small"
+                             Command="{Binding ShowDomainListCommand}" CommandParameter="False" />
+            <ListBox Grid.Row="2" ItemsSource="{Binding Domains}"
+                     ItemTemplate="{StaticResource DomainListItemTemplate}"
+                     SelectedItem="{Binding SelectedDomain}" MouseDoubleClick="HandleDomainListMouseDoubleClick" />
+        </Grid>
+        <Grid Grid.Row="0">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding DomainsVisible}" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding AdBrowserType}"
+                                         Value="{x:Static vm:ADBrowserType.Computers}">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <ctrl:CommandTextBox VerticalContentAlignment="Center" x:Name="PrincipalName"
+                                     Text="{Binding PrincipalName, UpdateSourceTrigger=PropertyChanged}"
+                                     ToolTip="{x:Static res:OwnerReportResource.UsersAndGroupToolTip}"
+                                     Placeholder="{Binding Placeholder, Mode=OneWay}">
+                    <TextBox.InputBindings>
+                        <KeyBinding Command="{Binding SearchPrincipalCommand}" Key="Return" />
+                    </TextBox.InputBindings>
+                    <ctrl:CommandTextBox.Buttons>
+                        <ctrl:IconButton Icon="{StaticResource InformationIcon}"
+                                         ToolTip="{x:Static res:OwnerReportResource.UsersAndGroupToolTip}" />
+                        <ctrl:IconButton Icon="{StaticResource SearchIcon}"
+                                         Command="{Binding SearchPrincipalCommand}" />
+                    </ctrl:CommandTextBox.Buttons>
+                </ctrl:CommandTextBox>
+            </Grid>
+            <ProgressBar Grid.Row="2" IsEnabled="{Binding IsWorking}"
+                         IsIndeterminate="{Binding IsWorking}"
+                         VerticalAlignment="Top" HorizontalAlignment="Right" />
+            <TreeView Grid.Row="2"
+                      ItemsSource="{Binding Principals}"
+                      ItemContainerStyle="{StaticResource DomainPrincipalsTreeViewItemStyle}"
+                      ContextMenuOpening="HandlePrincipalsTreeContextMenuOpening"
+                      SelectedItemChanged="HandlePrincipalsTreeSelectedItemChanged"
+                      VirtualizingPanel.IsVirtualizing="True"
+                      VirtualizingPanel.VirtualizationMode="Recycling" />
+            <Border Grid.Row="2"
+                    Effect="{StaticResource ContainerShadowEffect}"
+                    Background="{StaticResource ControlBrush}"
+                    Visibility="{Binding ShowUserList, Converter={StaticResource FalseCollapsedConverter}}">
+                <ListBox Panel.ZIndex="23112" VerticalAlignment="Top" HorizontalAlignment="Left"
+                         ItemsSource="{Binding UserPrincipals}"
+                         SelectedItem="{Binding SelectedUser}"
+                         ItemContainerStyle="{StaticResource AdBrowserUserListStyle}"
+                         MinWidth="{Binding ActualWidth, ElementName=PrincipalName}" MaxWidth="200" MaxHeight="200"
+                         SelectionChanged="HandleUserListSelectionChanged" />
+            </Border>
+        </Grid>
+        <Button Grid.Row="2" Command="{Binding OKCommand}" Content="{x:Static res:CommonResource.CloseButtonCaption}"
+                Width="100" HorizontalAlignment="Right">
+            <Button.Style>
+                <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding AdBrowserType}" Value="{x:Static vm:ADBrowserType.Principals}">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</UserControl>

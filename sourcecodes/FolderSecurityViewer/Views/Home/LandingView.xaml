@@ -1,0 +1,162 @@
+<UserControl x:Class="FolderSecurityViewer.Views.Home.LandingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ctrl="clr-namespace:FolderSecurityViewer.Controls"
+             xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+             xmlns:helper="clr-namespace:FolderSecurityViewer.Helpers"
+             xmlns:home="clr-namespace:FSV.ViewModel.Home;assembly=FSV.ViewModel"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800" d:DataContext="{d:DesignInstance Type=home:LandingViewModel}">
+    <UserControl.Resources>
+        <DataTemplate x:Key="LandingOptionTemplate">
+            <StackPanel Margin="0, 15, 0, 0" HorizontalAlignment="Center" ToolTip="{Binding Text, Mode=OneWay}"
+                        x:Name="PART_Panel">
+                <Path Style="{DynamicResource IconLargePathStyle}" Data="{helper:ResourceBinding Icon}"
+                      x:Name="PART_Icon" />
+                <TextBlock Text="{Binding Name, Mode=OneWay}" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"
+                           TextAlignment="Center" Margin="0, 10, 0, 0"
+                           x:Name="PART_Text"
+                           Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid HorizontalAlignment="Center" Width="620" Margin="15">
+        <StackPanel>
+            <ctrl:HeaderedContainer IsDisplayed="{Binding OptionsVisible}"
+                                    Header="{x:Static res:HomeResource.ReportOptionsCaption}">
+                <ctrl:HeaderedContainer.Content>
+                    <ListBox ItemsSource="{Binding Options}" Style="{StaticResource LandingOptionListStyle}"
+                             SelectedItem="{Binding SelectedOption}"
+                             ItemTemplate="{StaticResource LandingOptionTemplate}" />
+                </ctrl:HeaderedContainer.Content>
+            </ctrl:HeaderedContainer>
+
+            <ctrl:HeaderedContainer IsDisplayed="{Binding OptionsVisible}" Margin="0, 10, 0, 0"
+                                    Header="{x:Static res:HomeResource.SavedReportOptionsCaption}">
+                <ctrl:HeaderedContainer.Content>
+                    <ListBox ItemsSource="{Binding SavedReportOptions}" Style="{StaticResource LandingOptionListStyle}"
+                             SelectedItem="{Binding SelectedOption}"
+                             ItemTemplate="{StaticResource LandingOptionTemplate}" />
+                </ctrl:HeaderedContainer.Content>
+            </ctrl:HeaderedContainer>
+        </StackPanel>
+
+        <ctrl:HeaderedContainer Content="{Binding Tree}" IsDisplayed="{Binding TreeVisible, Mode=OneWay}">
+            <ctrl:HeaderedContainer.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{x:Static res:HomeResource.DirectoryCaption}"
+                               Style="{StaticResource HeaderedContainerHeadingStyle}" />
+                    <ctrl:IconTip VerticalAlignment="Center" TipText="{x:Static res:HomeResource.SelectFolderToolTip}" />
+                </StackPanel>
+            </ctrl:HeaderedContainer.Header>
+            <ctrl:HeaderedContainer.Footer>
+                <Grid>
+                    <CheckBox Content="{x:Static res:HomeResource.SaveAsTemplateCaption}" VerticalAlignment="Center"
+                              IsChecked="{Binding CanSaveAsTemplate}" Command="{Binding SaveAsTemplateCommand}"
+                              HorizontalAlignment="Left">
+                        <CheckBox.Style>
+                            <Style BasedOn="{StaticResource {x:Type CheckBox}}" TargetType="CheckBox">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                                <Style.Triggers>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding SaveAsTemplateVisible}" Value="True" />
+                                            <Condition
+                                                Binding="{Binding ADBrowser, Converter={StaticResource NotNullCompareConverter}}"
+                                                Value="False" />
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </CheckBox.Style>
+                    </CheckBox>
+                    <StackPanel Style="{StaticResource HorizontalButtonPanel}">
+                        <Button Style="{StaticResource PrimaryButtonStyle}"
+                                Content="{x:Static res:HomeResource.NextCaption}"
+                                Command="{Binding NextCommand}"
+                                Visibility="{Binding ADRequired, Converter={StaticResource FalseCollapsedConverter}}"
+                                IsEnabled="{Binding Tree.IsWorking, Mode=OneWay, FallbackValue=True, Converter={StaticResource InverseBoolConverter}}" />
+                        <Button Style="{StaticResource PrimaryButtonStyle}"
+                                Content="{x:Static res:HomeResource.StartCaption}"
+                                Command="{Binding StartCommand}"
+                                Visibility="{Binding ADRequired, Converter={StaticResource FalseVisibleConverter}}"
+                                IsEnabled="{Binding Tree.IsWorking, Mode=OneWay, FallbackValue=True, Converter={StaticResource InverseBoolConverter}}" />
+                        <Button Content="{x:Static res:CommonResource.CancelButtonCaption}"
+                                Command="{Binding CancelCommand}"
+                                IsEnabled="{Binding Tree.IsWorking, Mode=OneWay, FallbackValue=True, Converter={StaticResource InverseBoolConverter}}" />
+                    </StackPanel>
+                </Grid>
+            </ctrl:HeaderedContainer.Footer>
+        </ctrl:HeaderedContainer>
+
+        <ctrl:HeaderedContainer Content="{Binding ADBrowser}" IsDisplayed="{Binding ADBrowserVisible, Mode=OneWay}">
+            <ctrl:HeaderedContainer.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{x:Static res:HomeResource.ADBrowserCaption}"
+                               Style="{StaticResource HeaderedContainerHeadingStyle}" />
+                    <ctrl:IconTip VerticalAlignment="Center" TipText="{x:Static res:HomeResource.SelectADToolTip}" />
+                </StackPanel>
+            </ctrl:HeaderedContainer.Header>
+            <ctrl:HeaderedContainer.Footer>
+                <Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Button Content="{x:Static res:HomeResource.BackCaption}" Command="{Binding BackCommand}"
+                                Margin="0, 0, 10, 0" />
+                        <CheckBox Content="{x:Static res:HomeResource.SaveAsTemplateCaption}"
+                                  VerticalAlignment="Center"
+                                  Visibility="{Binding SaveAsTemplateVisible, Converter={StaticResource FalseCollapsedConverter}}"
+                                  IsChecked="{Binding CanSaveAsTemplate}" Command="{Binding SaveAsTemplateCommand}" />
+                    </StackPanel>
+                    <StackPanel Style="{StaticResource HorizontalButtonPanel}">
+                        <Button Style="{StaticResource PrimaryButtonStyle}"
+                                Content="{x:Static res:HomeResource.StartCaption}"
+                                Command="{Binding StartWithADCommand}" />
+                        <Button Content="{x:Static res:CommonResource.CancelButtonCaption}"
+                                Command="{Binding CancelCommand}" />
+                    </StackPanel>
+                </Grid>
+            </ctrl:HeaderedContainer.Footer>
+        </ctrl:HeaderedContainer>
+
+        <ctrl:HeaderedContainer Content="{Binding Servers}" IsDisplayed="{Binding ServersVisible, Mode=OneWay}">
+            <ctrl:HeaderedContainer.Header>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{x:Static res:HomeResource.ServersCaption}"
+                               Style="{StaticResource HeaderedContainerHeadingStyle}" />
+                    <ctrl:IconTip VerticalAlignment="Center"
+                                  TipText="{x:Static res:HomeResource.SelectShareServerToolTip}" />
+                </StackPanel>
+            </ctrl:HeaderedContainer.Header>
+            <ctrl:HeaderedContainer.Footer>
+                <Grid>
+                    <Button Content="{x:Static res:HomeResource.StartPermissionReportCaption}"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Command="{Binding StartNtfsPermissionReportCommand}" HorizontalAlignment="Left"
+                            Visibility="{Binding IsEnabled, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource FalseCollapsedConverter}}" />
+                    <StackPanel Style="{StaticResource HorizontalButtonPanel}">
+                        <Button Style="{StaticResource PrimaryButtonStyle}"
+                                Content="{x:Static res:HomeResource.StartCaption}"
+                                Command="{Binding StartWithShareCommand}" />
+                        <Button Content="{x:Static res:CommonResource.CancelButtonCaption}"
+                                Command="{Binding CancelCommand}" />
+                    </StackPanel>
+                </Grid>
+            </ctrl:HeaderedContainer.Footer>
+        </ctrl:HeaderedContainer>
+
+        <ctrl:HeaderedContainer Header="{x:Static res:HomeResource.SelectTemplatesCaption}"
+                                Content="{Binding TemplateContainer}"
+                                IsDisplayed="{Binding TemplateContainer, Converter={StaticResource NotNullCompareConverter}}">
+            <ctrl:HeaderedContainer.Footer>
+                <StackPanel Style="{StaticResource HorizontalButtonPanel}">
+                    <Button Content="{x:Static res:CommonResource.CancelButtonCaption}"
+                            Command="{Binding CancelCommand}" />
+                </StackPanel>
+            </ctrl:HeaderedContainer.Footer>
+        </ctrl:HeaderedContainer>
+    </Grid>
+</UserControl>

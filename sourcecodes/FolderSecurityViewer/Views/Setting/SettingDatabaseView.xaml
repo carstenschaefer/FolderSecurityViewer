@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="FolderSecurityViewer.Views.Setting.SettingDatabaseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:conf="clr-namespace:FSV.Configuration.Database;assembly=FSV.Configuration"
+             xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+             xmlns:setting="clr-namespace:FSV.ViewModel.Setting;assembly=FSV.ViewModel"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance Type=setting:DatabaseViewModel}">
+    <UserControl.Resources>
+        <Style TargetType="TabItem" x:Key="SettingsDatabaseTabItemStyle" BasedOn="{StaticResource TabItemStyle}">
+            <Setter Property="Header" Value="{Binding DisplayName}" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding DatabaseProvider}" Value="{x:Static conf:DatabaseProviders.None}">
+                    <Setter Property="Width" Value="0" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <DataTemplate x:Key="SettingsDatabaseRadioTabItemTemplate">
+            <RadioButton Content="{Binding}"
+                         IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=TabItem, Mode=FindAncestor}}"
+                         Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=TabItem, Mode=FindAncestor}}" />
+        </DataTemplate>
+    </UserControl.Resources>
+    <DockPanel IsEnabled="{Binding IsEnabled}">
+        <TextBlock DockPanel.Dock="Bottom" Text="{x:Static res:SettingDatabaseResource.UnconfiguredText}"
+                   Style="{StaticResource TextInfoStyle}"
+                   Visibility="{Binding IsConfigured, Converter={StaticResource FalseVisibleConverter}}" />
+        <TabControl ItemsSource="{Binding Providers}"
+                    ItemContainerStyle="{StaticResource SettingsDatabaseTabItemStyle}"
+                    ItemTemplate="{StaticResource SettingsDatabaseRadioTabItemTemplate}"
+                    SelectedItem="{Binding SelectedProvider, Mode=TwoWay}"
+                    PreviewMouseLeftButtonDown="HandleTabControlPreviewLeftMouseDown" />
+    </DockPanel>
+</UserControl>

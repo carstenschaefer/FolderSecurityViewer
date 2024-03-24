@@ -1,0 +1,13 @@
+.idea/
+.vs/
+.vscode/
+
+bin/
+obj/
+
+*.dll
+*.exe
+*.pdb
+
+*.csproj.user
+*.DotSettings.user

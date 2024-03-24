@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ctrl="clr-namespace:FolderSecurityViewer.Controls">
+
+    <Style TargetType="StackPanel" x:Key="RightControlBoxPanelStyle">
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsWorking}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding HasError}" Value="True">
+                <Setter Property="IsEnabled" Value="False" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="StackPanel" x:Key="PagingStackPanelStyle">
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Style.Resources>
+            <Style TargetType="TextBlock" BasedOn="{StaticResource PagingTextStyle}" />
+        </Style.Resources>
+    </Style>
+
+    <Style TargetType="{x:Type StackPanel}" x:Key="HorizontalButtonPanel">
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="ctrl:ButtonPanel.Margin" Value="0, 0, 5, 0" />
+    </Style>
+
+    <Style TargetType="{x:Type StackPanel}" x:Key="LeftHorizontalButtonPanel">
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="ctrl:ButtonPanel.Margin" Value="0, 0, 5, 0" />
+    </Style>
+
+    <Style TargetType="{x:Type StackPanel}" x:Key="VerticalButtonPanel">
+        <Setter Property="Orientation" Value="Vertical" />
+        <Setter Property="ctrl:ButtonPanel.Margin" Value="0, 0, 0, 5" />
+    </Style>
+</ResourceDictionary>

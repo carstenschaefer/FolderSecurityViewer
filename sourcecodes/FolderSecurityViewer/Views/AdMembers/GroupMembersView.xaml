@@ -1,0 +1,68 @@
+<UserControl x:Class="FolderSecurityViewer.Views.AdMembers.GroupMembersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:FolderSecurityViewer.Views.AdMembers"
+             xmlns:controls="clr-namespace:FolderSecurityViewer.Controls"
+             xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+             xmlns:vm="clr-namespace:FSV.ViewModel.AdMembers;assembly=FSV.ViewModel"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance Type=vm:GroupMembersViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <controls:SearchViewHeader Grid.Row="0" DataContext="{Binding Header}">
+            <controls:SearchViewHeader.RightControlBox>
+                <StackPanel Style="{StaticResource RightControlBoxPanelStyle}">
+                    <controls:IconButton Icon="{StaticResource ExportIcon}"
+                                         ToolTip="{x:Static res:CommonResource.ExportTip}"
+                                         Command="{Binding DataContext.ExportCommand,
+                                            RelativeSource={RelativeSource AncestorType=local:GroupMembersView, Mode=FindAncestor}}" />
+                </StackPanel>
+            </controls:SearchViewHeader.RightControlBox>
+        </controls:SearchViewHeader>
+
+        <DataGrid Grid.Row="2" Name="ItemsGrid" AutoGenerateColumns="False" IsReadOnly="True"
+                  ItemsSource="{Binding GroupMembers}" SelectedItem="{Binding SelectedItem}">
+            <DataGrid.Style>
+                <Style BasedOn="{StaticResource {x:Type DataGrid}}" TargetType="DataGrid">
+                    <Setter Property="Visibility" Value="Visible" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding GroupMembers.Count}" Value="0">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Style>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding ShowGroupMembersCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="{x:Static res:PermissionResource.ACLShowMembersCaption}"
+                              Command="{Binding ShowGroupMembersCommand}" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static res:GroupMemberResource.AccountNameCaption}"
+                                    Binding="{Binding AccountName}" />
+                <DataGridTextColumn Header="{x:Static res:GroupMemberResource.DisplayNameCaption}"
+                                    Binding="{Binding DisplayName}" />
+                <DataGridTextColumn Header="{x:Static res:GroupMemberResource.TypeCaption}"
+                                    Binding="{Binding AccountType}" />
+                <DataGridTextColumn Header="{x:Static res:GroupMemberResource.OUCaption}" Binding="{Binding OU}" />
+                <DataGridTextColumn Header="{x:Static res:GroupMemberResource.DomainCaption}"
+                                    Binding="{Binding Domain}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

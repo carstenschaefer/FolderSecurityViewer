@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <!-- 
+      Microsoft ResX Schema 
+      
+      Version 2.0
+      
+      The primary goals of this format is to allow a simple XML format 
+      that is mostly human readable. The generation and parsing of the 
+      various data types are done through the TypeConverter classes 
+      associated with the data types.
+      
+      Example:
+      
+      ... ado.net/XML headers & schema ...
+      <resheader name="resmimetype">text/microsoft-resx</resheader>
+      <resheader name="version">2.0</resheader>
+      <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+      <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+      <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+      <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+      <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+          <value>[base64 mime encoded serialized .NET Framework object]</value>
+      </data>
+      <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+          <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+          <comment>This is a comment</comment>
+      </data>
+                  
+      There are any number of "resheader" rows that contain simple 
+      name/value pairs.
+      
+      Each data row contains a name, and value. The row also contains a 
+      type or mimetype. Type corresponds to a .NET class that support 
+      text/value conversion through the TypeConverter architecture. 
+      Classes that don't support this are serialized and stored with the 
+      mimetype set.
+      
+      The mimetype is used for serialized objects, and tells the 
+      ResXResourceReader how to depersist the object. This is currently not 
+      extensible. For a given mimetype the value must be set accordingly:
+      
+      Note - application/x-microsoft.net.object.binary.base64 is the format 
+      that the ResXResourceWriter will generate, however the reader can 
+      read any of the formats listed below.
+      
+      mimetype: application/x-microsoft.net.object.binary.base64
+      value   : The object must be serialized with 
+              : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+              : and then encoded with base64 encoding.
+      
+      mimetype: application/x-microsoft.net.object.soap.base64
+      value   : The object must be serialized with 
+              : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+              : and then encoded with base64 encoding.
+  
+      mimetype: application/x-microsoft.net.object.bytearray.base64
+      value   : The object must be serialized into a byte array 
+              : using a System.ComponentModel.TypeConverter
+              : and then encoded with base64 encoding.
+      -->
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                id="root"
+                xmlns="">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string"/>
+                            <xsd:attribute name="type" type="xsd:string"/>
+                            <xsd:attribute name="mimetype" type="xsd:string"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string"/>
+                            <xsd:attribute name="name" type="xsd:string"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <data name="ACLAccountNameCaption" xml:space="preserve">
+    <value>Account Name</value>
+  </data>
+    <data name="ACLCaption" xml:space="preserve">
+    <value>Access Control List</value>
+  </data>
+    <data name="ACLInheritanceFlagCaption" xml:space="preserve">
+    <value>Inheritance Flag</value>
+  </data>
+    <data name="ACLInheritedCaption" xml:space="preserve">
+    <value>Inherited</value>
+  </data>
+    <data name="ACLRightsCaption" xml:space="preserve">
+    <value>Rights</value>
+  </data>
+    <data name="ACLShowMembersCaption" xml:space="preserve">
+    <value>Show Group Members</value>
+  </data>
+    <data name="ACLTypeNameCaption" xml:space="preserve">
+    <value>Type Name</value>
+  </data>
+    <data name="AllSavedReportRowCountCaption" xml:space="preserve">
+    <value>{0} report is available in database.</value>
+  </data>
+    <data name="AllSavedReportRowsCountCaption" xml:space="preserve">
+    <value>{0} reports are available in database.</value>
+  </data>
+    <data name="AllSavedReportsCaption" xml:space="preserve">
+    <value>Database: Permission Reports</value>
+  </data>
+    <data name="AllSavedReportSearchedText" xml:space="preserve">
+    <value>Searched "{0}" - </value>
+  </data>
+    <data name="DifferencesFoundText" xml:space="preserve">
+    <value>{0} differences found</value>
+  </data>
+    <data name="GroupInheritanceCaption" xml:space="preserve">
+    <value>Group Inheritance Hierarchy</value>
+  </data>
+    <data name="GroupInheritanceInfo" xml:space="preserve">
+    <value>This shows all groups involved in the inheritance hierarchy.
+    
+The topmost AD group is the originally authorized group. 
+All other groups shown are then nested groups of the above. 
+The last group is the group in which the shown user is a member.</value>
+  </data>
+    <data name="MenuShowSavedReportCaption" xml:space="preserve">
+    <value>Show Reports in Database</value>
+  </data>
+    <data name="MoreThanCaption" xml:space="preserve">
+    <value>More than</value>
+  </data>
+    <data name="OwnerCaption" xml:space="preserve">
+    <value>Owner</value>
+  </data>
+    <data name="PermissionReportCaption" xml:space="preserve">
+    <value>Permission Report</value>
+  </data>
+    <data name="PermissionResultsText" xml:space="preserve">
+    <value>{0} Users found of: {1}</value>
+  </data>
+    <data name="PermissionResultText" xml:space="preserve">
+    <value>{0} User found of: {1}</value>
+  </data>
+    <data name="PermissionSavedReportCaption" xml:space="preserve">
+    <value>Reports in Database</value>
+  </data>
+    <data name="PermissionSavedText" xml:space="preserve">
+    <value>'{0}' has been saved in database.</value>
+  </data>
+    <data name="PermissionSearchResultsText" xml:space="preserve">
+    <value>Searched "{2}" - {0} Users found of: {1}</value>
+  </data>
+    <data name="PermissionSearchResultText" xml:space="preserve">
+    <value>Searched "{2}" - {0} User found of: {1}</value>
+  </data>
+    <data name="ProgressDifferencesText" xml:space="preserve">
+    <value>Checking differences...</value>
+  </data>
+    <data name="ReportDateCaption" xml:space="preserve">
+    <value>Date</value>
+  </data>
+    <data name="ReportDescriptionCaption" xml:space="preserve">
+    <value>Description</value>
+  </data>
+    <data name="ReportDescriptionEditText" xml:space="preserve">
+    <value>Click here to edit.</value>
+  </data>
+    <data name="ReportEmptyCaption" xml:space="preserve">
+    <value>No saved report found.</value>
+  </data>
+    <data name="ReportEncryptedCaption" xml:space="preserve">
+    <value>Encrypted</value>
+  </data>
+    <data name="ReportFolderCaption" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+    <data name="ReportUserCaption" xml:space="preserve">
+    <value>User</value>
+  </data>
+    <data name="SavedReportCompareCaption" xml:space="preserve">
+    <value>Compare Reports</value>
+  </data>
+    <data name="SavedReportDeleteCaption" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+    <data name="SavedReportLoadCaption" xml:space="preserve">
+    <value>Load</value>
+  </data>
+    <data name="StartComparisonCaption" xml:space="preserve">
+    <value>Comparing differences...</value>
+  </data>
+    <data name="StartPermissionReportText" xml:space="preserve">
+    <value>Start permission report.</value>
+  </data>
+    <data name="UsersCaption" xml:space="preserve">
+    <value>Users</value>
+  </data>
+    <data name="UsersFoundCaption" xml:space="preserve">
+    <value>users found</value>
+  </data>
+    <data name="SavedReportsOfCaption" xml:space="preserve">
+    <value>Database Reports</value>
+  </data>
+    <data name="SavedReportTitle" xml:space="preserve">
+    <value>Database Report - {0} ({1})</value>
+  </data>
+    <data name="SavedRowCountCaption" xml:space="preserve">
+    <value>{0} row found.</value>
+  </data>
+    <data name="SavedRowsCountCaption" xml:space="preserve">
+    <value>{0} rows found.</value>
+  </data>
+    <data name="ScanCancelledReasonText" xml:space="preserve">
+    <value>Error occured.</value>
+  </data>
+    <data name="ScanCancelledText" xml:space="preserve">
+    <value>Scan Cancelled. {0}</value>
+  </data>
+    <data name="ExportDifferencePermissionReportText" xml:space="preserve">
+    <value>Do you want to generate a Permission Report for each folder listed here? This action may need some time. Do not close the application until it's finished.</value>
+  </data>
+    <data name="UserFoundCaption" xml:space="preserve">
+    <value>user found</value>
+  </data>
+    <data name="SavedReportDisplayName" xml:space="preserve">
+    <value>Database Report - {0}</value>
+  </data>
+    <data name="GroupPermissionsCaption" xml:space="preserve">
+      <value>Generate group permissions report.</value>
+  </data>
+    <data name="GroupPermissionsResultsText" xml:space="preserve">
+      <value>{0} groups found.</value>
+  </data>
+    <data name="GroupPermissionsResultText" xml:space="preserve">
+      <value>{0} group found.</value>
+  </data>
+    <data name="GroupPermissionsPagesCaption" xml:space="preserve">
+      <value>Groups</value>
+  </data>
+</root>

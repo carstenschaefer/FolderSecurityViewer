@@ -1,0 +1,256 @@
+[
+  {
+    "Selected": false,
+    "Expanded": true,
+    "Path": "C\\",
+    "HasSubFolders": true,
+    "IsUncPath": false,
+    "Items": [
+      {
+        "Selected": false,
+        "Expanded": false,
+        "Path": "C\\inetpub",
+        "HasSubFolders": true,
+        "IsUncPath": false,
+        "Items": [],
+        "Name": "inetpub"
+      },
+      {
+        "Selected": false,
+        "Expanded": false,
+        "Path": "C\\PerfLogs",
+        "HasSubFolders": false,
+        "IsUncPath": false,
+        "Items": [],
+        "Name": "PerfLogs"
+      },
+      {
+        "Selected": false,
+        "Expanded": false,
+        "Path": "C\\Program Files",
+        "HasSubFolders": true,
+        "IsUncPath": false,
+        "Items": [],
+        "Name": "Program Files"
+      },
+      {
+        "Selected": false,
+        "Expanded": false,
+        "Path": "C\\Program Files (x86)",
+        "HasSubFolders": true,
+        "IsUncPath": false,
+        "Items": [],
+        "Name": "Program Files (x86)"
+      },
+      {
+        "Selected": false,
+        "Expanded": false,
+        "Path": "C\\Projects",
+        "HasSubFolders": true,
+        "IsUncPath": false,
+        "Items": [],
+        "Name": "Projects"
+      },
+      {
+        "Selected": true,
+        "Expanded": true,
+        "Path": "C\\Shares",
+        "HasSubFolders": true,
+        "IsUncPath": false,
+        "Items": [
+          {
+            "Selected": false,
+            "Expanded": false,
+            "Path": "C\\Shares\\ABC",
+            "HasSubFolders": false,
+            "IsUncPath": false,
+            "Items": [],
+            "Name": "ABC"
+          },
+          {
+            "Selected": false,
+            "Expanded": false,
+            "Path": "C\\Shares\\AccessTest",
+            "HasSubFolders": false,
+            "IsUncPath": false,
+            "Items": [],
+            "Name": "AccessTest"
+          },
+          {
+            "Selected": false,
+            "Expanded": false,
+            "Path": "C\\Shares\\AceTest",
+            "HasSubFolders": true,
+            "IsUncPath": false,
+            "Items": [],
+            "Name": "AceTest"
+          },
+          {
+            "Selected": false,
+            "Expanded": false,
+            "Path": "C\\Shares\\ACL",
+            "HasSubFolders": true,
+            "IsUncPath": false,
+            "Items": [],
+            "Name": "ACL"
+          },
+          {
+            "Selected": false,
+            "Expanded": false,
+            "Path": "C\\Shares\\Administrator 1",
+            "HasSubFolders": true,
+            "IsUncPath": false,
+            "Items": [],
+            "Name": "Administrator 1"
+          },
+          {
+            "Selected": false,
+            "Expanded": false,
+            "Path": "C\\Shares\\Cache",
+            "HasSubFolders": false,
+            "IsUncPath": false,
+            "Items": [],
+            "Name": "Cache"
+          },
+          {
+            "Selected": false,
+            "Expanded": false,
+            "Path": "C\\Shares\\Folder 1",
+            "HasSubFolders": true,
+            "IsUncPath": false,
+            "Items": [],
+            "Name": "Folder 1"
+          },
+          {
+            "Selected": false,
+            "Expanded": false,
+            "Path": "C\\Shares\\MDFiles",
+            "HasSubFolders": true,
+            "IsUncPath": false,
+            "Items": [],
+            "Name": "MDFiles"
+          },
+          {
+            "Selected": false,
+            "Expanded": false,
+            "Path": "C\\Shares\\Owner Folder",
+            "HasSubFolders": false,
+            "IsUncPath": false,
+            "Items": [],
+            "Name": "Owner Folder"
+          },
+          {
+            "Selected": false,
+            "Expanded": false,
+            "Path": "C\\Shares\\Owner Folder 2",
+            "HasSubFolders": false,
+            "IsUncPath": false,
+            "Items": [],
+            "Name": "Owner Folder 2"
+          },
+          {
+            "Selected": false,
+            "Expanded": false,
+            "Path": "C\\Shares\\Ritesh 1",
+            "HasSubFolders": true,
+            "IsUncPath": false,
+            "Items": [],
+            "Name": "Ritesh 1"
+          },
+          {
+            "Selected": false,
+            "Expanded": false,
+            "Path": "C\\Shares\\Ritesh 2",
+            "HasSubFolders": true,
+            "IsUncPath": false,
+            "Items": [],
+            "Name": "Ritesh 2"
+          },
+          {
+            "Selected": false,
+            "Expanded": false,
+            "Path": "C\\Shares\\Test",
+            "HasSubFolders": true,
+            "IsUncPath": false,
+            "Items": [],
+            "Name": "Test"
+          },
+          {
+            "Selected": false,
+            "Expanded": false,
+            "Path": "C\\Shares\\Users",
+            "HasSubFolders": false,
+            "IsUncPath": false,
+            "Items": [],
+            "Name": "Users"
+          }
+        ],
+        "Name": "Shares"
+      },
+      {
+        "Selected": false,
+        "Expanded": false,
+        "Path": "C\\Softwares",
+        "HasSubFolders": true,
+        "IsUncPath": false,
+        "Items": [],
+        "Name": "Softwares"
+      },
+      {
+        "Selected": false,
+        "Expanded": false,
+        "Path": "C\\Users",
+        "HasSubFolders": true,
+        "IsUncPath": false,
+        "Items": [],
+        "Name": "Users"
+      },
+      {
+        "Selected": false,
+        "Expanded": false,
+        "Path": "C\\Windows",
+        "HasSubFolders": true,
+        "IsUncPath": false,
+        "Items": [],
+        "Name": "Windows"
+      },
+      {
+        "Selected": false,
+        "Expanded": false,
+        "Path": "C\\WinShares",
+        "HasSubFolders": true,
+        "IsUncPath": false,
+        "Items": [],
+        "Name": "WinShares"
+      },
+      {
+        "Selected": false,
+        "Expanded": false,
+        "Path": "C\\Xceed Samples",
+        "HasSubFolders": true,
+        "IsUncPath": false,
+        "Items": [],
+        "Name": "Xceed Samples"
+      }
+    ],
+    "Name": "C"
+  },
+  {
+    "Selected": false,
+    "Expanded": false,
+    "Path": "D\\",
+    "HasSubFolders": true,
+    "IsUncPath": false,
+    "Items": [],
+    "Name": "D"
+  },
+  {
+    "Selected": false,
+    "Expanded": false,
+    "Path": "M\\",
+    "HasSubFolders": true,
+    "IsUncPath": false,
+    "Items": [],
+    "Name": "M"
+  }
+]

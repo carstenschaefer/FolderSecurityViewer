@@ -1,0 +1,10 @@
+﻿<controls:CustomWindow x:Class="FolderSecurityViewer.DialogWindow"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:controls="clr-namespace:FolderSecurityViewer.Controls"
+                       xmlns:ex="clr-namespace:FSV.ViewModel.Core;assembly=FSV.ViewModel"
+                       x:Name="DialogWindowContainer" Style="{StaticResource DialogWindowStyle}"
+                       ex:WindowClosingBehavior.Closing="{Binding CloseCommand}">
+    <controls:ContentContainer
+        Content="{Binding DataContext, ElementName=DialogWindowContainer}" />
+</controls:CustomWindow>

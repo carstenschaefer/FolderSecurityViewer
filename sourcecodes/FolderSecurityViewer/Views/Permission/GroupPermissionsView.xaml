@@ -1,0 +1,34 @@
+﻿<controls:BaseGridViewControl x:Class="FolderSecurityViewer.Views.Permission.GroupPermissionsView"
+                              x:TypeArguments="vm:GroupPermissionsViewModel"
+                              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                              xmlns:vm="clr-namespace:FSV.ViewModel.Permission;assembly=FSV.ViewModel"
+                              xmlns:controls="clr-namespace:FolderSecurityViewer.Controls"
+                              xmlns:local="clr-namespace:FolderSecurityViewer.Views.Permission"
+                              xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+                              mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
+                              d:DataContext="{d:DesignInstance Type=vm:GroupPermissionsViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="{StaticResource GridGap}" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <controls:SearchViewHeader Grid.Row="0" DataContext="{Binding Header}">
+            <controls:SearchViewHeader.RightControlBox>
+                <StackPanel
+                    DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource AncestorType=local:GroupPermissionsView}}">
+                    <controls:IconButton Icon="{StaticResource ExportIcon}"
+                                         ToolTip="{x:Static res:CommonResource.ExportTip}"
+                                         Command="{Binding ExportCommand}" />
+                </StackPanel>
+            </controls:SearchViewHeader.RightControlBox>
+        </controls:SearchViewHeader>
+        <DataGrid Grid.Row="2" Name="GroupsGrid" AutoGenerateColumns="True"
+                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
+                  ItemsSource="{Binding PagedPermissions}" />
+    </Grid>
+</controls:BaseGridViewControl>

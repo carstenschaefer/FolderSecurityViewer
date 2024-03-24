@@ -1,0 +1,61 @@
+<controls:BaseGridViewControl x:Class="FolderSecurityViewer.Views.Permission.ComparePermissionsView"
+                              x:TypeArguments="vm:ComparePermissionViewModel"
+                              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                              xmlns:local="clr-namespace:FolderSecurityViewer.Views.Permission"
+                              xmlns:vm="clr-namespace:FSV.ViewModel.Permission;assembly=FSV.ViewModel"
+                              xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+                              xmlns:controls="clr-namespace:FolderSecurityViewer.Controls"
+                              d:DataContext="{d:DesignInstance Type=vm:ComparePermissionViewModel}"
+                              mc:Ignorable="d" x:Name="CompareView"
+                              d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel>
+        <controls:SearchViewHeader DockPanel.Dock="Top" DataContext="{Binding Header}">
+            <controls:SearchViewHeader.RightControlBox>
+                <StackPanel Style="{StaticResource RightControlBoxPanelStyle}"
+                            DataContext="{Binding DataContext, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:ComparePermissionsView}}">
+                    <ComboBox ItemsSource="{Binding Filters}" SelectedValue="{Binding SelectedFilter}"
+                              DisplayMemberPath="Value" SelectedValuePath="Key"
+                              IsEditable="False" MinWidth="70" />
+                    <Separator Style="{StaticResource VerticalSeparator}" />
+                    <controls:IconButton Command="{Binding ExportCommand}" VerticalAlignment="Center"
+                                         ToolTip="{x:Static res:CommonResource.ExportTip}"
+                                         Icon="{StaticResource ExportIcon}" />
+                </StackPanel>
+            </controls:SearchViewHeader.RightControlBox>
+        </controls:SearchViewHeader>
+
+        <DataGrid Name="ItemsGrid" AutoGenerateColumns="False"
+                  ItemsSource="{Binding ComparedList}"
+                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" CanUserSortColumns="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static res:PermissionCompareResource.AccountNameCaption}"
+                                    Binding="{Binding AccountName}"
+                                    SortMemberPath="AccountName" />
+                <DataGridTextColumn Header="{x:Static res:PermissionCompareResource.OldReportCaption}"
+                                    Binding="{Binding OldPermission}"
+                                    SortMemberPath="OldPermission" />
+                <DataGridTextColumn Header="{x:Static res:PermissionCompareResource.NewReportCaption}"
+                                    Binding="{Binding NewPermission}"
+                                    SortMemberPath="NewPermission" />
+                <DataGridTemplateColumn Header="{x:Static res:PermissionCompareResource.StatusCaption}"
+                                        SortMemberPath="State">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Path Style="{StaticResource PermissionCompareStatusPathStyle}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="ToolTip" Value="{Binding State}" />
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderThickness" Value="0" />
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</controls:BaseGridViewControl>

@@ -1,0 +1,46 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:compare="clr-namespace:FSV.ViewModel.Compare;assembly=FSV.ViewModel">
+
+    <Style TargetType="Path" x:Key="IconTinyPathStyle">
+        <Setter Property="Stretch" Value="Uniform" />
+        <Setter Property="Fill" Value="{StaticResource AccentColorBrush}" />
+        <Setter Property="Width" Value="{StaticResource IconTinySize}" />
+        <Setter Property="Height" Value="{StaticResource IconTinySize}" />
+    </Style>
+
+    <Style TargetType="Path" x:Key="IconSmallPathStyle" BasedOn="{StaticResource IconTinyPathStyle}">
+        <Setter Property="Width" Value="{StaticResource IconSmallSize}" />
+        <Setter Property="Height" Value="{StaticResource IconSmallSize}" />
+    </Style>
+
+    <Style TargetType="Path" x:Key="IconMediumPathStyle" BasedOn="{StaticResource IconTinyPathStyle}">
+        <Setter Property="Width" Value="{StaticResource IconMediumSize}" />
+        <Setter Property="Height" Value="{StaticResource IconMediumSize}" />
+    </Style>
+
+    <Style TargetType="Path" x:Key="IconLargePathStyle" BasedOn="{StaticResource IconTinyPathStyle}">
+        <Setter Property="Width" Value="{StaticResource IconLargeSize}" />
+        <Setter Property="Height" Value="{StaticResource IconLargeSize}" />
+    </Style>
+
+    <Style TargetType="Path" x:Key="PermissionCompareStatusPathStyle" BasedOn="{StaticResource IconSmallPathStyle}">
+        <Setter Property="Margin" Value="3" />
+        <!--<Setter Property="Fill" Value="{StaticResource AccentColorBrush2}" />-->
+        <Setter Property="Data" Value="{StaticResource StateSimilarIcon}" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=State}" Value="{x:Static compare:CompareState.Changed}">
+                <Setter Property="Data" Value="{StaticResource StateUpdatedIcon}" />
+                <Setter Property="Fill" Value="{StaticResource AccentColorBrush}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=State}" Value="{x:Static compare:CompareState.Removed}">
+                <Setter Property="Data" Value="{StaticResource StateRemovedIcon}" />
+                <Setter Property="Fill" Value="{StaticResource ErrorBrush}" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=State}" Value="{x:Static compare:CompareState.Added}">
+                <Setter Property="Data" Value="{StaticResource StateAddedIcon}" />
+                <Setter Property="Fill" Value="{StaticResource SuccessBrush}" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

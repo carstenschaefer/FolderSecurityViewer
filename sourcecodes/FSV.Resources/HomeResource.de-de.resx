@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <!-- 
+      Microsoft ResX Schema 
+      
+      Version 2.0
+      
+      The primary goals of this format is to allow a simple XML format 
+      that is mostly human readable. The generation and parsing of the 
+      various data types are done through the TypeConverter classes 
+      associated with the data types.
+      
+      Example:
+      
+      ... ado.net/XML headers & schema ...
+      <resheader name="resmimetype">text/microsoft-resx</resheader>
+      <resheader name="version">2.0</resheader>
+      <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+      <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+      <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+      <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+      <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+          <value>[base64 mime encoded serialized .NET Framework object]</value>
+      </data>
+      <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+          <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+          <comment>This is a comment</comment>
+      </data>
+                  
+      There are any number of "resheader" rows that contain simple 
+      name/value pairs.
+      
+      Each data row contains a name, and value. The row also contains a 
+      type or mimetype. Type corresponds to a .NET class that support 
+      text/value conversion through the TypeConverter architecture. 
+      Classes that don't support this are serialized and stored with the 
+      mimetype set.
+      
+      The mimetype is used for serialized objects, and tells the 
+      ResXResourceReader how to depersist the object. This is currently not 
+      extensible. For a given mimetype the value must be set accordingly:
+      
+      Note - application/x-microsoft.net.object.binary.base64 is the format 
+      that the ResXResourceWriter will generate, however the reader can 
+      read any of the formats listed below.
+      
+      mimetype: application/x-microsoft.net.object.binary.base64
+      value   : The object must be serialized with 
+              : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+              : and then encoded with base64 encoding.
+      
+      mimetype: application/x-microsoft.net.object.soap.base64
+      value   : The object must be serialized with 
+              : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+              : and then encoded with base64 encoding.
+  
+      mimetype: application/x-microsoft.net.object.bytearray.base64
+      value   : The object must be serialized into a byte array 
+              : using a System.ComponentModel.TypeConverter
+              : and then encoded with base64 encoding.
+      -->
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                id="root"
+                xmlns="">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string"/>
+                            <xsd:attribute name="type" type="xsd:string"/>
+                            <xsd:attribute name="mimetype" type="xsd:string"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string"/>
+                            <xsd:attribute name="name" type="xsd:string"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <data name="ADBrowserCaption" xml:space="preserve">
+    <value>AD-Benutzer wählen</value>
+  </data>
+    <data name="ADBrowserTreeCaption" xml:space="preserve">
+    <value>Active Directory</value>
+  </data>
+    <data name="ADBrowserTreePropertiesCaption" xml:space="preserve">
+    <value>Eigenschaften</value>
+  </data>
+    <data name="ADBrowserTreeText" xml:space="preserve">
+    <value>Active Directory-Struktur ansehen.</value>
+  </data>
+    <data name="AddServersCaption" xml:space="preserve">
+    <value>Server hinzufügen</value>
+  </data>
+    <data name="BackCaption" xml:space="preserve">
+    <value>Ordner ändern</value>
+  </data>
+    <data name="ChangeDomainCaption" xml:space="preserve">
+    <value>Domäne ändern</value>
+  </data>
+    <data name="ComparedPermissionsCaption" xml:space="preserve">
+    <value>Vergleiche Berechtigungen</value>
+  </data>
+    <data name="ComparedUserReportsCaption" xml:space="preserve">
+    <value>Vergleiche Benutzer-Berichte</value>
+  </data>
+    <data name="DirectoryCaption" xml:space="preserve">
+    <value>Ordner wählen</value>
+  </data>
+    <data name="DirectoryTreeCaption" xml:space="preserve">
+    <value>Ordner</value>
+  </data>
+    <data name="DirectoryTreeText" xml:space="preserve">
+    <value>Ordnerstruktur ansehen.</value>
+  </data>
+    <data name="ExportOptionsToolTip" xml:space="preserve">
+    <value>Klicken um Optionen zu sehen.</value>
+  </data>
+    <data name="FolderPathPlaceholder" xml:space="preserve">
+    <value>Pfad eingeben</value>
+  </data>
+    <data name="FolderReportCaption" xml:space="preserve">
+    <value>Ordner-Bericht</value>
+  </data>
+    <data name="FolderReportText" xml:space="preserve">
+    <value>Ordner auswählen um Ordner-Bericht zu erstellen.</value>
+  </data>
+    <data name="HomeCaption" xml:space="preserve">
+    <value>Home</value>
+  </data>
+    <data name="MenuCopyPathCaption" xml:space="preserve">
+    <value>Pfad in die Zwischenablage kopieren</value>
+  </data>
+    <data name="MenuOpenCmdCaption" xml:space="preserve">
+    <value>Kommandozeile öffnen</value>
+  </data>
+    <data name="MenuOpenExplorerCaption" xml:space="preserve">
+    <value>Explorer öffnen</value>
+  </data>
+    <data name="MenuPropertiesCaption" xml:space="preserve">
+    <value>Eigenschaften</value>
+  </data>
+    <data name="MessageCaption" xml:space="preserve">
+    <value>Nachricht</value>
+  </data>
+    <data name="NextCaption" xml:space="preserve">
+    <value>Weiter</value>
+  </data>
+    <data name="NoReportsText" xml:space="preserve">
+    <value>Keine Berichte gestartet</value>
+  </data>
+    <data name="OpenCaption" xml:space="preserve">
+    <value>Öffnen ...</value>
+  </data>
+    <data name="OwnerReportCaption" xml:space="preserve">
+    <value>Eigentümer-Bericht</value>
+  </data>
+    <data name="OwnerReportText" xml:space="preserve">
+    <value>Zuerst Ordner und dann AD-Benutzer auswählen um Eigentümer-Berichts zu erstellen.</value>
+  </data>
+    <data name="PermissionReportCaption" xml:space="preserve">
+    <value>Berechtigungs-Bericht</value>
+  </data>
+    <data name="PermissionReportText" xml:space="preserve">
+    <value>Ordner auswählen um Berechtigungs-Bericht zu erstellen.</value>
+  </data>
+    <data name="ReloadTreeCaption" xml:space="preserve">
+    <value>Aktualisieren</value>
+  </data>
+    <data name="RemoveUncPathCaption" xml:space="preserve">
+    <value>UNC-Pfad entfernen</value>
+  </data>
+    <data name="ReportOptionsCaption" xml:space="preserve">
+    <value>Hier starten</value>
+  </data>
+    <data name="ReportsCaption" xml:space="preserve">
+    <value>Berichte</value>
+  </data>
+    <data name="SaveAsTemplateCaption" xml:space="preserve">
+    <value>Als Schablone speichern</value>
+  </data>
+    <data name="SavedPermissionCaption" xml:space="preserve">
+    <value>Datenbank: Berechtigungs-Berichte</value>
+  </data>
+    <data name="SavedPermissionReportsText" xml:space="preserve">
+    <value>Zeigen Sie eine Liste der in der Datenbank gespeicherten Berechtigungsberichte an.</value>
+  </data>
+    <data name="SavedReportOptionsCaption" xml:space="preserve">
+    <value>Berichte und Schablonen in Datenbank</value>
+  </data>
+    <data name="SavedUserReportCaption" xml:space="preserve">
+    <value>Datenbank: Benutzerrechte-Berichte</value>
+  </data>
+    <data name="SavedUserReportsText" xml:space="preserve">
+    <value>Liste der benutzerspezifischen Berechtigungsberichte anzeigen, die in der Datenbank gespeichert sind.</value>
+  </data>
+    <data name="SearchUserPrincipal" xml:space="preserve">
+    <value>Zum Erstellen eines Eigentümer- oder Benutzerrechte-Bericht zuerst einen AD-Benutzer auswählen.</value>
+  </data>
+    <data name="SelectADToolTip" xml:space="preserve">
+    <value>Zuerst Active Directory-Bentzer wählen und dann Start klicken.</value>
+  </data>
+    <data name="SelectFolderToolTip" xml:space="preserve">
+    <value>Zum Erstellen eines Berichtes zuerst einen Ordner auswählen und dann 'Start' oder 'Weiter' klicken.</value>
+  </data>
+    <data name="SelectShareServerToolTip" xml:space="preserve">
+    <value>Freigaben-Bericht: Zuerst Server und Freigabe auswählen, dann 'Start' klicken.</value>
+  </data>
+    <data name="SelectTemplatesCaption" xml:space="preserve">
+    <value>Schablonen</value>
+  </data>
+    <data name="ServersCaption" xml:space="preserve">
+    <value>Server auswählen</value>
+  </data>
+    <data name="SettingsCaption" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+    <data name="ShareReportCaption" xml:space="preserve">
+    <value>Freigabe-Bericht</value>
+  </data>
+    <data name="ShareReportText" xml:space="preserve">
+    <value>Zuerst Server hinzufügen, Netzwerk scannen oder aus dem AD auswählen, um Freigabe-Bericht zu erstellen.</value>
+  </data>
+    <data name="SplashLoadingText" xml:space="preserve">
+    <value>Laden ...</value>
+  </data>
+    <data name="StartCaption" xml:space="preserve">
+    <value>Start</value>
+  </data>
+    <data name="StartPermissionReportCaption" xml:space="preserve">
+    <value>NTFS-Berechtigungs-Bericht</value>
+        <comment>Starts permission report for shares</comment>
+  </data>
+    <data name="TemplatesCaption" xml:space="preserve">
+    <value>Schablonen</value>
+  </data>
+    <data name="TemplatesText" xml:space="preserve">
+    <value>Erstellen, Bearbeiten oder Löschen von Schablonern. Oder einen neuen Bericht aus einer Schablone heraus  erstellen.</value>
+  </data>
+    <data name="UserReportCaption" xml:space="preserve">
+    <value>Benutzerrechte-Bericht</value>
+  </data>
+    <data name="UserReportText" xml:space="preserve">
+    <value>Zuerst Ordner und dann AD-Benutzer auswählen um Benutzerrechte-Bericht zu erstellen.</value>
+  </data>
+    <data name="GroupPermissionsReportCaption" xml:space="preserve">
+      <value>Gruppen-Berechtigungs-Bericht</value>
+  </data>
+</root>

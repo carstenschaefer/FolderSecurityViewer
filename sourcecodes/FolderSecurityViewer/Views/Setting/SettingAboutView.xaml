@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="FolderSecurityViewer.Views.Setting.SettingAboutView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel Orientation="Horizontal">
+        <Image Source="pack://application:,,,/Resources/Images/CompanyLogo.png" Width="350"
+               VerticalAlignment="Top" />
+        <FlowDocumentScrollViewer Document="{Binding AboutDocument}" VerticalAlignment="Top"
+                                  HorizontalContentAlignment="Left"
+                                  ScrollViewer.VerticalScrollBarVisibility="Auto" Name="viewer">
+            <FlowDocumentScrollViewer.Resources>
+                <Style TargetType="FlowDocument">
+                    <Setter Property="FontFamily"
+                            Value="{Binding FontFamily, RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}}" />
+                    <Setter Property="FontSize" Value="{StaticResource TextFontSize}" />
+                    <Setter Property="Foreground" Value="{StaticResource ForegroundColorBrush}" />
+                    <Setter Property="ColumnWidth" Value="500" />
+                </Style>
+            </FlowDocumentScrollViewer.Resources>
+        </FlowDocumentScrollViewer>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,63 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:FolderSecurityViewer.Controls">
+    <Style TargetType="{x:Type controls:Flyout}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:Flyout}">
+                    <Border Background="{StaticResource FloaterBackgroundBrush}" x:Name="PART_BackBorder"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Border x:Name="PART_Container" Width="{TemplateBinding ContentPanelWidth}"
+                                Background="{StaticResource ControlBrush}"
+                                VerticalAlignment="Stretch" Padding="{StaticResource ControlPadding}">
+                            <Grid Margin="{StaticResource ControlPadding}" x:Name="PART_ContentPanel">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="{StaticResource GridGap}" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="{StaticResource GridGap}" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="{StaticResource GridGap}" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <ContentPresenter ContentSource="Header" VerticalAlignment="Center"
+                                                      HorizontalAlignment="Stretch">
+                                        <ContentPresenter.Resources>
+                                            <Style TargetType="TextBlock" BasedOn="{StaticResource PanelHeadingStyle}" />
+                                        </ContentPresenter.Resources>
+                                    </ContentPresenter>
+                                    <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center"
+                                                HorizontalAlignment="Right">
+                                        <controls:IconButton Icon="{StaticResource CloseIcon}" Focusable="False"
+                                                             Command="{TemplateBinding CloseCommand}" />
+                                    </StackPanel>
+                                </Grid>
+                                <ContentPresenter x:Name="PART_Content" ContentSource="Content" Grid.Row="2"
+                                                  Margin="0, 10"
+                                                  RenderTransformOrigin="0.5, 0.5">
+                                    <ContentPresenter.RenderTransform>
+                                        <ScaleTransform />
+                                    </ContentPresenter.RenderTransform>
+                                </ContentPresenter>
+                                <ContentPresenter ContentSource="Footer" Grid.Row="4" />
+                            </Grid>
+                        </Border>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="FlyoutDirection" Value="Right">
+                            <Setter TargetName="PART_Container" Property="HorizontalAlignment" Value="Right" />
+                        </Trigger>
+                        <Trigger Property="FlyoutDirection" Value="Left">
+                            <Setter TargetName="PART_Container" Property="HorizontalAlignment" Value="Left" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="FolderSecurityViewer.Views.Template.TemplatesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:control="clr-namespace:FolderSecurityViewer.Controls"
+             xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid Visibility="{Binding Error, Converter={StaticResource NullVisibleConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="{StaticResource GridGap}" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <control:IconButton Grid.Column="0" ToolTip="{x:Static res:TemplateResource.NewTemplateText}"
+                                    Icon="{StaticResource AddServerIcon}" Command="{Binding AddTemplateCommand}" />
+                <control:IconButton Grid.Column="2" ToolTip="{x:Static res:TemplateResource.RemoveTemplateText}"
+                                    Icon="{StaticResource CloseIcon}" Command="{Binding RemoveTemplateCommand}" />
+
+                <ProgressBar Grid.Column="3" IsEnabled="{Binding IsWorking}" IsIndeterminate="{Binding IsWorking}"
+                             HorizontalAlignment="Right" />
+            </Grid>
+            <ListBox Grid.Row="2" ItemsSource="{Binding Templates}"
+                     ItemContainerStyle="{StaticResource NoSelectionListItemStyle}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="{StaticResource ItemPadding}" Margin="0, 2" ToolTip="{Binding Path}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="{StaticResource GridGap}" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="{StaticResource GridGap}" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox Grid.Column="0" IsChecked="{Binding Selected, Mode=TwoWay}"
+                                          VerticalAlignment="Top"
+                                          Margin="0, 2, 0, 0" />
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Text="{Binding Name, Mode=OneWay}" TextWrapping="NoWrap"
+                                               Style="{StaticResource TextInfoStyle}" />
+                                    <TextBlock Text="{Binding TypeName, Mode=OneWay}" TextWrapping="NoWrap"
+                                               Style="{StaticResource TextNoteStyle}" />
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="4" Orientation="Horizontal">
+                                    <control:IconButton Icon="{StaticResource StartIcon}" IconSize="Small"
+                                                        ToolTip="{x:Static res:TemplateResource.StartReportTip}"
+                                                        Command="{Binding StartCommand}" />
+                                    <control:IconButton Icon="{StaticResource StateUpdatedIcon}" IconSize="Small"
+                                                        ToolTip="{x:Static res:CommonResource.EditTip}"
+                                                        Command="{Binding EditCommand}" />
+                                    <control:IconButton Icon="{StaticResource CloseIcon}" IconSize="Small"
+                                                        ToolTip="{x:Static res:CommonResource.RemoveTip}"
+                                                        Command="{Binding RemoveCommand}" />
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <TextBlock Grid.Row="2" VerticalAlignment="Top" Margin="{StaticResource ItemPadding}">
+                <Run Text="{x:Static res:TemplateResource.TemplateListEmptyPartOne}" />
+                <Image Width="12" Height="12" VerticalAlignment="Center">
+                    <Image.Source>
+                        <DrawingImage>
+                            <DrawingImage.Drawing>
+                                <GeometryDrawing Brush="{StaticResource AccentColorBrush}"
+                                                 Geometry="{StaticResource AddServerIcon}" />
+                            </DrawingImage.Drawing>
+                        </DrawingImage>
+                    </Image.Source>
+                </Image>
+                <Run Text="{x:Static res:TemplateResource.TemplateListEmptyPartTwo}" />
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource EmptyListTextBlockStyle}">
+                        <Style.Triggers>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding IsWorking}" Value="False" />
+                                    <Condition Binding="{Binding Templates.Count}" Value="0" />
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Visibility" Value="Visible" />
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+        <TextBlock Style="{StaticResource ErrorInfoStyle}" Text="{Binding Error}"
+                   Visibility="{Binding Error, Converter={StaticResource NullCollapsedConverter}}" />
+    </Grid>
+</UserControl>

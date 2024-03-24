@@ -1,0 +1,66 @@
+<UserControl x:Class="FolderSecurityViewer.Views.ExportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+             xmlns:vm="clr-namespace:FSV.ViewModel;assembly=FSV.ViewModel"
+             xmlns:export="clr-namespace:FSV.ViewModel.Exporter;assembly=FSV.ViewModel"
+             mc:Ignorable="d" MinWidth="300"
+             d:DesignHeight="300" d:DesignWidth="300"
+             d:DataContext="{d:DesignInstance Type=vm:ExportViewModel}">
+    <UserControl.Resources>
+        <Style TargetType="GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsWorking}" Value="true">
+                    <Setter Property="IsEnabled" Value="False" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <DataTemplate x:Key="ExportListItemTemplate">
+            <Border MinWidth="80">
+                <!--<TextBlock Text="{Binding Name}" IsEnabled="{Binding AllowAccess, Mode=OneWay}" />-->
+                <RadioButton IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}">
+                    <TextBlock Text="{Binding Name}" IsEnabled="{Binding AllowAccess, Mode=OneWay}" />
+                </RadioButton>
+            </Border>
+        </DataTemplate>
+    </UserControl.Resources>
+    <StackPanel>
+        <GroupBox Header="{x:Static res:ExportResource.ExportAsCaption}">
+            <ListBox KeyboardNavigation.DirectionalNavigation="Cycle" SelectionMode="Single"
+                     ItemsSource="{Binding ExportTypes}" SelectedItem="{Binding SelectedExportType, Mode=TwoWay}"
+                     Style="{StaticResource RadioButtonListBoxStyle}" Width="300"
+                     ItemContainerStyle="{StaticResource NoSelectionListItemStyle}"
+                     ItemTemplate="{StaticResource ExportListItemTemplate}" />
+        </GroupBox>
+
+        <ProgressBar Visibility="{Binding IsWorking, Converter={StaticResource FalseHiddenConverter}}"
+                     IsIndeterminate="True" HorizontalAlignment="Right"
+                     Margin="0, 10" />
+        <GroupBox Header="{x:Static res:ExportResource.ExportOpenCaption}"
+                  IsEnabled="{Binding EnableButtons}">
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Button Content="{x:Static res:ExportResource.OpenFileCaption}" Command="{Binding ExportCommand}"
+                        CommandParameter="{x:Static export:ExportOpenType.OpenFile}" />
+
+                <Button Grid.Row="2" Content="{x:Static res:ExportResource.CopyFileToClipboardCaption}"
+                        Command="{Binding ExportCommand}"
+                        CommandParameter="{x:Static export:ExportOpenType.CopyFileToClipboard}" />
+
+                <Button Grid.Row="4" Content="{x:Static res:ExportResource.CopyPathToClipboard}"
+                        Command="{Binding ExportCommand}"
+                        CommandParameter="{x:Static export:ExportOpenType.CopyPathToClipboard}" />
+            </Grid>
+        </GroupBox>
+    </StackPanel>
+</UserControl>

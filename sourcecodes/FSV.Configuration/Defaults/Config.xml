@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<FolderSecurityViewer>
+    <Logging />
+    <PageSize>30</PageSize>
+    <Report>
+        <Trustee>
+            <ScanLevel />
+            <Settings>
+                <ShowAcl>true</ShowAcl>
+            </Settings>
+            <ExclusionGroups />
+            <TrusteeGridColumns>
+                <TrusteeGridColumn DisplayName="Account Name" Selected="true">sAMAccountName</TrusteeGridColumn>
+                <TrusteeGridColumn DisplayName="First Name" Selected="true">givenName</TrusteeGridColumn>
+                <TrusteeGridColumn DisplayName="Last Name" Selected="true">sn</TrusteeGridColumn>
+                <TrusteeGridColumn DisplayName="E-Mail" Selected="true">mail</TrusteeGridColumn>
+                <TrusteeGridColumn DisplayName="Department" Selected="true">department</TrusteeGridColumn>
+                <TrusteeGridColumn DisplayName="Division" Selected="true">division</TrusteeGridColumn>
+                <TrusteeGridColumn DisplayName="Domain" Selected="true">Domain</TrusteeGridColumn>
+                <TrusteeGridColumn DisplayName="Originating Group" Selected="true">OriginatingGroup</TrusteeGridColumn>
+                <TrusteeGridColumn DisplayName="Permissions" Selected="true">Rights</TrusteeGridColumn>
+            </TrusteeGridColumns>
+            <RightsTranslations>
+                <RightsTranslation DisplayName="Change" Selected="false">
+                    Allow: Modify, Synchronize, This Folder,
+                    Subfolders and Files
+                </RightsTranslation>
+                <RightsTranslation DisplayName="Read" Selected="false">
+                    Allow: ReadAndExecute, Synchronize, This Folder,
+                    Subfolders and Files
+                </RightsTranslation>
+                <RightsTranslation DisplayName="Full Control" Selected="false">
+                    Allow: FullControl, This Folder,
+                    Subfolders and Files
+                </RightsTranslation>
+                <RightsTranslation DisplayName="Single Permission: Write" Selected="false">
+                    Allow: Write, Synchronize,
+                    This Folder, Subfolders and Files
+                </RightsTranslation>
+                <RightsTranslation DisplayName="Single Permission: Read" Selected="false">
+                    Allow: Read, Synchronize, This
+                    Folder, Subfolders and Files
+                </RightsTranslation>
+                <RightsTranslation DisplayName="Single Permission: List Folder Content" Selected="false">
+                    Allow:
+                    ReadAndExecute, Synchronize, This Folder and Subfolders
+                </RightsTranslation>
+                <RightsTranslation DisplayName="Single Permissions: Read, Write" Selected="false">
+                    Allow: Write, Read,
+                    Synchronize, This Folder, Subfolders and Files
+                </RightsTranslation>
+                <RightsTranslation DisplayName="Single Permissions: Read, Write, List Folder Content" Selected="false">
+                    Allow: Write, ReadAndExecute, Synchronize, This Folder, Subfolders and Files
+                </RightsTranslation>
+                <RightsTranslation DisplayName="Denied Change" Selected="false">
+                    Deny: Modify, This Folder, Subfolders
+                    and Files
+                </RightsTranslation>
+                <RightsTranslation DisplayName="Denied Read" Selected="false">
+                    Deny: ReadAndExecute, This Folder,
+                    Subfolders and Files
+                </RightsTranslation>
+                <RightsTranslation DisplayName="Access Denied" Selected="false">
+                    Deny: FullControl, This Folder,
+                    Subfolders and Files
+                </RightsTranslation>
+                <RightsTranslation DisplayName="Denied Single Permission: Write" Selected="false">
+                    Deny: Write,
+                    Synchronize, This Folder, Subfolders and Files
+                </RightsTranslation>
+                <RightsTranslation DisplayName="Denied Single Permission: Read" Selected="false">
+                    Deny: Read,
+                    Synchronize, This Folder, Subfolders and Files
+                </RightsTranslation>
+                <RightsTranslation DisplayName="Denied Single Permission: List Folder Content" Selected="false">
+                    Deny:
+                    ReadAndExecute, This Folder and Subfolders
+                </RightsTranslation>
+                <RightsTranslation DisplayName="Denied Single Permissions: Read, Write" Selected="false">
+                    Deny: Write,
+                    Read, This Folder, Subfolders and Files
+                </RightsTranslation>
+                <RightsTranslation DisplayName="Denied Single Permissions: Read, Write, List Folder Content"
+                                   Selected="false">
+                    Deny: Write, ReadAndExecute, This Folder, Subfolders and Files
+                </RightsTranslation>
+            </RightsTranslations>
+            <ExcludedBuiltInGroups>
+                <Group Sid="S-1-1-0" Name="Everyone" Excluded="true">
+                    A group that includes all users, even anonymous
+                    users and guests. Membership is controlled by the operating system
+                </Group>
+                <Group Sid="S-1-2" Name="Local Authority" Excluded="true">An identifier authority</Group>
+                <Group Sid="S-1-3" Name="Creator Authority" Excluded="true">An identifier authority.</Group>
+                <Group Sid="S-1-3-0" Name="Creator Owner" Excluded="true">
+                    A placeholder in an inheritable access control
+                    entry (ACE). When the ACE is inherited, the system replaces this SID with the SID for the object's
+                    creator.
+                </Group>
+                <Group Sid="S-1-3-1" Name="Creator Group" Excluded="true">
+                    A placeholder in an inheritable ACE. When the
+                    ACE is inherited, the system replaces this SID with the SID for the primary group of the object's
+                    creator. The primary group is used only by the POSIX subsystem.
+                </Group>
+                <Group Sid="S-1-3-2" Name="Creator Owner Server" Excluded="true"></Group>
+                <Group Sid="S-1-3-3" Name="Creator Group Server" Excluded="true"></Group>
+                <Group Sid="S-1-3-4" Name="Owner Rights" Excluded="true">
+                    A group that represents the current owner of
+                    the object. When an ACE that carries this SID is applied to an object, the system ignores the
+                    implicit READ_CONTROL and WRITE_DAC permissions for the object owner.
+                </Group>
+                <Group Sid="S-1-4" Name="Non-unique Authority" Excluded="true">An identifier authority.</Group>
+                <Group Sid="S-1-5" Name="NT Authority" Excluded="true">An identifier authority.</Group>
+                <Group Sid="S-1-5-1" Name="Dialup" Excluded="true">
+                    A group that includes all users who have logged on
+                    through a dial-up connection. Membership is controlled by the operating system.
+                </Group>
+                <Group Sid="S-1-5-2" Name="Network" Excluded="true">
+                    A group that includes all users that have logged on
+                    through a network connection. Membership is controlled by the operating system.
+                </Group>
+                <Group Sid="S-1-5-3" Name="Batch" Excluded="true">
+                    A group that includes all users that have logged on
+                    through a batch queue facility. Membership is controlled by the operating system.
+                </Group>
+                <Group Sid="S-1-5-4" Name="Interactive" Excluded="true">
+                    A group that includes all users that have logged
+                    on interactively. Membership is controlled by the operating system.
+                </Group>
+                <Group Sid="S-1-5-6" Name="Service" Excluded="true">
+                    A group that includes all users that have logged on
+                    interactively. Membership is controlled by the operating system.
+                </Group>
+                <Group Sid="S-1-5-7" Name="Anonymous" Excluded="true">
+                    A group that includes all users that have logged
+                    on anonymously. Membership is controlled by the operating system.
+                </Group>
+                <Group Sid="S-1-5-11" Name="Authenticated Users" Excluded="true">
+                    A group that includes all users whose
+                    identities were authenticated when they logged on. Membership is controlled by the operating system.
+                </Group>
+                <Group Sid="S-1-5-18" Name="Local System" Excluded="true">
+                    A service account that is used by the
+                    operating system.
+                </Group>
+                <Group Sid="S-1-5-19" Name="NT Authority" Excluded="true">Local Service.</Group>
+                <Group Sid="S-1-5-20" Name="NT Authority" Excluded="true">Network Service.</Group>
+                <Group Sid="S-1-5-32-544" Name="Administrators" Excluded="true">
+                    A built-in group. After the initial
+                    installation of the operating system, the only member of the group is the Administrator account.
+                    When a computer joins a domain, the Domain Admins group is added to the Administrators group. When a
+                    server becomes a domain controller, the Enterprise Admins group also is added to the Administrators
+                    group.
+                </Group>
+                <Group Sid="S-1-5-32-545" Name="Users" Excluded="true">
+                    A built-in group. After the initial installation
+                    of the operating system, the only member is the Authenticated Users group. When a computer joins a
+                    domain, the Domain Users group is added to the Users group on the computer.
+                </Group>
+                <Group Sid="S-1-5-32-546" Name="Guests" Excluded="true">
+                    A built-in group. By default, the only member is
+                    the Guest account. The Guests group allows occasional or one-time users to log on with limited
+                    privileges to a computer's built-in Guest account.
+                </Group>
+                <Group Sid="S-1-5-32-547" Name="Power Users" Excluded="true">
+                    A built-in group. By default, the group has
+                    no members. Power users can create local users and groups; modify and delete accounts that they have
+                    created; and remove users from the Power Users, Users, and Guests groups. Power users also can
+                    install programs; create, manage, and delete local printers; and create and delete file shares.
+                </Group>
+                <Group Sid="S-1-5-32-548" Name="Account Operators" Excluded="true">
+                    A built-in group that exists only on
+                    domain controllers. By default, the group has no members. By default, Account Operators have
+                    permission to create, modify, and delete accounts for users, groups, and computers in all containers
+                    and organizational units of Active Directory except the Builtin container and the Domain Controllers
+                    OU. Account Operators do not have permission to modify the Administrators and Domain Admins groups,
+                    nor do they have permission to modify the accounts for members of those groups.
+                </Group>
+                <Group Sid="S-1-5-32-549" Name="Server Operators" Excluded="true">
+                    A built-in group that exists only on
+                    domain controllers. By default, the group has no members. Server Operators can log on to a server
+                    interactively; create and delete network shares; start and stop services; back up and restore files;
+                    format the hard disk of the computer; and shut down the computer.
+                </Group>
+                <Group Sid="S-1-5-32-550" Name="Print Operators" Excluded="true">
+                    A built-in group that exists only on
+                    domain controllers. By default, the only member is the Domain Users group. Print Operators can
+                    manage printers and document queues.
+                </Group>
+                <Group Sid="S-1-5-32-551" Name="Backup Operators" Excluded="true">
+                    A built-in group. By default, the
+                    group has no members. Backup Operators can back up and restore all files on a computer, regardless
+                    of the permissions that protect those files. Backup Operators also can log on to the computer and
+                    shut it down.
+                </Group>
+                <Group Sid="S-1-5-32-552" Name="Replicators" Excluded="true">
+                    A built-in group that is used by the File
+                    Replication service on domain controllers. By default, the group has no members. Do not add users to
+                    this group.
+                </Group>
+            </ExcludedBuiltInGroups>
+        </Trustee>
+        <Folder />
+        <User>
+            <ScanLevel />
+        </User>
+    </Report>
+    <TourAtStart>True</TourAtStart>
+    <SettingsUILocked>False</SettingsUILocked>
+</FolderSecurityViewer>

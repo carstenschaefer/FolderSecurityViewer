@@ -1,0 +1,80 @@
+<UserControl x:Class="FolderSecurityViewer.Controls.PathSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:selector="clr-namespace:FolderSecurityViewer.Selectors"
+             xmlns:controls="clr-namespace:FolderSecurityViewer.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800" Name="MainControl">
+    <UserControl.Resources>
+        <DataTemplate x:Key="BulletItemTemplate" DataType="controls:PathSelectorItem">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="⦁" Padding="1" Foreground="{StaticResource AccentColorBrush}"
+                           VerticalAlignment="Center" />
+                <Button Content="{Binding Text}" Style="{StaticResource PathSeparatorButtonStyle}"
+                        VerticalAlignment="Center"
+                        Command="{Binding ButtonCommand, ElementName=MainControl}" CommandParameter="{Binding Path}"
+                        ToolTip="{Binding Path}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="FirstItemTemplate" DataType="controls:PathSelectorItem">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="{Binding Text}" Style="{StaticResource PathSeparatorButtonStyle}"
+                        VerticalAlignment="Center"
+                        Command="{Binding ButtonCommand, ElementName=MainControl}" CommandParameter="{Binding Path}"
+                        ToolTip="{Binding Path}"
+                        IsEnabled="{Binding IsShareServer, Converter={StaticResource InverseBoolConverter}}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <selector:PathSeparatorDataTemplateSelector x:Key="PathItemDataTemplateSelector"
+                                                    DefaultTemplate="{StaticResource BulletItemTemplate}"
+                                                    FirstTemplate="{StaticResource FirstItemTemplate}" />
+
+        <ItemsPanelTemplate x:Key="PathItemsPanelTemplate">
+            <StackPanel Orientation="Horizontal" />
+        </ItemsPanelTemplate>
+
+        <ControlTemplate x:Key="PathItemsTemplate" TargetType="ItemsControl">
+            <Border BorderBrush="{StaticResource ControlBorderBrush}" BorderThickness="0"
+                    CornerRadius="{StaticResource SmallCornerRadius}"
+                    Padding="{TemplateBinding Padding}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <controls:IconButton Icon="{StaticResource CopyIcon}" IconSize="Medium" ToolTip="Copy"
+                                         VerticalAlignment="Center"
+                                         Click="OnCopyButtonClick" />
+                    <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Hidden"
+                                  HorizontalScrollBarVisibility="Auto"
+                                  VerticalAlignment="Center" Style="{StaticResource ArrowHorizontalScrollViewer}">
+                        <ItemsPresenter />
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+        </ControlTemplate>
+    </UserControl.Resources>
+    <Grid DataContext="{Binding ElementName=MainControl}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Style="{StaticResource PanelHeadingStyle}" Text="{Binding DisplayText}"
+                   ToolTip="{Binding Path}"
+                   Visibility="{Binding DisplayText, Converter={StaticResource StringNullCollapsedConverter}}" />
+        <Separator Grid.Column="1" Style="{StaticResource VerticalSeparator}" Margin="10, 10, 0, 10"
+                   Background="{StaticResource AccentColorBrush}"
+                   Visibility="{Binding Path, Converter={StaticResource StringNullCollapsedConverter}}" />
+        <ItemsControl Grid.Column="2" VerticalAlignment="Center" Padding="5, 0"
+                      ItemsSource="{Binding ElementName=MainControl, Path=ItemsSource}"
+                      Visibility="{Binding Path, Converter={StaticResource StringNullCollapsedConverter}}"
+                      ItemTemplateSelector="{StaticResource PathItemDataTemplateSelector}"
+                      ItemsPanel="{StaticResource PathItemsPanelTemplate}"
+                      Template="{StaticResource PathItemsTemplate}" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,38 @@
+<controls:BaseGridViewControl x:Class="FolderSecurityViewer.Views.User.UserReportView"
+                              x:TypeArguments="userReport:UserReportViewModel"
+                              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                              xmlns:local="clr-namespace:FolderSecurityViewer.Views.User"
+                              xmlns:controls="clr-namespace:FolderSecurityViewer.Controls"
+                              xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+                              xmlns:userReport="clr-namespace:FSV.ViewModel.UserReport;assembly=FSV.ViewModel"
+                              mc:Ignorable="d"
+                              d:DesignHeight="300" d:DesignWidth="300"
+                              d:DataContext="{d:DesignInstance Type=userReport:UserReportViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <controls:SearchViewHeader DataContext="{Binding Header}">
+            <controls:SearchViewHeader.RightControlBox>
+                <StackPanel Style="{StaticResource RightControlBoxPanelStyle}">
+                    <controls:IconButton
+                        Command="{Binding DataContext.SaveReportCommand, RelativeSource={RelativeSource AncestorType=local:UserReportView, Mode=FindAncestor}}"
+                        Icon="{StaticResource SaveIcon}" ToolTip="{x:Static res:CommonResource.SaveButtonCaption}"
+                        IsEnabled="{Binding SearchDisabled, Converter={StaticResource InverseBoolConverter}}" />
+                    <controls:IconButton
+                        Command="{Binding DataContext.ExportCommand, RelativeSource={RelativeSource AncestorType=local:UserReportView, Mode=FindAncestor}}"
+                        Icon="{StaticResource ExportIcon}" ToolTip="{x:Static res:CommonResource.ExportTip}"
+                        IsEnabled="{Binding SearchDisabled, Converter={StaticResource InverseBoolConverter}}" />
+                </StackPanel>
+            </controls:SearchViewHeader.RightControlBox>
+        </controls:SearchViewHeader>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Folders}" IsReadOnly="True" CanUserAddRows="False"
+                  CanUserDeleteRows="False" Margin="0, 0, 0, 35"
+                  Name="FoldersGrid" />
+        <controls:SubspaceContainer Grid.Row="1" DataContext="{Binding SubspaceContainer}" />
+    </Grid>
+</controls:BaseGridViewControl>

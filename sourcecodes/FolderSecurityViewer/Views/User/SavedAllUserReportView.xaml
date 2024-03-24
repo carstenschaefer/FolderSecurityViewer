@@ -1,0 +1,73 @@
+﻿<controls:BaseGridViewControl x:Class="FolderSecurityViewer.Views.User.SavedAllUserReportView"
+                              x:TypeArguments="vm:SavedUserReportListViewModel"
+                              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+                              xmlns:controls="clr-namespace:FolderSecurityViewer.Controls"
+                              xmlns:vm="clr-namespace:FSV.ViewModel.UserReport;assembly=FSV.ViewModel"
+                              xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+                              mc:Ignorable="d"
+                              d:DesignHeight="300" d:DesignWidth="600"
+                              d:DataContext="{d:DesignInstance Type=vm:SavedUserReportListViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <controls:SearchViewHeader Grid.Row="0" DataContext="{Binding Header}" />
+
+        <DockPanel Grid.Row="1">
+            <DockPanel.Style>
+                <Style TargetType="DockPanel">
+                    <Setter Property="Visibility" Value="Visible" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Reports.Count}" Value="0">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DockPanel.Style>
+            <TextBlock DockPanel.Dock="Top" Style="{StaticResource TextNoteStyle}" Margin="0, 0, 0, 5"
+                       Text="{x:Static res:CommonResource.ReportCompareText}" />
+            <DataGrid Name="ItemsGrid" ItemsSource="{Binding Reports, Mode=OneWay}" AutoGenerateColumns="False"
+                      CanUserSortColumns="True"
+                      VerticalScrollBarVisibility="Auto" SelectionUnit="FullRow" AllowDrop="True"
+                      SelectionMode="Extended"
+                      SelectionChanged="ItemsGrid_SelectionChanged"
+                      PreviewMouseLeftButtonDown="ItemsGrid_PreviewMouseLeftButtonDown"
+                      Drop="ItemsGrid_Drop">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding OpenReportCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="{x:Static res:PermissionResource.SavedReportLoadCaption}"
+                                  Command="{Binding OpenReportCommand}" />
+                        <MenuItem Header="{x:Static res:PermissionResource.SavedReportDeleteCaption}"
+                                  Command="{Binding DeleteReportCommand}" />
+                        <Separator />
+                        <MenuItem Header="{x:Static res:PermissionResource.SavedReportCompareCaption}"
+                                  Command="{Binding CompareReportsCommand}" />
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{x:Static res:UserReportResource.SavedFolderCaption}"
+                                        Binding="{Binding FolderPath, Mode=OneWay}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="{x:Static res:UserReportResource.SavedUserCaption}"
+                                        Binding="{Binding UserName, Mode=OneWay}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="{x:Static res:UserReportResource.SavedDateCaption}"
+                                        Binding="{Binding Date, Mode=OneWay}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="{x:Static res:UserReportResource.SavedDescriptionCaption}"
+                                        Binding="{Binding Description}" CanUserSort="False" />
+                    <DataGridTextColumn Header="{x:Static res:UserReportResource.SavedGeneratedByCaption}"
+                                        Binding="{Binding User, Mode=OneWay}" IsReadOnly="True" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </Grid>
+</controls:BaseGridViewControl>

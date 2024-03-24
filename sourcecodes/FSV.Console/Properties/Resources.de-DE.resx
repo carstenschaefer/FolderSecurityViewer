@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <!-- 
+      Microsoft ResX Schema 
+      
+      Version 2.0
+      
+      The primary goals of this format is to allow a simple XML format 
+      that is mostly human readable. The generation and parsing of the 
+      various data types are done through the TypeConverter classes 
+      associated with the data types.
+      
+      Example:
+      
+      ... ado.net/XML headers & schema ...
+      <resheader name="resmimetype">text/microsoft-resx</resheader>
+      <resheader name="version">2.0</resheader>
+      <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+      <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+      <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+      <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+      <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+          <value>[base64 mime encoded serialized .NET Framework object]</value>
+      </data>
+      <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+          <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+          <comment>This is a comment</comment>
+      </data>
+                  
+      There are any number of "resheader" rows that contain simple 
+      name/value pairs.
+      
+      Each data row contains a name, and value. The row also contains a 
+      type or mimetype. Type corresponds to a .NET class that support 
+      text/value conversion through the TypeConverter architecture. 
+      Classes that don't support this are serialized and stored with the 
+      mimetype set.
+      
+      The mimetype is used for serialized objects, and tells the 
+      ResXResourceReader how to depersist the object. This is currently not 
+      extensible. For a given mimetype the value must be set accordingly:
+      
+      Note - application/x-microsoft.net.object.binary.base64 is the format 
+      that the ResXResourceWriter will generate, however the reader can 
+      read any of the formats listed below.
+      
+      mimetype: application/x-microsoft.net.object.binary.base64
+      value   : The object must be serialized with 
+              : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+              : and then encoded with base64 encoding.
+      
+      mimetype: application/x-microsoft.net.object.soap.base64
+      value   : The object must be serialized with 
+              : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+              : and then encoded with base64 encoding.
+  
+      mimetype: application/x-microsoft.net.object.bytearray.base64
+      value   : The object must be serialized into a byte array 
+              : using a System.ComponentModel.TypeConverter
+              : and then encoded with base64 encoding.
+      -->
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                id="root"
+                xmlns="">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string"/>
+                            <xsd:attribute name="type" type="xsd:string"/>
+                            <xsd:attribute name="mimetype" type="xsd:string"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string"/>
+                            <xsd:attribute name="name" type="xsd:string"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <data name="ApplicationTerminated" xml:space="preserve">
+    <value>FSV wurde unerwartet beendet.</value>
+  </data>
+    <data name="ApplicationVersion" xml:space="preserve">
+      <value>FolderSecurityViewer CLI ({0}), Version: {1}</value>
+  </data>
+    <data name="ArgumentPathDescriptionText" xml:space="preserve">
+    <value>Der Pfad des zu untersuchenden Verzeichnisses. Verwenden Sie Anführungszeichen wenn der Pfadausdruck nicht-druckbare Zeichen (Leerzeichen) enthält.</value>
+  </data>
+    <data name="ArgumentServerDescriptionText" xml:space="preserve">
+    <value>Der Name der zu untersuchenden Freigabe.</value>
+  </data>
+    <data name="ArgumentUserDescriptionText" xml:space="preserve">
+    <value>Der Name des Benutzers</value>
+  </data>
+    <data name="DatabaseUnavailable" xml:space="preserve">
+    <value>Die Datenbank wurde noch nicht konfiguriert.</value>
+  </data>
+    <data name="DirectoryAccessDeniedError" xml:space="preserve">
+    <value>Zugriff verweigert:</value>
+  </data>
+    <data name="DirectoryNotExistsError" xml:space="preserve">
+    <value>{0} existiert nicht.</value>
+  </data>
+    <data name="ExportingText" xml:space="preserve">
+    <value>Exportiere...</value>
+  </data>
+    <data name="FolderReportCaption" xml:space="preserve">
+    <value>Ordner-Berich</value>
+  </data>
+    <data name="FolderReportDescription" xml:space="preserve">
+    <value>Starte Ordner-Bericht</value>
+  </data>
+    <data name="FolderReportException" xml:space="preserve">
+    <value>Der Export des Ordner-Berichts ist auf Grund einer unbehandelten Ausnahme fehlgeschlagen.</value>
+  </data>
+    <data name="FolderReportExportedText" xml:space="preserve">
+    <value>Ordner-Bericht wurde nach "{0}" exportiert.</value>
+  </data>
+    <data name="FolderScanCompleteText" xml:space="preserve">
+    <value>Der Scan wurde für {0} Verzeichnisse abgeschlossen.</value>
+  </data>
+    <data name="NoResultToExportText" xml:space="preserve">
+    <value>Es wurden keine exportierbaren Ergebnisse erzeugt.</value>
+  </data>
+    <data name="OptionDatabaseDescriptionText" xml:space="preserve">
+    <value>Speichert Bericht in der Datenbank.</value>
+  </data>
+    <data name="OptionExportPathDescriptionText" xml:space="preserve">
+    <value>Ein Ausgabedateipfad.</value>
+  </data>
+    <data name="OptionExportDescriptionText" xml:space="preserve">
+    <value>Export in Datei - Excel, CSV, oder HTML. Standardformat ist HTML</value>
+  </data>
+    <data name="OptionPermissionSubFoldersDescriptionText" xml:space="preserve">
+    <value>Überprüft die Unterschiede der Berechtigungen tief in der Verzeichnisstruktur und exportiert das Ergebnis.</value>
+  </data>
+    <data name="OwnerReportCaption" xml:space="preserve">
+    <value>Eigentümer-Bericht</value>
+  </data>
+    <data name="OwnerReportDescription" xml:space="preserve">
+    <value>Eigentümer-Bericht starten</value>
+  </data>
+    <data name="OwnerReportException" xml:space="preserve">
+    <value>Fehler beim Exportieren des Eigentümerberichts aufgrund einer nicht behandelten Ausnahme.</value>
+  </data>
+    <data name="OwnerReportExportedText" xml:space="preserve">
+    <value>Eigentümer-Bericht exportiert nach "{0}"</value>
+  </data>
+    <data name="OwnerReportScanningText" xml:space="preserve">
+    <value>Untersuche {0} for Eigentümer {1}...</value>
+  </data>
+    <data name="PermissionReportDbException" xml:space="preserve">
+    <value>Fehler beim Speichern des Berechtigungsberichts in der Datenbank.</value>
+  </data>
+    <data name="PermissionReportDescription" xml:space="preserve">
+    <value>Starte Berechtigungs-Bericht</value>
+  </data>
+    <data name="PermissionReportDifferenceException" xml:space="preserve">
+    <value>Fehler beim Exportieren von Berechtigungsunterschieden</value>
+  </data>
+    <data name="PermissionReportDifferenceExportedText" xml:space="preserve">
+    <value>Hierarchische Berechtigungen exportiert nach {0}.</value>
+  </data>
+    <data name="PermissionReportDifferenceUnhandledException" xml:space="preserve">
+    <value>Fehler beim Exportieren von Berechtigungsunterschieden aufgrund einer nicht behandelten Ausnahme.</value>
+  </data>
+    <data name="PermissionReportFileExportException" xml:space="preserve">
+    <value>Berechtigungsbericht konnte nicht exportiert werden.</value>
+  </data>
+    <data name="PermissionReportNoDifferenceText" xml:space="preserve">
+    <value>In Unterverzeichnissen wurde keine Unterschiede in den Berechtigungen gefunden.</value>
+  </data>
+    <data name="PermissionReportNotExportedText" xml:space="preserve">
+    <value>Ein Berechtigungsbericht konnte nicht generiert werden. Bitte überprüfen Sie das Protokoll.</value>
+  </data>
+    <data name="PermissionReportExportedText" xml:space="preserve">
+    <value>Berechtigungs-Bericht exportiert nach "{0}".</value>
+  </data>
+    <data name="PermissionReportDifferenceScanFailedText" xml:space="preserve">
+    <value>Auf das Verzeichnis kann nicht zugegriffen werden: {0}</value>
+  </data>
+    <data name="PermissionReportDifferenceScanCompleteText" xml:space="preserve">
+    <value>Untersucht {0}: {1} Berechtigungen.</value>
+  </data>
+    <data name="PermissionReportSavedInDbText" xml:space="preserve">
+    <value>Berechtigungsbericht in Datenbank gespeichert.</value>
+  </data>
+    <data name="PermissionReportScanCompleteText" xml:space="preserve">
+    <value>Der Scan wurde mit insgesamt {0} Berechtigungen abgeschlossen.</value>
+  </data>
+    <data name="PrimaryArgumentError" xml:space="preserve">
+    <value>Das primäre Argument kann nicht null sein.</value>
+  </data>
+    <data name="ScanFailedException" xml:space="preserve">
+    <value>Scan fehlgeschlagen.</value>
+  </data>
+    <data name="ScanningText" xml:space="preserve">
+    <value>Untersuche {0}...</value>
+  </data>
+    <data name="SharedServerNotFoundError" xml:space="preserve">
+    <value>Freigegebener Server "{0}" nicht gefunden.</value>
+  </data>
+    <data name="ShareReportCaption" xml:space="preserve">
+    <value>Freigaben-Bericht</value>
+  </data>
+    <data name="ShareReportException" xml:space="preserve">
+    <value>Fehler beim Exportieren des Freigabeberichts aufgrund einer nicht behandelten Ausnahme.</value>
+  </data>
+    <data name="ShareReportExportCsvException" xml:space="preserve">
+    <value>Der CSV-Export ist für Freigabeberichte nicht verfügbar.</value>
+  </data>
+    <data name="ShareReportExportedText" xml:space="preserve">
+    <value>Freigabebericht nach "{0}" exportiert.</value>
+  </data>
+    <data name="ShareReportNotExportedText" xml:space="preserve">
+    <value>Der Freigabebericht konnte nicht exportiert werden. Bitte überprüfen Sie das Protokoll.</value>
+  </data>
+    <data name="ShareReportOptionExportDescriptionText" xml:space="preserve">
+    <value>In Datei exportieren - Excel oder HTML (HTML ist Standard).</value>
+  </data>
+    <data name="ShareReportScanningText" xml:space="preserve">
+    <value>Scannen von {0} nach Freigaben ...</value>
+  </data>
+    <data name="UnsupportedFormatError" xml:space="preserve">
+    <value>Nicht unterstütztes Exportformat.</value>
+  </data>
+    <data name="UserInDirectoryText" xml:space="preserve">
+    <value>Benutzer {0} in {1}</value>
+  </data>
+    <data name="UserPermissionReportCaption" xml:space="preserve">
+    <value>Benutzerberechtigungsbericht</value>
+  </data>
+    <data name="UserPermissionReportDescription" xml:space="preserve">
+    <value>Starte den Benutzerberechtigungsbericht</value>
+  </data>
+    <data name="UserPermissionReportExportedText" xml:space="preserve">
+    <value>Benutzerberechtigungsbericht nach "{0}" exportiert.</value>
+  </data>
+    <data name="UserPermissionReportFileExportException" xml:space="preserve">
+    <value>Fehler beim Exportieren des Benutzerberechtigungsberichts.</value>
+  </data>
+    <data name="UserPermissionReportNotExportedText" xml:space="preserve">
+    <value>Der Benutzerberechtigungsbericht konnte nicht exportiert werden. Bitte überprüfen Sie das Protokoll.</value>
+  </data>
+    <data name="ValueNullOrWhitespaceException" xml:space="preserve">
+    <value>Der Wert darf nicht null sein oder nur Leerzeichen bestehen.</value>
+  </data>
+    <data name="UserPermissionReportScanningText" xml:space="preserve">
+    <value>Scannen von {0} nach Benutzer {1} ...</value>
+  </data>
+    <data name="ArgumentEmptyError" xml:space="preserve">
+    <value>Geben Sie {0} ein, um den Scan zu starten.</value>
+  </data>
+    <data name="ShareReportDescription" xml:space="preserve">
+    <value>Starten Sie den Freigabebericht</value>
+  </data>
+</root>

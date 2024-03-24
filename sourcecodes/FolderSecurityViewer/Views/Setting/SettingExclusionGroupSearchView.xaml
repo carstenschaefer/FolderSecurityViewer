@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="FolderSecurityViewer.Views.Setting.SettingExclusionGroupSearchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+             mc:Ignorable="d" Height="300"
+             d:DesignHeight="300" d:DesignWidth="300" Width="470">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="{StaticResource GridGap}" />
+                <RowDefinition />
+                <RowDefinition Height="{StaticResource GridGap}" />
+            </Grid.RowDefinitions>
+
+            <TextBox Text="{Binding GroupName, UpdateSourceTrigger=PropertyChanged}"
+                     IsEnabled="{Binding IsWorking, Converter={StaticResource InverseBoolConverter}}" />
+
+            <Button Grid.Column="2" Content="{x:Static res:CommonResource.SearchButtonCaption}"
+                    Command="{Binding SearchCommand}" Margin="0" />
+
+            <ProgressBar Grid.Row="2" Grid.ColumnSpan="3" IsIndeterminate="True" IsEnabled="{Binding IsWorking}"
+                         HorizontalAlignment="Right"
+                         Visibility="{Binding IsWorking, Converter={StaticResource FalseHiddenConverter}}" />
+            <TextBlock Grid.Row="2" Grid.ColumnSpan="3" Text="{Binding NoResultsText}"
+                       Style="{StaticResource EmptyListTextBlockStyle}"
+                       Visibility="{Binding NoResultsText, Converter={StaticResource StringNullHiddenConverter}}" />
+        </Grid>
+        <Grid DockPanel.Dock="Bottom" Margin="0, 10">
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                <Button Content="{x:Static res:ConfigurationResource.AddCaption}" Command="{Binding AddCommand}"
+                        Style="{StaticResource PrimaryButtonStyle}" />
+                <Button Content="{x:Static res:CommonResource.ClearButtonCaption}" Command="{Binding ClearCommand}" />
+            </StackPanel>
+            <Button Content="{x:Static res:CommonResource.CloseButtonCaption}" Command="{Binding CancelCommand}"
+                    HorizontalAlignment="Right" Margin="0" />
+        </Grid>
+        <DataGrid CanUserSortColumns="False" VerticalScrollBarVisibility="Disabled" IsReadOnly="False"
+                  ItemsSource="{Binding ResultGroups}"
+                  AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" x:Name="DataGridGroups">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static res:ConfigurationResource.GroupNameCaption}"
+                                    Binding="{Binding Name}" />
+                <DataGridTemplateColumn Header="{x:Static res:ConfigurationResource.SelectHeaderCaption}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox HorizontalAlignment="Center"
+                                      IsChecked="{Binding Selected, UpdateSourceTrigger=PropertyChanged}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</UserControl>

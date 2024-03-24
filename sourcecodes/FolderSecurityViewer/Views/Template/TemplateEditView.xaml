@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="FolderSecurityViewer.Views.Template.TemplateEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:FolderSecurityViewer.Controls"
+             xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+             xmlns:templates="clr-namespace:FSV.ViewModel.Templates;assembly=FSV.ViewModel"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300"
+             Width="500" Height="300" Padding="10">
+    <UserControl.Resources>
+        <DataTemplate x:Key="TemplateOptionTemplate">
+            <RadioButton IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}}">
+                <TextBlock Text="{Binding Value}" IsEnabled="{Binding AllowAccess, Mode=OneWay}" />
+            </RadioButton>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid FocusManager.FocusedElement="{Binding ElementName=NameText}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.Resources>
+            <Style TargetType="controls:TextLabel" BasedOn="{StaticResource {x:Type controls:TextLabel}}">
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+            <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+        </Grid.Resources>
+
+        <ListBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" ItemsSource="{Binding Types}"
+                 HorizontalAlignment="Stretch"
+                 SelectedValuePath="Key" SelectedValue="{Binding Type}" SelectionMode="Single"
+                 ItemTemplate="{StaticResource TemplateOptionTemplate}"
+                 Style="{StaticResource RadioButtonListBoxStyle}"
+                 ItemContainerStyle="{StaticResource NoSelectionListItemStyle}" />
+
+        <controls:TextLabel Grid.Row="2" Grid.Column="0" Text="{x:Static res:TemplateResource.NameCaption}" />
+        <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Name="NameText" />
+
+        <controls:TextLabel Grid.Row="4" Grid.Column="0" Text="{x:Static res:TemplateResource.PathCaption}" />
+        <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Path, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Center"
+                 Name="FolderPath" />
+
+        <controls:IconButton Grid.Row="4" Grid.Column="4" Icon="{StaticResource OpenFolderIcon}" Margin="0, 0, 5, 0"
+                             VerticalAlignment="Center" HorizontalAlignment="Right"
+                             ToolTip="{x:Static res:TemplateResource.OpenFolderTip}"
+                             Click="FolderOpenClick" />
+
+        <controls:TextLabel Grid.Row="6" Grid.Column="0" Text="{x:Static res:TemplateResource.UserCaption}">
+            <controls:TextLabel.Style>
+                <Style TargetType="controls:TextLabel" BasedOn="{StaticResource {x:Type controls:TextLabel}}">
+                    <Setter Property="Visibility" Value="Visible" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Type}"
+                                     Value="{x:Static templates:TemplateType.PermissionReport}">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </controls:TextLabel.Style>
+        </controls:TextLabel>
+        <TextBox Grid.Row="6" Grid.Column="2" Text="{Binding User, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <TextBox.Style>
+                <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+                    <Setter Property="Visibility" Value="Visible" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Type}"
+                                     Value="{x:Static templates:TemplateType.PermissionReport}">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+
+        <StackPanel Grid.Row="8" Grid.ColumnSpan="5" Style="{StaticResource HorizontalButtonPanel}">
+            <Button Command="{Binding OKCommand}" Content="{x:Static res:CommonResource.OKButtonCaption}"
+                    Margin="0, 0, 10, 0"
+                    IsDefault="True" Style="{StaticResource PrimaryButtonStyle}" />
+            <Button Command="{Binding CancelCommand}" Content="{x:Static res:CommonResource.CancelButtonCaption}"
+                    IsCancel="True" />
+        </StackPanel>
+    </Grid>
+</UserControl>

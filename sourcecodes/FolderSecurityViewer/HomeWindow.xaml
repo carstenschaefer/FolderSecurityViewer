@@ -1,0 +1,66 @@
+﻿<controls:CustomWindow x:Class="FolderSecurityViewer.HomeWindow"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:controls="clr-namespace:FolderSecurityViewer.Controls"
+                       xmlns:ext="clr-namespace:FolderSecurityViewer.Helpers"
+                       xmlns:home="clr-namespace:FSV.ViewModel.Home;assembly=FSV.ViewModel"
+                       Title="{Binding DisplayName}" x:Name="Home" Icon="/Resources/Images/AppIcon.ico"
+                       mc:Ignorable="d" UseLayoutRounding="True"
+                       d:DataContext="{d:DesignInstance Type=home:HomeViewModel}">
+    <controls:CustomWindow.Style>
+        <Style TargetType="{x:Type controls:CustomWindow}" BasedOn="{StaticResource HomeWindowStyle}">
+            <Setter Property="StartLocation" Value="Manual" />
+        </Style>
+    </controls:CustomWindow.Style>
+    <controls:CustomWindow.Resources>
+        <DataTemplate x:Key="WindowTabItemTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Path x:Name="PART_Icon" Data="{ext:ResourceBinding Icon}" Margin="0, 0, 5, 0" />
+                <TextBlock Text="{Binding DisplayName}" />
+            </StackPanel>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding Icon}" Value="">
+                    <Setter TargetName="PART_Icon" Property="Visibility" Value="Collapsed" />
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+        <DataTemplate x:Key="FlyoutHeaderTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="{StaticResource GridGap}" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding FlyOutContent.DisplayName, Mode=OneWay}" HorizontalAlignment="Left"
+                           Name="PART_BackHeaderText"
+                           Style="{StaticResource PanelHeadingStyle}" />
+                <controls:IconButton Grid.Column="2" Icon="{StaticResource BackIcon}"
+                                     Command="{Binding FlyoutBackCommand}" />
+            </Grid>
+        </DataTemplate>
+    </controls:CustomWindow.Resources>
+    <Grid>
+        <TabControl ItemsSource="{Binding Items, Mode=OneWay}" Style="{StaticResource WindowTabControlStyle}"
+                    ItemTemplate="{StaticResource WindowTabItemTemplate}"
+                    VirtualizingPanel.VirtualizationMode="Recycling" />
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                Background="{StaticResource FloaterBackgroundBrush}"
+                Visibility="{Binding FloaterVisible, Converter={StaticResource FalseCollapsedConverter}}">
+            <controls:HeaderedContainer VerticalAlignment="Stretch" HorizontalAlignment="Center" Margin="0, 50"
+                                        Width="600"
+                                        Content="{Binding FloaterContent, Mode=OneWay}"
+                                        CloseCommand="{Binding FloaterCloseCommand}"
+                                        Header="{Binding FloaterContent.DisplayName}" />
+        </Border>
+
+        <controls:Flyout
+            IsOpen="{Binding FlyOutContent, Mode=OneWay, Converter={StaticResource NotNullCompareConverter}}"
+            Content="{Binding FlyOutContent}"
+            Header="{Binding}" HeaderTemplate="{StaticResource FlyoutHeaderTemplate}"
+            CloseCommand="{Binding FlyoutCloseCommand}"
+            ContentPanelWidth="{Binding FlyOutContent.Width, Mode=OneWay}" />
+    </Grid>
+</controls:CustomWindow>

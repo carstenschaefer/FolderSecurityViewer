@@ -1,0 +1,171 @@
+﻿<UserControl x:Class="FolderSecurityViewer.Views.Setting.SettingReportPermissionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+             xmlns:controls="clr-namespace:FolderSecurityViewer.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="GroupBox" BasedOn="{StaticResource {x:Type GroupBox}}">
+            <Setter Property="Margin" Value="0, 5" />
+        </Style>
+    </UserControl.Resources>
+    <ScrollViewer Padding="0, 0, 10, 0" PreviewMouseWheel="ScrollViewerPreviewMouseWheel">
+        <StackPanel IsEnabled="{Binding IsEnabled}">
+            <GroupBox Header="{x:Static res:ConfigurationResource.PermissionGeneralHeader}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="15" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <controls:TextLabel>
+                        <Run Text="{x:Static res:ConfigurationResource.ScanLevelCaption}" />
+                        <Run>
+                            <Run.Style>
+                                <Style TargetType="Run">
+                                    <Setter Property="Text" Value="{Binding ScanLevel}" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ScanLevel}" Value="0">
+                                            <Setter Property="Text"
+                                                    Value="{x:Static res:ConfigurationResource.ScanLevelAllCaption}" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Run.Style>
+                        </Run>
+                    </controls:TextLabel>
+                    <Slider Grid.Row="2" TickPlacement="BottomRight" Value="{Binding ScanLevel, Delay=500}"
+                            Maximum="100" Minimum="0" />
+
+                    <StackPanel Grid.Row="4" Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding ACLVisible}"
+                                  Content="{x:Static res:ConfigurationResource.AclGridVisibleCaption}"
+                                  Margin="0, 0, 10, 0" />
+                        <CheckBox IsChecked="{Binding ExcludeDisabledUsers}"
+                                  Content="{x:Static res:ConfigurationResource.ExcludeDisabledUsers}" />
+                        <controls:IconTip Icon="{StaticResource InformationIcon}"
+                                          TipText="{x:Static res:ConfigurationResource.ExcludeDisabledUsersDescription}"
+                                          Margin="10, 0, 0, 0" />
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Header="{x:Static res:ConfigurationResource.PermissionReportColumnHeader}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="{x:Static res:ConfigurationResource.ADPropertiesCaption}" />
+                    <DataGrid Grid.Row="2" CanUserSortColumns="False" VerticalScrollBarVisibility="Disabled"
+                              IsReadOnly="False"
+                              ItemsSource="{Binding ADProperties}" AutoGenerateColumns="False" CanUserAddRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{x:Static res:ConfigurationResource.NameCaption}"
+                                                Binding="{Binding Name}" />
+                            <DataGridTextColumn Header="{x:Static res:ConfigurationResource.DisplayNameCaption}"
+                                                Binding="{Binding DisplayName}" />
+                            <DataGridTemplateColumn Header="{x:Static res:ConfigurationResource.SelectedCaption}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox
+                                            IsChecked="{Binding Selected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                            HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Header="{x:Static res:ConfigurationResource.PermissionExclusionHeader}" Padding="0, 10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="{x:Static res:ConfigurationResource.ADGroupCaption}" />
+                    <DataGrid Grid.Row="2" CanUserSortColumns="False" VerticalScrollBarVisibility="Disabled"
+                              IsReadOnly="False"
+                              ItemsSource="{Binding ExclusionGroups}" AutoGenerateColumns="False" CanUserAddRows="True"
+                              ToolTip="{x:Static res:ConfigurationResource.NewGroupDescription}"
+                              SelectedItem="{Binding SelectedADGroup}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{x:Static res:ConfigurationResource.GroupNameCaption}"
+                                                Binding="{Binding Name}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <StackPanel Grid.Row="4" Style="{StaticResource LeftHorizontalButtonPanel}">
+                        <Button Content="{x:Static res:ConfigurationResource.DeleteCaption}"
+                                Command="{Binding DeleteADGroupCommand}" />
+                        <Button Content="{x:Static res:ConfigurationResource.SearchADCaption}"
+                                Command="{Binding SearchExclusionGroupCommand}" />
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Header="{x:Static res:ConfigurationResource.PermissionBuiltInGroupsHeader}">
+                <Button Content="{x:Static res:ConfigurationResource.BuiltInGroupCaption}"
+                        HorizontalAlignment="Left" Command="{Binding OpenBuiltInGroupsCommand}" />
+            </GroupBox>
+
+            <GroupBox Header="{x:Static res:ConfigurationResource.PermissionTranslationHeader}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="5" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="{x:Static res:ConfigurationResource.TranslationItemCaption}" />
+                    <DataGrid Grid.Row="2" CanUserSortColumns="False" VerticalScrollBarVisibility="Disabled"
+                              IsReadOnly="True"
+                              ItemsSource="{Binding TranslationItems}" AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              CanUserDeleteRows="True" SelectedItem="{Binding SelectedTranslation}">
+                        <DataGrid.InputBindings>
+                            <MouseBinding MouseAction="LeftDoubleClick"
+                                          Command="{Binding Command, ElementName=EditTranslation}" CommandParameter="2" />
+                        </DataGrid.InputBindings>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{x:Static res:ConfigurationResource.NameCaption}"
+                                                Binding="{Binding Name}" />
+                            <DataGridTextColumn Header="{x:Static res:ConfigurationResource.TranslatedNameCaption}"
+                                                Binding="{Binding DisplayName}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Grid.Row="4" Style="{StaticResource LeftHorizontalButtonPanel}">
+                        <Button Content="{x:Static res:ConfigurationResource.AddCaption}"
+                                Command="{Binding OpenTranslationCommand}" CommandParameter="1"
+                                HorizontalAlignment="Left" />
+
+                        <Button Content="{x:Static res:ConfigurationResource.EditCaption}"
+                                Command="{Binding OpenTranslationCommand}" CommandParameter="2"
+                                HorizontalAlignment="Left" Name="EditTranslation" />
+
+                        <Button Grid.Row="4" Content="{x:Static res:ConfigurationResource.DeleteCaption}"
+                                Command="{Binding DeleteTranslationCommand}"
+                                HorizontalAlignment="Left" />
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

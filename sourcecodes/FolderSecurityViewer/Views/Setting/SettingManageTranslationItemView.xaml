@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="FolderSecurityViewer.Views.Setting.SettingManageTranslationItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:FolderSecurityViewer.Controls"
+             xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel>
+        <controls:CommandTextBox Margin="0, 10"
+                                 Text="{Binding SetName, UpdateSourceTrigger=PropertyChanged, Delay={StaticResource BindingDelay}}"
+                                 Placeholder="{x:Static res:ConfigurationResource.TranslationNameCaption}" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="0">
+                <controls:TextLabel Text="{x:Static res:ConfigurationResource.TranslationACLCaption}"
+                                    Margin="0, 0, 0, 10" FontWeight="Bold" />
+                <ItemsControl ItemsSource="{Binding AccessControlTypes}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="0, 4">
+                                <RadioButton Content="{Binding Name}" IsChecked="{Binding Selected}" GroupName="ACType" />
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+
+            <StackPanel Grid.Row="0" Grid.Column="2">
+                <controls:TextLabel Text="{x:Static res:ConfigurationResource.TranslationPermissionsCaption}"
+                                    Margin="0, 0, 0, 10" FontWeight="Bold" />
+                <ItemsControl ItemsSource="{Binding FileSystemRights}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="0, 4">
+                                <CheckBox Content="{Binding Name}" IsChecked="{Binding Selected}" />
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+
+            <StackPanel Grid.Row="0" Grid.Column="4">
+                <controls:TextLabel Text="{x:Static res:ConfigurationResource.TranslationInheritanceCaption}"
+                                    Margin="0, 0, 0, 10" FontWeight="Bold" />
+                <ItemsControl ItemsSource="{Binding Inheritances}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="0, 4">
+                                <RadioButton Content="{Binding Name}" IsChecked="{Binding Selected}"
+                                             GroupName="Inheritance" />
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </Grid>
+        <Button Command="{Binding SaveCommand}" HorizontalAlignment="Right" Style="{StaticResource PrimaryButtonStyle}"
+                Content="{x:Static res:CommonResource.OKButtonCaption}" />
+    </StackPanel>
+</UserControl>

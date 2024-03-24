@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F06053AB-3442-498E-B0D0-C35A06EBA883}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FSV.FileSystem.Interop.UnitTest</RootNamespace>
+    <AssemblyName>FSV.FileSystem.Interop.UnitTest</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AclModelExtensionsTest.cs" />
+    <Compile Include="DirectoryFolderEnumeratorIntegrationTest.cs" />
+    <Compile Include="DirectoryFolderEnumeratorTest.cs" />
+    <Compile Include="DirectorySizeTest.cs" />
+    <Compile Include="FileManagementTest.cs" />
+    <Compile Include="FindFileEnumeratorTest.cs" />
+    <Compile Include="Kernel32Test.cs" />
+    <Compile Include="OwnerTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Win32FindDataExtensionsTest.cs" />
+    <Compile Include="Win32FindDataHelperTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Abstractions\FSV.FileSystem.Interop.Abstractions.csproj">
+      <Project>{2c724fb3-debf-4044-ab29-f31f3f35da3b}</Project>
+      <Name>FSV.FileSystem.Interop.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Core.Abstractions\FSV.FileSystem.Interop.Core.Abstractions.csproj">
+      <Project>{150c7c23-af8d-4e03-bbec-0c75d31e4a64}</Project>
+      <Name>FSV.FileSystem.Interop.Core.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Core\FSV.FileSystem.Interop.Core.csproj">
+      <Project>{afa58ad0-d547-4d95-87de-03443e02066c}</Project>
+      <Name>FSV.FileSystem.Interop.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSV.FileSystem.Interop\FSV.FileSystem.Interop.csproj">
+      <Project>{CD590216-FF4E-4AB6-A6D3-F1D45E3615A0}</Project>
+      <Name>FSV.FileSystem.Interop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSV.Models\FSV.Models.csproj">
+      <Project>{F268923F-4E6D-4C52-9B38-B4E370582283}</Project>
+      <Name>FSV.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging">
+      <Version>3.1.32</Version>
+    </PackageReference>
+    <PackageReference Include="Moq">
+      <Version>4.20.70</Version>
+    </PackageReference>
+    <PackageReference Include="MSTest.TestAdapter">
+      <Version>3.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="MSTest.TestFramework">
+      <Version>3.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks.Extensions">
+      <Version>4.5.4</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

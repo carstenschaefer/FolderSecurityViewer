@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="FolderSecurityViewer.Views.Setting.SettingSoftwareUpdateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:FolderSecurityViewer.Controls"
+             xmlns:res="clr-namespace:FSV.Resources;assembly=FSV.Resources"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel IsEnabled="{Binding IsEnabled}">
+        <Button Width="200" HorizontalAlignment="Left" Margin="0, 10" Command="{Binding CheckUpdateCommand}"
+                Content="{x:Static res:ConfigurationResource.CheckForUpdateCaption}">
+            <Button.Style>
+                <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding InProgress, Mode=OneWay}" Value="True">
+                            <Setter Property="IsEnabled" Value="False" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <StackPanel Orientation="Horizontal">
+            <ProgressBar Visibility="{Binding InProgress, Converter={StaticResource FalseCollapsedConverter}}"
+                         IsEnabled="{Binding InProgress, Mode=OneWay}"
+                         IsIndeterminate="True" />
+            <controls:TextLabel Text="{Binding ProgressText}" VerticalAlignment="Center" Margin="10" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>

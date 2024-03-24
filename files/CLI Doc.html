@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        section{
+            border-bottom: 1px solid #eee;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>
+            FSV CLI is a command-line tool that offers the most features from UI for scanning folders, creating reports, and exporting them with simple commands.
+            It primarily consists of these commands -
+            <code>pr [args]</code> for permission report,
+            <code>fr [args]</code> for forder report,
+            <code>or [args]</code> for owner report,
+            <code>sr [args]</code> for share report, and
+            <code>ur [args]</code> for user permission report.
+            FSV CLI exports the reports to Excel, HTML, or CSV files.
+        </p>
+        <section>
+            <h3>fsv</h3>
+            <p>Use <code>fsv --help</code> to list all commands.</p>
+            <pre>
+> fsv --help
+FolderSecurityViewer CLI (fsv), Version: 2.3.0.0 - Enterprise Edition
+
+Usage: fsv [options] [command]
+
+Options:
+  -?|-h|--help  Show help information
+
+Commands:
+  fr  Start folder report
+  or  Start owner report
+  pr  Start permission report
+  sr  Start share report
+  ur  Start user permissions report
+
+Use "fsv [command] --help" for more information about a command.
+            </pre>
+        </section>
+
+        <section>
+            <h3>fsv pr</h3>
+            <p>Use <code>fsv pr [path]</code> to start permission report on given directory.</p>
+            <pre>
+> fsv pr [arguments] [options]
+Arguments:
+    [path] A path of directory to scan. Use quotes if the path has whitespace in it.
+Options:
+    -h|-?|--help Show help information
+    -e|--export &lt;fileType&gt; [Optional] Export to file - excel, csv, or html. Default is html
+    -p|--path &lt;fileName&gt; [Optional] An export file path.
+    -d|--db [Optional] Export to database.
+    -df|--difference [Optional] Compare sub-directories for difference in permissions, and export to default directory.
+    -dp|--difference-path &lt;fileName&gt; [Optional] An export file path for difference of permissions.
+            </pre>
+            <h4>Description</h4>
+            <div>
+                <p><code>fsv pr [path]</code> starts permission report to analyze NTFS permissions of given folder in your Windows server environment, and exports the result in specified file format.</p>
+                <ul class="list">
+                    <li><code>[path]</code> - A local or UNC folder path on which the NTFS permissions analysis has to be performed. This argument is required.</li>
+                    <li><code>-e</code> or <code>--export</code> - Exports to one of supported file formats - Excel, HTML, or CSV. If this option is omitted, HTML is used.</li>
+                    <li>
+                        <code>-p</code> or <code>--path</code> - Use this option to export permission report result to path of your choice.
+                        Default location of exported file is <code>FolderSecurityViewer\Export</code> in your <code>Documents</code> folder.
+                    </li>
+                    <li><code>-d</code> or <code>--db</code> - Use this option to save permission report result in database.</li>
+                    <li><code>-df</code> or <code>--difference</code> - Use this option to scan the difference in permissions of sub-folders, and exports the file in default location. If omitted, the scan doesn't initiate.</li>
+                    <li>
+                        <code>-dp</code> or <code>--difference-path</code> - Use this option to export difference of permissions report result to path of your choice.
+                        Default location of exported file is <code>FolderSecurityViewer\Export</code> in your <code>Documents</code> folder.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h3>fsv fr</h3>
+            <p>Use <code>fsv fr [path]</code> to start folder report on given directory.</p>
+            <pre>
+> fsv fr [arguments] [options]
+Arguments:
+    [path]  A path of directory to scan. Use quotes if the path has whitespace in it.
+Options:
+    -h|-?|--help  Show help information
+    -e|--export &lt;fileType&gt; Export to file - excel, csv, or html. Default is HTML
+    -p|--path &lt;fileName&gt; An export file path.
+            </pre>
+            <h4>Description</h4>
+            <div>
+                <p><code>fsv fr [path]</code> starts folder report to flatten specific folder, and its subfolders into a single list with details like owner, size of folder, and number of files in it.</p>
+                <ul class="list">
+                    <li><code>[path]</code> - A local path of folder. This argument is required.</li>
+                    <li><code>-e</code> or <code>--export</code> - Exports to one of supported file formats - Excel, HTML, or CSV. If this option is omitted, HTML is used.</li>
+                    <li>
+                        <code>-p</code> or <code>--path</code> - Use this option to export folder report result to path of your choice.
+                        Default location of exported file is <code>FolderSecurityViewer\Export</code> in your <code>Documents</code> folder.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h3>fsv or</h3>
+            <p>Use <code>fsv or [path] [owner]</code> to start owner report on given directory.</p>
+            <pre>
+> fsv or [arguments] [options]
+Arguments:
+  [path]   A path of directory to scan. Use quotes if the path has whitespace in it.
+  [owner]  A name of owner
+Options:
+  -h|-?|--help  Show help information
+  -e|--export &lt;fileType&gt;  Export to file - excel, csv, or html. Default is HTML
+  -p|--path &lt;fileName&gt;    An export file path.
+            </pre>
+            <h4>Description</h4>
+            <div>
+                <p><code>fsv or [path]</code> starts owner report to scan specific folder, and its subfolders to find out the folders in which specified user is set as an owner.</p>
+                <ul class="list">
+                    <li><code>[path]</code> - A local path of folder where the scan is started. This argument is required.</li>
+                    <li><code>[owner]</code> - Name of a user to scan the folder for its ownership. If this argument is not provided, the export file lists all folders with name of their owners.</li>
+                    <li><code>-e</code> or <code>--export</code> - Exports to one of supported file formats - Excel, HTML, or CSV. If this option is omitted, HTML is used.</li>
+                    <li>
+                        <code>-p</code> or <code>--path</code> - Use this option to export folder report result to path of your choice.
+                        Default location of exported file is <code>FolderSecurityViewer\Export</code> in your <code>Documents</code> folder.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h3>fsv sr</h3>
+            <p>Use <code>fsv sr [server]</code> to start share report.</p>
+            <pre>
+> fsv fr [arguments] [options]
+Arguments:
+    [server]  A name of shared server.
+Options:
+    -h|-?|--help  Show help information
+    -e|--export &lt;fileType&gt; Export to file - excel, csv, or html. Default is HTML
+    -p|--path &lt;fileName&gt; An export file path.
+            </pre>
+            <h4>Description</h4>
+            <div>
+                <p><code>fsv sr [server]</code> starts share report to list shares of given server.</p>
+                <ul class="list">
+                    <li><code>[path]</code> - A local path of folder. This argument is required.</li>
+                    <li><code>-e</code> or <code>--export</code> - Exports to one of supported file formats - Excel, HTML, or CSV. If this option is omitted, HTML is used.</li>
+                    <li>
+                        <code>-p</code> or <code>--path</code> - Use this option to export folder report result to path of your choice.
+                        Default location of exported file is <code>FolderSecurityViewer\Export</code> in your <code>Documents</code> folder.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h3>fsv ur</h3>
+            <p>Use <code>fsv ur [path] [user]</code> to scan given Active Directory user deep in directory hierarchy.</p>
+            <pre>
+> fsv pr [arguments] [options]
+Arguments:
+    [path] A path of directory to scan. Use quotes if the path has whitespace in it.
+    [user] A name of Active Directory user.
+Options:
+    -h|-?|--help Show help information
+    -e|--export &lt;fileType&gt; [Optional] Export to file - excel, csv, or html. Default is html
+    -p|--path &lt;fileName&gt; [Optional] An export file path.
+            </pre>
+            <h4>Description</h4>
+            <div>
+                <p><code>fsv pr [path]</code> starts permission report to analyze NTFS permissions of given folder in your Windows server environment, and exports the result in specified file format.</p>
+                <ul class="list">
+                    <li><code>[path]</code> - A local or UNC folder path on which the NTFS permissions analysis has to be performed. This argument is required.</li>
+                    <li><code>[user]</code> - A name of Active Directory user to search in given directory or its sub-directories. This argument is required.</li>
+                    <li><code>-e</code> or <code>--export</code> - Exports to one of supported file formats - Excel, HTML, or CSV. If this option is omitted, HTML is used.</li>
+                    <li>
+                        <code>-p</code> or <code>--path</code> - Use this option to export permission report result to path of your choice.
+                        Default location of exported file is <code>FolderSecurityViewer\Export</code> in your <code>Documents</code> folder.
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
