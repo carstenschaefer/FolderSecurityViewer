@@ -1,4 +1,4 @@
-This README is just a fast quick start document. You can find more detailed information in the official docs.
+This README is just a fast quick start document. You can find more detailed information in the [official docs](https://g-tac.gitbook.io/foldersecurityviewer).
 
 ## What is FolderSecurityViewer?
 
