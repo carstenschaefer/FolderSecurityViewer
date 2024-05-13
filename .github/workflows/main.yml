@@ -1,0 +1,29 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install .NET Framework 4.7.2
+      run: |  
+        choco install netfx-4.7.2-devpack -y --execution-timeout=30m
+        dotnet --list-sdks
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+        
+    - name: Build
+      run: |
+        cd sourcecodes
+        dotnet build FolderSecurityViewer.sln --configuration Release
