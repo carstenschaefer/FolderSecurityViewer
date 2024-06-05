@@ -1,5 +1,5 @@
 // FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
-// Copyright (C) 2015 - 2024  Carsten Sch‰fer, Matthias Friedrich, and Ritesh Gite
+// Copyright (C) 2015 - 2024  Carsten Sch√§fer, Matthias Friedrich, and Ritesh Gite
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -57,12 +57,15 @@ namespace FSV.Extensions.Serialization.UnitTest
                 return false;
             }
 
-            return this.Equals((MutableAvenger)obj);
+            return Equals((MutableAvenger)obj);
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(this.Name, this.AlterEgo);
+            unchecked
+            {
+                return ((this.Name != null ? this.Name.GetHashCode() : 0) * 397) ^ (this.AlterEgo != null ? this.AlterEgo.GetHashCode() : 0);
+            }
         }
     }
 }
