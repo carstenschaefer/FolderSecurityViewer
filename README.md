@@ -37,7 +37,7 @@ If you want to automate your NTFS permissions reporting, you can use the Command
 
 The application can be compiled on Windows, and depends on the following Frameworks and utilities:
 
-* .NET Framework 4.7.2
+* .NET Framework 4.7.2, and .NET Framework 4.8
 * Optional: Visual Studio 2022
 * MSBuild version 17.9.8 or above
 

@@ -1,5 +1,5 @@
 // FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
-// Copyright (C) 2015 - 2024  Carsten Schäfer, Matthias Friedrich, and Ritesh Gite
+// Copyright (C) 2015 - 2024  Carsten Schï¿½fer, Matthias Friedrich, and Ritesh Gite
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -60,7 +60,7 @@ namespace FSV.Extensions.Serialization.UnitTest
 
             ISerializationWrapper sut = wrapperFactory(SerializerType.Json);
 
-            await using var stream = new MemoryStream();
+            using var stream = new MemoryStream();
 
             // Act
             await sut.SerializeAsync(stream, expected);
@@ -87,7 +87,7 @@ namespace FSV.Extensions.Serialization.UnitTest
             string json = JsonConvert.SerializeObject(model);
             byte[] bytes = Encoding.UTF8.GetBytes(json);
 
-            target.Write(bytes);
+            target.Write(bytes, 0, bytes.Length);
             target.Seek(0, SeekOrigin.Begin);
         }
     }
