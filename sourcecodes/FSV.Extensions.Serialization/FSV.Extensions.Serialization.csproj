@@ -1,25 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <LangVersion>latest</LangVersion>
-        <SignAssembly>true</SignAssembly>
-        <AssemblyVersion>2.7.0.0</AssemblyVersion>
-        <FileVersion>2.7.0.0</FileVersion>
-        <Description>Part of G-TAC's NTFS Permissions Reporter 'FolderSecurityViewer'</Description>
-        <Company>G-TAC Software UG, Katzweiler, Germany</Company>
-        <Copyright>Copyright © 2015 - 2022 G-TAC Software UG</Copyright>
-        <Product>FolderSecurityViewer</Product>
-        <Authors>G-TAC</Authors>
-        <Version>2.6.0</Version>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj"/>
-    </ItemGroup>
-
+  <PropertyGroup>
+    <AnalysisLevel>none</AnalysisLevel>
+    <AssemblyVersion>2.7.0.0</AssemblyVersion>
+    <Authors>G-TAC</Authors>
+    <Company>G-TAC Software UG, Katzweiler, Germany</Company>
+    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Description>Part of G-TAC's NTFS Permissions Reporter "FolderSecurityViewer"</Description>
+    <FileVersion>2.7.0.0</FileVersion>
+    <LangVersion>latest</LangVersion>
+    <Product>FolderSecurityViewer</Product>
+    <TargetFramework>net8.0</TargetFramework>
+    <Version>2.6.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj" />
+  </ItemGroup>
 </Project>

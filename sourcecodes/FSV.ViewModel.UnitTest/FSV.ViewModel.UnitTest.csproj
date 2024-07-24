@@ -1,213 +1,64 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3E03EB4B-52A0-456B-A518-CB99A34F14F2}</ProjectGuid>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FSV.ViewModel.UnitTest</RootNamespace>
-    <AssemblyName>FSV.ViewModel.UnitTest</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
-    <IsCodedUITest>False</IsCodedUITest>
-    <TestProjectType>UnitTest</TestProjectType>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <LangVersion>latest</LangVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <AssemblyTitle>FSV.ViewModel.UnitTest</AssemblyTitle>
+    <Product>FSV.ViewModel.UnitTest</Product>
+    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <AnalysisLevel>none</AnalysisLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AdBrowserViewModelTest.cs" />
-    <Compile Include="ComputerPrincipalViewModelTest.cs" />
-    <Compile Include="AsyncRelayCommandTest.cs" />
-    <Compile Include="DomainViewModelTest.cs" />
-    <Compile Include="ExportTableGeneratorTest.cs" />
-    <Compile Include="FolderTreeItemViewModelTest.cs" />
-    <Compile Include="GroupPermissionsViewModelTest.cs" />
-    <Compile Include="ImmutableFolderExtensions.cs" />
-    <Compile Include="FolderTreeItemSelectorTest.cs" />
-    <Compile Include="GroupMembersViewModelTest.cs" />
-    <Compile Include="ImmutableFolderModel.cs" />
-    <Compile Include="ModelBuilderResolverSmokeTest.cs" />
-    <Compile Include="ModelBuilderTest.cs" />
-    <Compile Include="PermissionsViewModelTest.cs" />
-    <Compile Include="PrincipalMembershipViewModelTest.cs" />
-    <Compile Include="PrincipalViewModelTest.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SavedUserReportListItemViewModelTest.cs" />
-    <Compile Include="SavedUserReportViewModelTest.cs" />
-    <Compile Include="ServersContainerViewModelTest.cs" />
-    <Compile Include="SharedServerViewModelTest.cs" />
-    <Compile Include="ShareScannerFactoryTest.cs" />
-    <Compile Include="SortOrderTest.cs" />
-    <Compile Include="TemplateContainerViewModelTest.cs" />
-    <Compile Include="UserReportDetailListItemViewModelTest.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
     <EmbeddedResource Include="Json\Folders.json" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces">
-      <Version>7.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection">
-      <Version>3.1.32</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <Version>3.1.32</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging">
-      <Version>3.1.32</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions">
-      <Version>3.1.32</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Options">
-      <Version>3.1.32</Version>
+    <PackageReference Include="Castle.Core" Version="5.1.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk">
+      <Version>17.10.0</Version>
     </PackageReference>
     <PackageReference Include="Moq">
       <Version>4.20.70</Version>
     </PackageReference>
-    <PackageReference Include="MSTest.TestAdapter">
-      <Version>3.2.2</Version>
-    </PackageReference>
+    <PackageReference Include="MSTest.TestAdapter" Version="3.5.0" />
     <PackageReference Include="MSTest.TestFramework">
-      <Version>3.2.2</Version>
-    </PackageReference>
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe">
-      <Version>6.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="System.Threading.Tasks.Extensions">
-      <Version>4.5.4</Version>
+      <Version>3.5.0</Version>
     </PackageReference>
     <PackageReference Include="xunit">
-      <Version>2.7.0</Version>
+      <Version>2.9.0</Version>
     </PackageReference>
     <PackageReference Include="Xunit.StaFact">
-      <Version>1.0.37</Version>
+      <Version>1.1.11</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FolderSecurityViewer\FolderSecurityViewer.csproj">
-      <Project>{9EF5069E-F950-4239-B3EA-8ECEA50FB4A0}</Project>
-      <Name>FolderSecurityViewer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.AdServices\FSV.AdServices.csproj">
-      <Project>{544ef25e-75dc-4166-9ff2-f0005388146f}</Project>
-      <Name>FSV.AdServices</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Business\FSV.Business.csproj">
-      <Project>{F637CDFC-D5E9-419A-BD7F-F7D320BEA3C0}</Project>
-      <Name>FSV.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Configuration.Abstractions\FSV.Configuration.Abstractions.csproj">
-      <Project>{6ef8b753-c9ef-4f1a-bdeb-58efa7dd3487}</Project>
-      <Name>FSV.Configuration.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Configuration\FSV.Configuration.csproj">
-      <Project>{0BDC0C6C-06BB-4DCD-AB93-E7FC035EB0AF}</Project>
-      <Name>FSV.Configuration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Crypto.Abstractions\FSV.Crypto.Abstractions.csproj">
-      <Project>{a9dbba78-ee29-43d0-a67f-a92af66531e1}</Project>
-      <Name>FSV.Crypto.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Crypto\FSV.Crypto.csproj">
-      <Project>{210DEDB1-6EDF-4D10-8251-5AA27BDB8EF9}</Project>
-      <Name>FSV.Crypto</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Database\FSV.Database.csproj">
-      <Project>{AA409F5F-9D8C-430A-B7ED-CA3DCFD66550}</Project>
-      <Name>FSV.Database</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj">
-      <Project>{0B87440C-CE77-4D3F-AD5D-1EA72363A51E}</Project>
-      <Name>FSV.Extensions.DependencyInjection</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Extensions.Logging\FSV.Extensions.Logging.csproj">
-      <Project>{10ef5d74-77e9-4f8c-b0fb-ab44fb908119}</Project>
-      <Name>FSV.Extensions.Logging</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop.Abstractions\FSV.FileSystem.Interop.Abstractions.csproj">
-      <Project>{2c724fb3-debf-4044-ab29-f31f3f35da3b}</Project>
-      <Name>FSV.FileSystem.Interop.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop.Core\FSV.FileSystem.Interop.Core.csproj">
-      <Project>{afa58ad0-d547-4d95-87de-03443e02066c}</Project>
-      <Name>FSV.FileSystem.Interop.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop\FSV.FileSystem.Interop.csproj">
-      <Project>{CD590216-FF4E-4AB6-A6D3-F1D45E3615A0}</Project>
-      <Name>FSV.FileSystem.Interop</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FolderTree\FSV.FolderTree.csproj">
-      <Project>{FD1D8BAE-014C-4941-BA49-33182955689C}</Project>
-      <Name>FSV.FolderTree</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Models\FSV.Models.csproj">
-      <Project>{f268923f-4e6d-4c52-9b38-b4e370582283}</Project>
-      <Name>FSV.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Resources\FSV.Resources.csproj">
-      <Project>{7F0DCB46-1B42-4000-A481-6BDFB2103A87}</Project>
-      <Name>FSV.Resources</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Security\FSV.Security.csproj">
-      <Project>{98992e64-a68a-42bd-a083-695bd84c8f66}</Project>
-      <Name>FSV.Security</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.ShareServices\FSV.ShareServices.csproj">
-      <Project>{f0fdd4e2-0047-452c-9980-227c2c41c4f3}</Project>
-      <Name>FSV.ShareServices</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Templates\FSV.Templates.csproj">
-      <Project>{255c8131-0b4a-48a0-a318-b51ea6d8225f}</Project>
-      <Name>FSV.Templates</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.ViewModel\FSV.ViewModel.csproj">
-      <Project>{c0fdc758-241d-4925-a74c-4816d9191ca1}</Project>
-      <Name>FSV.ViewModel</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\FolderSecurityViewer\FolderSecurityViewer.csproj" />
+    <ProjectReference Include="..\FSV.AdServices\FSV.AdServices.csproj" />
+    <ProjectReference Include="..\FSV.Business\FSV.Business.csproj" />
+    <ProjectReference Include="..\FSV.Configuration.Abstractions\FSV.Configuration.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.Configuration\FSV.Configuration.csproj" />
+    <ProjectReference Include="..\FSV.Crypto.Abstractions\FSV.Crypto.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.Crypto\FSV.Crypto.csproj" />
+    <ProjectReference Include="..\FSV.Database\FSV.Database.csproj" />
+    <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj" />
+    <ProjectReference Include="..\FSV.Extensions.Logging\FSV.Extensions.Logging.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Abstractions\FSV.FileSystem.Interop.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Core\FSV.FileSystem.Interop.Core.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop\FSV.FileSystem.Interop.csproj" />
+    <ProjectReference Include="..\FSV.FolderTree\FSV.FolderTree.csproj" />
+    <ProjectReference Include="..\FSV.Models\FSV.Models.csproj" />
+    <ProjectReference Include="..\FSV.Resources\FSV.Resources.csproj" />
+    <ProjectReference Include="..\FSV.Security\FSV.Security.csproj" />
+    <ProjectReference Include="..\FSV.ShareServices\FSV.ShareServices.csproj" />
+    <ProjectReference Include="..\FSV.Templates\FSV.Templates.csproj" />
+    <ProjectReference Include="..\FSV.ViewModel\FSV.ViewModel.csproj" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Xml\GroupPermissions.xml" />
   </ItemGroup>
-  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

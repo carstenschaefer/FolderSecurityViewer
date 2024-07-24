@@ -1,745 +1,64 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9EF5069E-F950-4239-B3EA-8ECEA50FB4A0}</ProjectGuid>
+    <Authors>Carsten Schäfer, Matthias Friedrich, and Ritesh Gite</Authors>
+    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Description>FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.</Description>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <IsPackable>false</IsPackable>
     <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FolderSecurityViewer</RootNamespace>
-    <AssemblyName>FolderSecurityViewer</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <RestorePackages>true</RestorePackages>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Title>FolderSecurityViewer</Title>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <Version>2.7.0</Version>
+    <AssemblyVersion>2.7.0</AssemblyVersion>
+    <FileVersion>2.7.0</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <LangVersion>latest</LangVersion>
+    <Optimize>true</Optimize>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Resources\Images\AppIcon.ico</ApplicationIcon>
+    <AnalysisLevel>none</AnalysisLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-  </ItemGroup>
-  <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="AppModule.cs" />
-    <Compile Include="Controls\ButtonPanel.cs" />
-    <Compile Include="Controls\Flyout.cs" />
-    <Compile Include="Controls\FolderTreeView.cs" />
-    <Compile Include="Controls\HeaderedContainer.cs" />
-    <Compile Include="Controls\ContentContainer.cs" />
-    <Compile Include="Controls\BaseGridViewControl.cs" />
-    <Compile Include="Controls\CommandTextBox.cs" />
-    <Compile Include="Controls\CustomWindow.cs" />
-    <Compile Include="Controls\IconButton.cs" />
-    <Compile Include="Controls\IconButtonSize.cs" />
-    <Compile Include="Controls\IconTip.cs" />
-    <Compile Include="Controls\Pagination.xaml.cs">
-      <DependentUpon>Pagination.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\PathSelector.xaml.cs">
-      <DependentUpon>PathSelector.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\PathSelectorItem.cs" />
-    <Compile Include="Controls\PathSelectorItemEqualityComparer.cs" />
-    <Compile Include="Controls\PathToEnumerableConverter.cs" />
-    <Compile Include="Controls\RevealPasswordBox.cs" />
-    <Compile Include="Controls\SearchViewHeader.xaml.cs">
-      <DependentUpon>SearchViewHeader.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Spinner.cs" />
-    <Compile Include="Controls\CustomTextBox.cs" />
-    <Compile Include="Controls\SubspaceContainer.xaml.cs">
-      <DependentUpon>SubspaceContainer.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\TextLabel.cs" />
-    <Compile Include="Controls\VerticalPanel.cs" />
-    <Compile Include="Converters\BooleanConverter.cs" />
-    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Converters\DisplayNameTitleMultiValueConverter.cs" />
-    <Compile Include="Converters\GroupInheritanceItemsCountConverter.cs" />
-    <Compile Include="Converters\InverseBooleanConverter.cs" />
-    <Compile Include="Converters\NullToVisibilityConverter.cs" />
-    <Compile Include="Converters\NumberToVisibilityConverter.cs" />
-    <Compile Include="Converters\OperatorConverter.cs" />
-    <Compile Include="Converters\StringNullOrEmptyToVisibilityConverter.cs" />
-    <Compile Include="DialogService.cs" />
-    <Compile Include="Extensions\ItemContainerGeneratorExtensions.cs" />
-    <Compile Include="Extensions\VisualExtension.cs" />
-    <Compile Include="Helpers\ControlDoubleClickBehavior.cs" />
-    <Compile Include="Helpers\ResourceBinding.cs" />
-    <Compile Include="DialogWindow.xaml.cs">
-      <DependentUpon>DialogWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Helpers\ShowSystemMenuBehavior.cs" />
-    <Compile Include="Helpers\SystemMenuManager.cs" />
-    <Compile Include="Helpers\TabCollectorHelper.cs" />
-    <Compile Include="Helpers\TabItemFirstItemSelector.cs" />
-    <Compile Include="Helpers\WindowCloseCommand.cs" />
-    <Compile Include="Helpers\WindowDragBehavior.cs" />
-    <Compile Include="Helpers\WindowMaximizeCommand.cs" />
-    <Compile Include="Helpers\WindowMinimizeCommand.cs" />
-    <Compile Include="Helpers\WindowResizeBehavior.cs" />
-    <Compile Include="HomeWindow.xaml.cs">
-      <DependentUpon>HomeWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Selectors\PathSeparatorDataTemplateSelector.cs" />
-    <Compile Include="Selectors\TabItemStyleSelector.cs" />
-    <Compile Include="Settings.cs" />
-    <Compile Include="Views\ADBrowserView.xaml.cs">
-      <DependentUpon>ADBrowserView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AddServersView.xaml.cs">
-      <DependentUpon>AddServersView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AdMembers\GroupMembersView.xaml.cs">
-      <DependentUpon>GroupMembersView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AdMembers\MembershipView.xaml.cs">
-      <DependentUpon>MembershipView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\BindingProxy.cs" />
-    <Compile Include="Views\Folder\FolderView.xaml.cs">
-      <DependentUpon>FolderView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Home\FolderTreeView.xaml.cs">
-      <DependentUpon>FolderTreeView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Home\LandingView.xaml.cs">
-      <DependentUpon>LandingView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Home\SplashView.xaml.cs">
-      <DependentUpon>SplashView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Home\ReportContainerView.xaml.cs">
-      <DependentUpon>ReportContainerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Permission\ComparePermissionsView.xaml.cs">
-      <DependentUpon>ComparePermissionsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Permission\GroupPermissionsView.xaml.cs">
-      <DependentUpon>GroupPermissionsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Permission\PermissionDifferenceView.xaml.cs">
-      <DependentUpon>PermissionDifferenceView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Permission\PermissionOwnerView.xaml.cs">
-      <DependentUpon>PermissionOwnerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingReportShareView.xaml.cs">
-      <DependentUpon>SettingReportShareView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\User\CompareUserReportView.xaml.cs">
-      <DependentUpon>CompareUserReportView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Permission\GroupInheritanceView.xaml.cs">
-      <DependentUpon>GroupInheritanceView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\GroupMembersView.xaml.cs">
-      <DependentUpon>GroupMembersView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Owner\OwnerReportView.xaml.cs">
-      <DependentUpon>OwnerReportView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Permission\PermissionACLView.xaml.cs">
-      <DependentUpon>PermissionACLView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Permission\PermissionSavedListView.xaml.cs">
-      <DependentUpon>PermissionSavedListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Permission\AllSavedReportListView.xaml.cs">
-      <DependentUpon>AllSavedReportListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\User\SavedAllUserReportView.xaml.cs">
-      <DependentUpon>SavedAllUserReportView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Permission\SavedPermissionDetailsView.xaml.cs">
-      <DependentUpon>SavedPermissionDetailsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\User\SavedUserReportView.xaml.cs">
-      <DependentUpon>SavedUserReportView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Share\ServersContainerView.xaml.cs">
-      <DependentUpon>ServersContainerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingAboutView.xaml.cs">
-      <DependentUpon>SettingAboutView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingBuiltInGroupsView.xaml.cs">
-      <DependentUpon>SettingBuiltInGroupsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingConfigurationView.xaml.cs">
-      <DependentUpon>SettingConfigurationView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingDatabaseSQLite.xaml.cs">
-      <DependentUpon>SettingDatabaseSQLite.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingDatabaseSqlServer.xaml.cs">
-      <DependentUpon>SettingDatabaseSqlServer.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingDatabaseView.xaml.cs">
-      <DependentUpon>SettingDatabaseView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingExclusionGroupSearchView.xaml.cs">
-      <DependentUpon>SettingExclusionGroupSearchView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ExportView.xaml.cs">
-      <DependentUpon>ExportView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Permission\FolderSavedReportListView.xaml.cs">
-      <DependentUpon>FolderSavedReportListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Permission\PermissionsView.xaml.cs">
-      <DependentUpon>PermissionsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingManageTranslationItemView.xaml.cs">
-      <DependentUpon>SettingManageTranslationItemView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MessageView.xaml.cs">
-      <DependentUpon>MessageView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingNetworkView.xaml.cs">
-      <DependentUpon>SettingNetworkView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingLogView.xaml.cs">
-      <DependentUpon>SettingLogView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingReportFolderView.xaml.cs">
-      <DependentUpon>SettingReportFolderView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingReportPermissionView.xaml.cs">
-      <DependentUpon>SettingReportPermissionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingReportUserView.xaml.cs">
-      <DependentUpon>SettingReportUserView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingReportView.xaml.cs">
-      <DependentUpon>SettingReportView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingView.xaml.cs">
-      <DependentUpon>SettingView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Setting\SettingSoftwareUpdateView.xaml.cs">
-      <DependentUpon>SettingSoftwareUpdateView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Share\ShareDetailView.xaml.cs">
-      <DependentUpon>ShareDetailView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Share\ShareReportView.xaml.cs">
-      <DependentUpon>ShareReportView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Template\TemplateEditView.xaml.cs">
-      <DependentUpon>TemplateEditView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Template\TemplatesView.xaml.cs">
-      <DependentUpon>TemplatesView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TourOptionsView.xaml.cs">
-      <DependentUpon>TourOptionsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\User\SkippedFolders.xaml.cs">
-      <DependentUpon>SkippedFolders.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\User\UserReportView.xaml.cs">
-      <DependentUpon>UserReportView.xaml</DependentUpon>
-    </Compile>
-    <Page Include="Controls\Pagination.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\PathSelector.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\SearchViewHeader.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\SubspaceContainer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DialogWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="HomeWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Resources\Converters.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\DataTemplates.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\DataTemplates\AdBrowser.xaml" />
-    <Page Include="Resources\Images\Paths.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\CheckBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\ContentControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\Flyout.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\ToolTip.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\Menu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\DataGrid.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\Button.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\Common.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\Icon.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\ListBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\ComboBox.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Resources\Styles\Panel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\ProgressBar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\ScrollBar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\Slider.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\TabControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Resources\Styles\TextBlock.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\TextBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\TreeView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Theme.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ADBrowserView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\AddServersView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\AdMembers\GroupMembersView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\AdMembers\MembershipView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Folder\FolderView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Home\FolderTreeView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Home\LandingView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Home\SplashView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Home\ReportContainerView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Permission\ComparePermissionsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Permission\GroupPermissionsView.xaml" />
-    <Page Include="Views\Permission\PermissionDifferenceView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Permission\PermissionOwnerView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Setting\SettingReportShareView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\User\CompareUserReportView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Permission\GroupInheritanceView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\GroupMembersView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Owner\OwnerReportView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Permission\PermissionACLView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Permission\PermissionSavedListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Permission\AllSavedReportListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\User\SavedAllUserReportView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Permission\SavedPermissionDetailsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\User\SavedUserReportView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Share\ServersContainerView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Setting\SettingAboutView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Setting\SettingBuiltInGroupsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Setting\SettingConfigurationView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Setting\SettingDatabaseSQLite.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Setting\SettingDatabaseSqlServer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Setting\SettingDatabaseView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Setting\SettingExclusionGroupSearchView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ExportView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Permission\FolderSavedReportListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Permission\PermissionsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Setting\SettingManageTranslationItemView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\MessageView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Setting\SettingNetworkView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Setting\SettingLogView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Setting\SettingReportFolderView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Setting\SettingReportPermissionView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Setting\SettingReportUserView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Setting\SettingReportView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Setting\SettingView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Setting\SettingSoftwareUpdateView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Share\ShareDetailView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Share\ShareReportView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Template\TemplateEditView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Template\TemplatesView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TourOptionsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\User\SkippedFolders.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\User\UserReportView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <Resource Include="Resources\Fonts\Poppins-ExtraLight.ttf" />
     <Resource Include="Resources\Fonts\Poppins-Light.ttf" />
     <Resource Include="Resources\Fonts\Poppins-Medium.ttf" />
     <Resource Include="Resources\Fonts\Poppins-Regular.ttf" />
     <Resource Include="Resources\Fonts\Poppins-SemiBold.ttf" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FSV.AdServices\FSV.AdServices.csproj">
-      <Project>{544EF25E-75DC-4166-9FF2-F0005388146F}</Project>
-      <Name>FSV.AdServices</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Business\FSV.Business.csproj">
-      <Project>{f637cdfc-d5e9-419a-bd7f-f7d320bea3c0}</Project>
-      <Name>FSV.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Configuration\FSV.Configuration.csproj">
-      <Project>{0bdc0c6c-06bb-4dcd-ab93-e7fc035eb0af}</Project>
-      <Name>FSV.Configuration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Console\FSV.Console.csproj">
-      <Project>{e16faf7b-85ff-4f41-b555-2fa1bc7ae662}</Project>
-      <Name>FSV.Console</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Crypto.Abstractions\FSV.Crypto.Abstractions.csproj">
-      <Project>{A9DBBA78-EE29-43D0-A67F-A92AF66531E1}</Project>
-      <Name>FSV.Crypto.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Crypto\FSV.Crypto.csproj">
-      <Project>{210dedb1-6edf-4d10-8251-5aa27bdb8ef9}</Project>
-      <Name>FSV.Crypto</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj">
-      <Project>{0B87440C-CE77-4D3F-AD5D-1EA72363A51E}</Project>
-      <Name>FSV.Extensions.DependencyInjection</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Extensions.Logging\FSV.Extensions.Logging.csproj">
-      <Project>{10ef5d74-77e9-4f8c-b0fb-ab44fb908119}</Project>
-      <Name>FSV.Extensions.Logging</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Extensions.Serialization\FSV.Extensions.Serialization.csproj">
-      <Project>{67daa557-8568-4bb9-98ef-74e1103ebf8e}</Project>
-      <Name>FSV.Extensions.Serialization</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Extensions.WindowConfiguration\FSV.Extensions.WindowConfiguration.csproj">
-      <Project>{1e50afad-5e89-4f51-a194-bc08fba61a2f}</Project>
-      <Name>FSV.Extensions.WindowConfiguration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop.Abstractions\FSV.FileSystem.Interop.Abstractions.csproj">
-      <Project>{2c724fb3-debf-4044-ab29-f31f3f35da3b}</Project>
-      <Name>FSV.FileSystem.Interop.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop.Core.Abstractions\FSV.FileSystem.Interop.Core.Abstractions.csproj">
-      <Project>{150c7c23-af8d-4e03-bbec-0c75d31e4a64}</Project>
-      <Name>FSV.FileSystem.Interop.Core.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop\FSV.FileSystem.Interop.csproj">
-      <Project>{CD590216-FF4E-4AB6-A6D3-F1D45E3615A0}</Project>
-      <Name>FSV.FileSystem.Interop</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FolderTree\FSV.FolderTree.csproj">
-      <Project>{fd1d8bae-014c-4941-ba49-33182955689c}</Project>
-      <Name>FSV.FolderTree</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Models\FSV.Models.csproj">
-      <Project>{F268923F-4E6D-4C52-9B38-B4E370582283}</Project>
-      <Name>FSV.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Resources\FSV.Resources.csproj">
-      <Project>{7f0dcb46-1b42-4000-a481-6bdfb2103a87}</Project>
-      <Name>FSV.Resources</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Security\FSV.Security.csproj">
-      <Project>{98992e64-a68a-42bd-a083-695bd84c8f66}</Project>
-      <Name>FSV.Security</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.ShareServices\FSV.ShareServices.csproj">
-      <Project>{f0fdd4e2-0047-452c-9980-227c2c41c4f3}</Project>
-      <Name>FSV.ShareServices</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.ViewModel\FSV.ViewModel.csproj">
-      <Project>{c0fdc758-241d-4925-a74c-4816d9191ca1}</Project>
-      <Name>FSV.ViewModel</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\FSV.AdServices\FSV.AdServices.csproj" />
+    <ProjectReference Include="..\FSV.Business\FSV.Business.csproj" />
+    <ProjectReference Include="..\FSV.Configuration\FSV.Configuration.csproj" />
+    <ProjectReference Include="..\FSV.Console\FSV.Console.csproj" />
+    <ProjectReference Include="..\FSV.Crypto.Abstractions\FSV.Crypto.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.Crypto\FSV.Crypto.csproj" />
+    <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj" />
+    <ProjectReference Include="..\FSV.Extensions.Logging\FSV.Extensions.Logging.csproj" />
+    <ProjectReference Include="..\FSV.Extensions.Serialization\FSV.Extensions.Serialization.csproj" />
+    <ProjectReference Include="..\FSV.Extensions.WindowConfiguration\FSV.Extensions.WindowConfiguration.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Abstractions\FSV.FileSystem.Interop.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Core.Abstractions\FSV.FileSystem.Interop.Core.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop\FSV.FileSystem.Interop.csproj" />
+    <ProjectReference Include="..\FSV.FolderTree\FSV.FolderTree.csproj" />
+    <ProjectReference Include="..\FSV.Models\FSV.Models.csproj" />
+    <ProjectReference Include="..\FSV.Resources\FSV.Resources.csproj" />
+    <ProjectReference Include="..\FSV.Security\FSV.Security.csproj" />
+    <ProjectReference Include="..\FSV.ShareServices\FSV.ShareServices.csproj" />
+    <ProjectReference Include="..\FSV.ViewModel\FSV.ViewModel.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\CompanyLogo.png" />
@@ -752,37 +71,28 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ControlzEx">
-      <Version>5.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection">
-      <Version>3.1.32</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging">
-      <Version>3.1.32</Version>
+      <Version>6.0.0</Version>
     </PackageReference>
     <PackageReference Include="Serilog.Extensions.Logging">
-      <Version>3.1.0</Version>
+      <Version>8.0.0</Version>
     </PackageReference>
     <PackageReference Include="Serilog.Sinks.File">
-      <Version>5.0.0</Version>
+      <Version>6.0.0</Version>
     </PackageReference>
     <PackageReference Include="Serilog.Sinks.SQLite">
-      <Version>5.0.0</Version>
+      <Version>6.0.0</Version>
     </PackageReference>
     <PackageReference Include="System.Data.SQLite">
       <Version>1.0.118</Version>
     </PackageReference>
     <PackageReference Include="System.IO.Abstractions">
-      <Version>21.0.2</Version>
+      <Version>21.0.26</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-         Other similar extension points exist, see Microsoft.Common.targets.
-    <Target Name="BeforeBuild">
-    </Target>
-    <Target Name="AfterBuild">
-    </Target>
-    -->
+  <ItemGroup>
+    <Compile Remove="Views\Home\TreeView.xaml.cs" />
+    <Page Remove="Views\Home\TreeView.xaml" />
+  </ItemGroup>
 </Project>

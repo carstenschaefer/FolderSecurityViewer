@@ -18,13 +18,6 @@ using System.Reflection;
 using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-
-[assembly: AssemblyTitle("FSV.ViewModel")]
-[assembly: AssemblyDescription("Part of G-TAC's NTFS Permissions Reporter 'FolderSecurityViewer'")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("G-TAC Software UG, Katzweiler, Germany")]
-[assembly: AssemblyProduct("FolderSecurityViewer")]
-[assembly: AssemblyCopyright("Copyright ©  2015 - 2022 G-TAC Software UG")]
 [assembly: AssemblyTrademark("G-TAC")]
 [assembly: AssemblyCulture("")]
 
@@ -32,11 +25,7 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("28588f8b-9e14-41d7-a7b2-684046254185")]
 
-[assembly: AssemblyVersion("2.7.0")]
-[assembly: AssemblyFileVersion("2.7.0")]
-
 
 [assembly: InternalsVisibleTo("FSV")]
-[assembly: NeutralResourcesLanguage("en")]
 
 [assembly: InternalsVisibleTo("FSV.ViewModel.UnitTest", AllInternalsVisible = true)]

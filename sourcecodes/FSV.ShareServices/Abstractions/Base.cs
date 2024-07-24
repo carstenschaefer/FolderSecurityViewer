@@ -67,7 +67,7 @@ namespace FSV.ShareServices.Abstractions
 
         internal void Impersonate()
         {
-            this.Impersonator = new Impersonation().LogonUser(this._domain, this._user, this._password, this.AccrossNetworkImpersonation);
+            this.Impersonator = Impersonation.LogonUser(this._domain, this._user, this._password, this.AccrossNetworkImpersonation);
         }
 
         internal void UndoImpersonate()

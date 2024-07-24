@@ -37,9 +37,9 @@ namespace FSV.ViewModel.AdBrowser
         private bool expanded;
 
         public DomainViewModel(
-            [NotNull] ILogger<DomainViewModel> logger,
-            [NotNull] IDialogService dialogService,
-            [NotNull] IAdBrowserService adBrowserService,
+            ILogger<DomainViewModel> logger,
+            IDialogService dialogService,
+            IAdBrowserService adBrowserService,
             AdTreeViewModel adTreeItem,
             ADBrowserType adBrowserType) : base(adTreeItem, null)
         {

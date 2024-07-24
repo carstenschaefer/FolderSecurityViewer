@@ -31,7 +31,7 @@ namespace FSV.ViewModel.UnitTest
     public class DomainViewModelTest
     {
         [Fact]
-        public async void DomainViewModel_Initialize_for_computers_test()
+        public async Task DomainViewModel_Initialize_for_computers_test()
         {
             const string domainName = "test.local";
             // Arrange  
@@ -57,7 +57,7 @@ namespace FSV.ViewModel.UnitTest
         }
 
         [Fact]
-        public async void DomainViewModel_Initialize_for_principals_test()
+        public async Task DomainViewModel_Initialize_for_principals_test()
         {
             const string domainName = "test.local";
             // Arrange  

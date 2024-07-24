@@ -33,7 +33,7 @@ namespace FSV.ViewModel.UnitTest
     public class AdBrowserViewModelTest
     {
         [Fact]
-        public async void AdBrowserViewModel_SearchPrincipals_no_result_test()
+        public async Task AdBrowserViewModel_SearchPrincipals_no_result_test()
         {
             const string principalName = "user_1202";
 
@@ -56,7 +56,7 @@ namespace FSV.ViewModel.UnitTest
         }
 
         [Fact]
-        public async void AdBrowserViewModel_SearchPrincipals_single_result_test()
+        public async Task AdBrowserViewModel_SearchPrincipals_single_result_test()
         {
             const string principalName = "user_1202";
 
@@ -90,7 +90,7 @@ namespace FSV.ViewModel.UnitTest
         }
 
         [Fact]
-        public async void AdBrowserViewModel_SearchPrincipals_collection_result_test()
+        public async Task AdBrowserViewModel_SearchPrincipals_collection_result_test()
         {
             const string principalName = "*12*";
 
@@ -131,7 +131,7 @@ namespace FSV.ViewModel.UnitTest
         }
 
         [Fact]
-        public async void AdBrowserViewModel_selection_test()
+        public async Task AdBrowserViewModel_selection_test()
         {
             const string principalName = "user1203";
 

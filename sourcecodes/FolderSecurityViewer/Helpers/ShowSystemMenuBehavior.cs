@@ -19,7 +19,6 @@ namespace FolderSecurityViewer.Helpers
 #pragma warning disable 618
     using System.Windows;
     using System.Windows.Input;
-    using SystemCommands = ControlzEx.Windows.Shell.SystemCommands;
 
 #pragma warning restore 618
 
@@ -35,7 +34,7 @@ namespace FolderSecurityViewer.Helpers
 
             // SystemMenuManager.ShowMenu(targetWindow, showMenuAt);
 #pragma warning disable CS0618 // Type or member is obsolete
-            SystemCommands.ShowSystemMenu(targetWindow, e);
+            SystemCommands.ShowSystemMenu(targetWindow, e.GetPosition(targetWindow));
 #pragma warning restore CS0618 // Type or member is obsolete
         }
 

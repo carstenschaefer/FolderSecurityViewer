@@ -1,127 +1,60 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AA409F5F-9D8C-430A-B7ED-CA3DCFD66550}</ProjectGuid>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FSV.Database</RootNamespace>
-    <AssemblyName>FSV.Database</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <AnalysisLevel>none</AnalysisLevel>
+    <AssemblyTitle>FSV.Database</AssemblyTitle>
+    <AssemblyVersion>2.7.0.0</AssemblyVersion>
+    <Company>G-TAC Software UG, Katzweiler, Germany</Company>
+    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Description>Part of G-TAC's NTFS Permissions Reporter "FolderSecurityViewer"</Description>
+    <FileVersion>2.7.0.0</FileVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Product>FolderSecurityViewer</Product>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Abstractions\IPermissionDetailReportRepository.cs" />
-    <Compile Include="Abstractions\IPermissionReportRepository.cs" />
-    <Compile Include="Abstractions\IUnitOfWork.cs" />
-    <Compile Include="Abstractions\IUnitOfWorkFactory.cs" />
-    <Compile Include="Abstractions\IUserPermissionDetailReportRepository.cs" />
-    <Compile Include="Abstractions\IUserPermissionReportRepository.cs" />
-    <Compile Include="BaseRepository.cs" />
-    <Compile Include="DatabaseManager.cs" />
-    <Compile Include="DatabaseManagerExtensions.cs" />
-    <Compile Include="DatabaseProviderExtensions.cs" />
-    <Compile Include="Abstractions\DataServiceException.cs" />
-    <Compile Include="FsvDataContext.cs" />
-    <Compile Include="FsvDbException.cs" />
-    <Compile Include="Abstractions\IDatabaseManager.cs" />
-    <Compile Include="Internal\Database.cs" />
-    <Compile Include="Internal\SQLite.cs" />
-    <Compile Include="Internal\SqlServer.cs" />
-    <Compile Include="Models\MapAtttribute.cs" />
-    <Compile Include="Models\PermissionReportDetail.cs" />
-    <Compile Include="Models\PermissionReport.cs" />
-    <Compile Include="Models\UserPermissionReport.cs" />
-    <Compile Include="Models\UserPermissionReportDetail.cs" />
-    <Compile Include="Repositories\PermissionDetailReportRepository.cs" />
-    <Compile Include="Repositories\PermissionReportRepository.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queries\SQLite.Designer.cs">
+    <Compile Update="Queries\SQLite.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SQLite.resx</DependentUpon>
     </Compile>
-    <Compile Include="Queries\SqlServer.Designer.cs">
+    <Compile Update="Queries\SqlServer.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SqlServer.resx</DependentUpon>
     </Compile>
-    <Compile Include="Repositories\UserPermissionDetailReportRepository.cs" />
-    <Compile Include="Repositories\UserPermissionReportRepository.cs" />
-    <Compile Include="UnitOfWork.cs" />
-    <Compile Include="DatabaseUnitOfWorkFactory.cs" />
-    <Compile Include="Abstractions\UnitOfWorkException.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Queries\SQLite.resx">
+    <EmbeddedResource Update="Queries\SQLite.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>SQLite.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Queries\SqlServer.resx">
+    <EmbeddedResource Update="Queries\SqlServer.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>SqlServer.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FSV.Configuration\FSV.Configuration.csproj">
-      <Project>{0bdc0c6c-06bb-4dcd-ab93-e7fc035eb0af}</Project>
-      <Name>FSV.Configuration</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\FSV.Configuration\FSV.Configuration.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions">
-      <Version>3.1.32</Version>
-    </PackageReference>
     <PackageReference Include="SQLite.CodeFirst">
       <Version>1.7.0.36</Version>
     </PackageReference>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="System.Data.SQLite">
       <Version>1.0.118</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-         Other similar extension points exist, see Microsoft.Common.targets.
-    <Target Name="BeforeBuild">
-    </Target>
-    <Target Name="AfterBuild">
-    </Target>
-    -->
 </Project>
