@@ -17,8 +17,8 @@
     <Company>G-TAC Software UG, Katzweiler, Germany</Company>
     <Product>FolderSecurityViewer</Product>
     <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
-    <AssemblyVersion>2.7.0.0</AssemblyVersion>
-    <FileVersion>2.7.0.0</FileVersion>
+    <AssemblyVersion>2.8.0.0</AssemblyVersion>
+    <FileVersion>2.8.0.0</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <AnalysisLevel>none</AnalysisLevel>
   </PropertyGroup>
