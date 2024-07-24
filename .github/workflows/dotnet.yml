@@ -28,4 +28,4 @@ jobs:
       run: |
         cd sourcecodes
         dotnet build --configuration Release
-        dotnet test ./FolderSecurityViewer.sln --configuration Release
+        dotnet test ./FolderSecurityViewer.sln --framework net8.0-windows --configuration Release
