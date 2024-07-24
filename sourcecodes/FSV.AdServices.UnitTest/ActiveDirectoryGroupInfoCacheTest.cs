@@ -31,10 +31,21 @@ namespace FSV.AdServices.UnitTest
             // Arrange
             var sut = new ActiveDirectoryGroupInfoCache();
 
+            var principalContextInfo = new PrincipalContextInfo(ContextType.Domain, "name");
+
+            const string groupName = "group-name";
+            var groupPrincipalInfo = new GroupPrincipalInfo(principalContextInfo, groupName, "sid", "distinguished-name", true, Enumerable.Empty<PrincipalInfo>());
+            sut.AddGroup(groupName, groupPrincipalInfo);
+
+            bool groupExists = sut.TryGetGroup(groupName, out _);
+            
             // Act
             sut.Clear();
+            bool groupMissingAfterClear = sut.TryGetGroup(groupName, out _) == false;
 
             // Assert
+            Assert.IsTrue(groupExists);
+            Assert.IsTrue(groupMissingAfterClear);
         }
 
         [TestMethod]
