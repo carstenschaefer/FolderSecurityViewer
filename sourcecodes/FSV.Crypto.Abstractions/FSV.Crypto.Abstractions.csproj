@@ -1,17 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <SignAssembly>true</SignAssembly>
-        <Authors>Part of G-TAC's NTFS Permissions Reporter 'FolderSecurityViewer'</Authors>
-        <AssemblyVersion>2.7.0.0</AssemblyVersion>
-        <FileVersion>2.7.0.0</FileVersion>
-        <Company>G-TAC Software UG, Katzweiler, Germany</Company>
-        <Product>FolderSecuriyViewer</Product>
-        <NeutralLanguage>en</NeutralLanguage>
-        <Description>Part of G-TAC's NTFS Permissions Reporter 'FolderSecurityViewer'</Description>
-        <Copyright>Copyright © 2015 - 2022 G-TAC Software UG</Copyright>
-        <Version>2.4.1</Version>
-    </PropertyGroup>
-
+  <PropertyGroup>
+    <AnalysisLevel>none</AnalysisLevel>
+    <AssemblyVersion>2.8.0.0</AssemblyVersion>
+    <Authors>Part of G-TAC's NTFS Permissions Reporter "FolderSecurityViewer"</Authors>
+    <Company>G-TAC Software UG, Katzweiler, Germany</Company>
+    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Description>Part of G-TAC's NTFS Permissions Reporter "FolderSecurityViewer"</Description>
+    <FileVersion>2.8.0.0</FileVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Product>FolderSecuriyViewer</Product>
+    <TargetFramework>net8.0</TargetFramework>
+    <Version>2.4.1</Version>
+  </PropertyGroup>
 </Project>

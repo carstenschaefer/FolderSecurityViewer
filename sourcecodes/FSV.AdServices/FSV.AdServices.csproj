@@ -1,154 +1,43 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{544EF25E-75DC-4166-9FF2-F0005388146F}</ProjectGuid>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FSV.AdServices</RootNamespace>
-    <AssemblyName>FSV.AdServices</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <AnalysisLevel>none</AnalysisLevel>
+    <AssemblyTitle>FSV.AdServices</AssemblyTitle>
+    <AssemblyVersion>2.8.0</AssemblyVersion>
+    <Company>G-TAC Software UG, Katzweiler, Germany</Company>
+    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Description>Part of G-TAC's NTFS Permissions Reporter "FolderSecurityViewer"</Description>
+    <FileVersion>2.8.0</FileVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Product>FolderSecurityViewer</Product>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.DirectoryServices" />
-    <Reference Include="System.DirectoryServices.AccountManagement" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AbstractionLayer\Abstractions\IDomain.cs" />
-    <Compile Include="AbstractionLayer\Abstractions\IForest.cs" />
-    <Compile Include="AbstractionLayer\ActiveDirectoryAbstractionLayerModule.cs" />
-    <Compile Include="AbstractionLayer\ActiveDirectoryAbstractionService.cs" />
-    <Compile Include="AbstractionLayer\DomainWrapper.cs" />
-    <Compile Include="AbstractionLayer\ForestWrapper.cs" />
-    <Compile Include="AbstractionLayer\ServiceCollectionExtensions.cs" />
-    <Compile Include="Abstractions\ActiveDirectoryFinderFactoryException.cs" />
-    <Compile Include="Abstractions\ActiveDirectoryServiceException.cs" />
-    <Compile Include="Abstractions\IActiveDirectoryGroupOperations.cs" />
-    <Compile Include="Abstractions\IActiveDirectoryAbstractionService.cs" />
-    <Compile Include="Abstractions\IActiveDirectoryDomainsCache.cs" />
-    <Compile Include="Abstractions\IActiveDirectoryFinder.cs" />
-    <Compile Include="Abstractions\IActiveDirectoryFinderFactory.cs" />
-    <Compile Include="Abstractions\IActiveDirectoryGroupInfoCache.cs" />
-    <Compile Include="Abstractions\IActiveDirectoryGroupsCache.cs" />
-    <Compile Include="Abstractions\IActiveDirectoryState.cs" />
-    <Compile Include="Abstractions\IActiveDirectoryUtility.cs" />
-    <Compile Include="Abstractions\IAdAuthentication.cs" />
-    <Compile Include="Abstractions\ICurrentDomainCheckUtility.cs" />
-    <Compile Include="Abstractions\IDomainInformationService.cs" />
-    <Compile Include="Abstractions\IPrincipalContextCache.cs" />
-    <Compile Include="Abstractions\IPrincipalContextFactory.cs" />
-    <Compile Include="Abstractions\ISearcher.cs" />
-    <Compile Include="Abstractions\IUserActiveDirectoryFinder.cs" />
-    <Compile Include="Abstractions\PrincipalContextCacheExtensions.cs" />
-    <Compile Include="Abstractions\UserFlags.cs" />
-    <Compile Include="ActiveDirectory.cs" />
-    <Compile Include="ActiveDirectoryFactory.cs" />
-    <Compile Include="ActiveDirectoryGroupInfoCache.cs" />
-    <Compile Include="ActiveDirectoryGroupOperations.cs" />
-    <Compile Include="ActiveDirectoryLdapUtility.cs" />
-    <Compile Include="ActiveDirectoryListBuilder.cs" />
-    <Compile Include="Cache\DirectoryEntryWrapper.cs" />
-    <Compile Include="Cache\PrincipalContextInfo.cs" />
-    <Compile Include="Cache\UserPrincipalInfo.cs" />
-    <Compile Include="PrincipalContextFactory.cs" />
-    <Compile Include="QueryType.cs" />
-    <Compile Include="ActiveDirectoryState.cs" />
-    <Compile Include="ActiveDirectoryUtility.cs" />
-    <Compile Include="Cache\PrincipalInfo.cs" />
-    <Compile Include="CachedDomainInfo.cs" />
-    <Compile Include="ActiveDirectoryDomainsCache.cs" />
-    <Compile Include="ActiveDirectoryGroupsCache.cs" />
-    <Compile Include="Cache\PrincipalType.cs" />
-    <Compile Include="DomainInformationService.cs" />
-    <Compile Include="FindAdObjectForUserOperation.cs" />
-    <Compile Include="FindAdObjectOperation.cs" />
-    <Compile Include="Cache\GroupPrincipalInfo.cs" />
-    <Compile Include="IActiveDirectoryResult.cs" />
-    <Compile Include="IActiveDirectoryScanActions.cs" />
-    <Compile Include="PrincipalContextCache.cs" />
-    <Compile Include="ResultPropertyValueCollectionExtensions.cs" />
-    <Compile Include="StringUriExtensions.cs" />
-    <Compile Include="UserActiveDirectoryFinder.cs" />
-    <Compile Include="ActiveDirectoryFinder.cs" />
-    <Compile Include="ActiveDirectoryScanResult.cs" />
-    <Compile Include="AdAuthentication.cs" />
-    <Compile Include="CurrentDomainCheckUtility.cs" />
-    <Compile Include="EnumOU\AdTreeViewModel.cs" />
-    <Compile Include="ActiveDirectory.QueryGroup.cs" />
-    <Compile Include="EnumOU\EnumOu.cs" />
-    <Compile Include="EnumOU\TreeViewNodeType.cs" />
-    <Compile Include="ActiveDirectoryScanOptions.cs" />
-    <Compile Include="ActiveDirectoryFinderFactory.cs" />
-    <Compile Include="Searcher.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueryUsers.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FSV.Configuration\FSV.Configuration.csproj">
-      <Project>{0bdc0c6c-06bb-4dcd-ab93-e7fc035eb0af}</Project>
-      <Name>FSV.Configuration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Crypto.Abstractions\FSV.Crypto.Abstractions.csproj">
-      <Project>{A9DBBA78-EE29-43D0-A67F-A92AF66531E1}</Project>
-      <Name>FSV.Crypto.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj">
-      <Project>{0b87440c-ce77-4d3f-ad5d-1ea72363a51e}</Project>
-      <Name>FSV.Extensions.DependencyInjection</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Models\FSV.Models.csproj">
-      <Project>{f268923f-4e6d-4c52-9b38-b4e370582283}</Project>
-      <Name>FSV.Models</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\FSV.Configuration\FSV.Configuration.csproj" />
+    <ProjectReference Include="..\FSV.Crypto.Abstractions\FSV.Crypto.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj" />
+    <ProjectReference Include="..\FSV.Models\FSV.Models.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="EnumOU\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations">
-      <Version>2023.3.0</Version>
+      <Version>2024.2.0</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions">
-      <Version>3.1.32</Version>
-    </PackageReference>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="System.DirectoryServices" Version="8.0.0" />
+    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-         Other similar extension points exist, see Microsoft.Common.targets.
-    <Target Name="BeforeBuild">
-    </Target>
-    <Target Name="AfterBuild">
-    </Target>
-    -->
 </Project>

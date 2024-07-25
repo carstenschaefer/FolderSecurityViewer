@@ -17,20 +17,9 @@
 using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
-
-[assembly: AssemblyTitle("FSV.AdServices.Abstractions")]
-[assembly: AssemblyDescription("Part of G-TAC's NTFS Permissions Reporter 'FolderSecurityViewer'")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("G-TAC Software UG, Katzweiler, Germany")]
-[assembly: AssemblyProduct("FolderSecurityViewer")]
-[assembly: AssemblyCopyright("Copyright ©  2015 - 2022 G-TAC Software UG")]
 [assembly: AssemblyTrademark("G-TAC")]
 [assembly: AssemblyCulture("")]
 
 [assembly: ComVisible(false)]
 
 [assembly: Guid("B8F6DD4E-25E7-43F7-8E86-76941A4D61A5")]
-
-[assembly: AssemblyVersion("2.7.0.0")]
-[assembly: AssemblyFileVersion("2.7.0.0")]
-[assembly: NeutralResourcesLanguage("en")]

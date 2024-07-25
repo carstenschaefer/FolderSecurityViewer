@@ -1,49 +1,48 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30320.27
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.FolderTree", "FSV.FolderTree\FSV.FolderTree.csproj", "{FD1D8BAE-014C-4941-BA49-33182955689C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.FolderTree", "FSV.FolderTree\FSV.FolderTree.csproj", "{FD1D8BAE-014C-4941-BA49-33182955689C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Configuration", "FSV.Configuration\FSV.Configuration.csproj", "{0BDC0C6C-06BB-4DCD-AB93-E7FC035EB0AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Configuration", "FSV.Configuration\FSV.Configuration.csproj", "{0BDC0C6C-06BB-4DCD-AB93-E7FC035EB0AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Business", "FSV.Business\FSV.Business.csproj", "{F637CDFC-D5E9-419A-BD7F-F7D320BEA3C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Business", "FSV.Business\FSV.Business.csproj", "{F637CDFC-D5E9-419A-BD7F-F7D320BEA3C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.FileSystem.Interop", "FSV.FileSystem.Interop\FSV.FileSystem.Interop.csproj", "{CD590216-FF4E-4AB6-A6D3-F1D45E3615A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.FileSystem.Interop", "FSV.FileSystem.Interop\FSV.FileSystem.Interop.csproj", "{CD590216-FF4E-4AB6-A6D3-F1D45E3615A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FolderSecurityViewer", "FolderSecurityViewer\FolderSecurityViewer.csproj", "{9EF5069E-F950-4239-B3EA-8ECEA50FB4A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FolderSecurityViewer", "FolderSecurityViewer\FolderSecurityViewer.csproj", "{9EF5069E-F950-4239-B3EA-8ECEA50FB4A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.ExcelExporter", "FSV.ExcelExporter\FSV.ExcelExporter.csproj", "{C5B80996-6771-4D23-9136-1CF9C4230579}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.ExcelExporter", "FSV.ExcelExporter\FSV.ExcelExporter.csproj", "{C5B80996-6771-4D23-9136-1CF9C4230579}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.ViewModel", "FSV.ViewModel\FSV.ViewModel.csproj", "{C0FDC758-241D-4925-A74C-4816D9191CA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.ViewModel", "FSV.ViewModel\FSV.ViewModel.csproj", "{C0FDC758-241D-4925-A74C-4816D9191CA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.AdServices", "FSV.AdServices\FSV.AdServices.csproj", "{544EF25E-75DC-4166-9FF2-F0005388146F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.AdServices", "FSV.AdServices\FSV.AdServices.csproj", "{544EF25E-75DC-4166-9FF2-F0005388146F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Models", "FSV.Models\FSV.Models.csproj", "{F268923F-4E6D-4C52-9B38-B4E370582283}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Models", "FSV.Models\FSV.Models.csproj", "{F268923F-4E6D-4C52-9B38-B4E370582283}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.CsvExporter", "FSV.CsvExporter\FSV.CsvExporter.csproj", "{10D9C1E5-D90D-40EC-A445-2C0038BBCF85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.CsvExporter", "FSV.CsvExporter\FSV.CsvExporter.csproj", "{10D9C1E5-D90D-40EC-A445-2C0038BBCF85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.HtmlExporter", "FSV.HtmlExporter\FSV.HtmlExporter.csproj", "{86CEEF74-77C9-48CC-AF44-A8D0D9A139B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.HtmlExporter", "FSV.HtmlExporter\FSV.HtmlExporter.csproj", "{86CEEF74-77C9-48CC-AF44-A8D0D9A139B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Database", "FSV.Database\FSV.Database.csproj", "{AA409F5F-9D8C-430A-B7ED-CA3DCFD66550}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Database", "FSV.Database\FSV.Database.csproj", "{AA409F5F-9D8C-430A-B7ED-CA3DCFD66550}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.EMailService", "FSV.EMailService\FSV.EMailService.csproj", "{03B9ACF6-F142-4D91-BA8C-26BC3C84F62A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.EMailService", "FSV.EMailService\FSV.EMailService.csproj", "{03B9ACF6-F142-4D91-BA8C-26BC3C84F62A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Console", "FSV.Console\FSV.Console.csproj", "{E16FAF7B-85FF-4F41-B555-2FA1BC7AE662}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Console", "FSV.Console\FSV.Console.csproj", "{E16FAF7B-85FF-4F41-B555-2FA1BC7AE662}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Templates", "FSV.Templates\FSV.Templates.csproj", "{255C8131-0B4A-48A0-A318-B51EA6D8225F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Templates", "FSV.Templates\FSV.Templates.csproj", "{255C8131-0B4A-48A0-A318-B51EA6D8225F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Resources", "FSV.Resources\FSV.Resources.csproj", "{7F0DCB46-1B42-4000-A481-6BDFB2103A87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Resources", "FSV.Resources\FSV.Resources.csproj", "{7F0DCB46-1B42-4000-A481-6BDFB2103A87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Crypto", "FSV.Crypto\FSV.Crypto.csproj", "{210DEDB1-6EDF-4D10-8251-5AA27BDB8EF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Crypto", "FSV.Crypto\FSV.Crypto.csproj", "{210DEDB1-6EDF-4D10-8251-5AA27BDB8EF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.FileSystem.Interop.UnitTest", "FSV.FileSystem.Interop.UnitTest\FSV.FileSystem.Interop.UnitTest.csproj", "{F06053AB-3442-498E-B0D0-C35A06EBA883}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.FileSystem.Interop.UnitTest", "FSV.FileSystem.Interop.UnitTest\FSV.FileSystem.Interop.UnitTest.csproj", "{F06053AB-3442-498E-B0D0-C35A06EBA883}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Extensions.DependencyInjection", "FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj", "{0B87440C-CE77-4D3F-AD5D-1EA72363A51E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0E252AB3-1E8E-4FE2-82FC-C207CA1B5970}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.AdServices.UnitTest", "FSV.AdServices.UnitTest\FSV.AdServices.UnitTest.csproj", "{999A591F-E7D9-4BE2-B02F-39BCCCD56898}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.AdServices.UnitTest", "FSV.AdServices.UnitTest\FSV.AdServices.UnitTest.csproj", "{999A591F-E7D9-4BE2-B02F-39BCCCD56898}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Extensions.DependencyInjection.UnitTest", "FSV.Extensions.DependencyInjection.UnitTest\FSV.Extensions.DependencyInjection.UnitTest.csproj", "{7E92B250-C452-4121-9698-9A63CA076923}"
 EndProject
@@ -51,31 +50,31 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Crypto.Abstractions", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Abstractions", "Abstractions", "{B8A0D256-39EB-4883-9D1E-2D031B2C3010}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Configuration.UnitTest", "FSV.Configuration.UnitTest\FSV.Configuration.UnitTest.csproj", "{CAD6A1AD-D0D3-441A-B416-B9AE9E6424F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Configuration.UnitTest", "FSV.Configuration.UnitTest\FSV.Configuration.UnitTest.csproj", "{CAD6A1AD-D0D3-441A-B416-B9AE9E6424F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Business.UnitTest", "FSV.Business.UnitTest\FSV.Business.UnitTest.csproj", "{7C3B5F34-C8D5-41AE-8165-9A83351D39BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Business.UnitTest", "FSV.Business.UnitTest\FSV.Business.UnitTest.csproj", "{7C3B5F34-C8D5-41AE-8165-9A83351D39BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.ActiveDirectoryServices.TestAbstractionLayer", "FSV.ActiveDirectoryServices.TestAbstractionLayer\FSV.ActiveDirectoryServices.TestAbstractionLayer.csproj", "{D58D5D7B-87AC-46F8-839E-BF5015697509}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.ActiveDirectoryServices.TestAbstractionLayer", "FSV.ActiveDirectoryServices.TestAbstractionLayer\FSV.ActiveDirectoryServices.TestAbstractionLayer.csproj", "{D58D5D7B-87AC-46F8-839E-BF5015697509}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.AdServices.Abstractions", "FSV.AdServices.Abstractions\FSV.AdServices.Abstractions.csproj", "{B8F6DD4E-25E7-43F7-8E86-76941A4D61A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.AdServices.Abstractions", "FSV.AdServices.Abstractions\FSV.AdServices.Abstractions.csproj", "{B8F6DD4E-25E7-43F7-8E86-76941A4D61A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Extensions.Logging", "FSV.Extensions.Logging\FSV.Extensions.Logging.csproj", "{10EF5D74-77E9-4F8C-B0FB-AB44FB908119}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Extensions.Logging", "FSV.Extensions.Logging\FSV.Extensions.Logging.csproj", "{10EF5D74-77E9-4F8C-B0FB-AB44FB908119}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Database.UnitTest", "FSV.Database.UnitTest\FSV.Database.UnitTest.csproj", "{E5142133-D2CB-450D-80A8-72561710B25D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Database.UnitTest", "FSV.Database.UnitTest\FSV.Database.UnitTest.csproj", "{E5142133-D2CB-450D-80A8-72561710B25D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Configuration.Abstractions", "FSV.Configuration.Abstractions\FSV.Configuration.Abstractions.csproj", "{6EF8B753-C9EF-4F1A-BDEB-58EFA7DD3487}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Security", "FSV.Security\FSV.Security.csproj", "{98992E64-A68A-42BD-A083-695BD84C8F66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Security", "FSV.Security\FSV.Security.csproj", "{98992E64-A68A-42BD-A083-695BD84C8F66}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.ShareServices", "FSV.ShareServices\FSV.ShareServices.csproj", "{F0FDD4E2-0047-452C-9980-227C2C41C4F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.ShareServices.UnitTest", "FSV.ShareServices.UnitTest\FSV.ShareServices.UnitTest.csproj", "{8F3B477C-DB33-4D90-B928-742B69CB0AB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.ShareServices.UnitTest", "FSV.ShareServices.UnitTest\FSV.ShareServices.UnitTest.csproj", "{8F3B477C-DB33-4D90-B928-742B69CB0AB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.ViewModel.UnitTest", "FSV.ViewModel.UnitTest\FSV.ViewModel.UnitTest.csproj", "{3E03EB4B-52A0-456B-A518-CB99A34F14F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.ViewModel.UnitTest", "FSV.ViewModel.UnitTest\FSV.ViewModel.UnitTest.csproj", "{3E03EB4B-52A0-456B-A518-CB99A34F14F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Crypto.UnitTest", "FSV.Crypto.UnitTest\FSV.Crypto.UnitTest.csproj", "{71B55F1B-2C21-414D-8461-66517075C0F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Crypto.UnitTest", "FSV.Crypto.UnitTest\FSV.Crypto.UnitTest.csproj", "{71B55F1B-2C21-414D-8461-66517075C0F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Console.UnitTest", "FSV.Console.UnitTest\FSV.Console.UnitTest.csproj", "{6EB1AA1C-B5F2-44A8-BF63-D107B84DDB61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Console.UnitTest", "FSV.Console.UnitTest\FSV.Console.UnitTest.csproj", "{6EB1AA1C-B5F2-44A8-BF63-D107B84DDB61}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", "{A2E80EFC-19F2-48CF-8463-B4DD2EB2547A}"
 EndProject
@@ -87,15 +86,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.FileSystem.Interop.Core
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.FileSystem.Interop.Core.Abstractions", "FSV.FileSystem.Interop.Core.Abstractions\FSV.FileSystem.Interop.Core.Abstractions.csproj", "{150C7C23-AF8D-4E03-BBEC-0C75D31E4A64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Extensions.WindowConfiguration", "FSV.Extensions.WindowConfiguration\FSV.Extensions.WindowConfiguration.csproj", "{1E50AFAD-5E89-4F51-A194-BC08FBA61A2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Extensions.WindowConfiguration", "FSV.Extensions.WindowConfiguration\FSV.Extensions.WindowConfiguration.csproj", "{1E50AFAD-5E89-4F51-A194-BC08FBA61A2F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Extensions.Serialization", "FSV.Extensions.Serialization\FSV.Extensions.Serialization.csproj", "{67DAA557-8568-4BB9-98EF-74E1103EBF8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSV.Extensions.WindowConfiguration.Test", "FSV.Extensions.WindowConfiguration.Test\FSV.Extensions.WindowConfiguration.Test.csproj", "{99DC535B-5253-4338-9FE9-93BA849F879D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Extensions.WindowConfiguration.Test", "FSV.Extensions.WindowConfiguration.Test\FSV.Extensions.WindowConfiguration.Test.csproj", "{99DC535B-5253-4338-9FE9-93BA849F879D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.Extensions.Serialization.UnitTest", "FSV.Extensions.Serialization.UnitTest\FSV.Extensions.Serialization.UnitTest.csproj", "{7A74F74F-EE27-400C-8F90-9F177AEB35C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FolderSecurityViewer.UnitTest", "FolderSecurityViewer.UnitTest\FolderSecurityViewer.UnitTest.csproj", "{546EB7C8-691A-4D3F-844D-B92486C3CF7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FolderSecurityViewer.UnitTest", "FolderSecurityViewer.UnitTest\FolderSecurityViewer.UnitTest.csproj", "{546EB7C8-691A-4D3F-844D-B92486C3CF7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -307,7 +306,7 @@ Global
 		{546EB7C8-691A-4D3F-844D-B92486C3CF7A} = {0E252AB3-1E8E-4FE2-82FC-C207CA1B5970}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {CD022600-DA06-4B78-B1B4-7B3B1F02C19B}
 		VisualSVNWorkingCopyRoot = .
+		SolutionGuid = {CD022600-DA06-4B78-B1B4-7B3B1F02C19B}
 	EndGlobalSection
 EndGlobal

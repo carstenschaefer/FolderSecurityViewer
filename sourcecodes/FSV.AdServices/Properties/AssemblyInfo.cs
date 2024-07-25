@@ -18,22 +18,11 @@ using System.Reflection;
 using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-
-[assembly: AssemblyTitle("FSV.AdServices")]
-[assembly: AssemblyDescription("Part of G-TAC's NTFS Permissions Reporter 'FolderSecurityViewer'")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("G-TAC Software UG, Katzweiler, Germany")]
-[assembly: AssemblyProduct("FolderSecurityViewer")]
-[assembly: AssemblyCopyright("Copyright ©  2015 - 2022 G-TAC Software UG")]
 [assembly: AssemblyTrademark("G-TAC")]
 [assembly: AssemblyCulture("")]
 
 [assembly: ComVisible(false)]
 
 [assembly: Guid("0e9cf1a0-86f9-4ce0-8659-98af3f47106e")]
-
-[assembly: AssemblyVersion("2.7.0")]
-[assembly: AssemblyFileVersion("2.7.0")]
-[assembly: NeutralResourcesLanguage("en")]
 
 [assembly: InternalsVisibleTo("FSV.AdServices.UnitTest", AllInternalsVisible = true)]

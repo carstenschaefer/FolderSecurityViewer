@@ -20,23 +20,20 @@ namespace FSV.ShareServices.Interop
     using System.ComponentModel;
     using System.Runtime.InteropServices;
     using System.Security.Principal;
+    using JetBrains.Annotations;
 
     public sealed class Impersonation : IDisposable
     {
-        private readonly WindowsImpersonationContext _context;
-        private Impersonation _impersonation;
-
-        public Impersonation()
-        {
-        }
-
+        private bool isImpersonating;
+        private readonly WindowsIdentity windowsIdentity;
+        
         private Impersonation(string domain, string username, string password, bool useNetworkCreds)
         {
             IntPtr hToken = IntPtr.Zero;
             IntPtr hTokenDuplicate = IntPtr.Zero;
 
-            int logonType = useNetworkCreds == false ? (int)LogonType.LOGON32_LOGON_INTERACTIVE : (int)LogonType.LOGON32_NEW_CREDENTIALS;
-            int logonProvider = useNetworkCreds == false ? (int)LogonProvider.LOGON32_PROVIDER_DEFAULT : (int)LogonProvider.LOGON32_PROVIDER_WINNT50;
+            int logonType = useNetworkCreds ? (int)LogonType.LOGON32_NEW_CREDENTIALS : (int)LogonType.LOGON32_LOGON_INTERACTIVE;
+            int logonProvider = useNetworkCreds ? (int)LogonProvider.LOGON32_PROVIDER_WINNT50 : (int)LogonProvider.LOGON32_PROVIDER_DEFAULT;
 
             var logon = false;
 
@@ -48,8 +45,8 @@ namespace FSV.ShareServices.Interop
                 {
                     if (NativeMethods.DuplicateToken(hToken, (int)ImpersonationLevel.SecurityImpersonation, ref hTokenDuplicate) != 0)
                     {
-                        var windowsIdentity = new WindowsIdentity(hTokenDuplicate);
-                        this._context = windowsIdentity.Impersonate();
+                        this.windowsIdentity = new WindowsIdentity(hTokenDuplicate);
+                        this.isImpersonating = true;
                     }
                 }
             }
@@ -66,19 +63,24 @@ namespace FSV.ShareServices.Interop
 
             if (!logon)
             {
-                throw new Win32Exception("Logon not successfull. Error: " + ErrorHelper.GetErrorMessage((uint)Marshal.GetLastWin32Error()));
+                throw new Win32Exception("Logon not successful. Error: " + ErrorHelper.GetErrorMessage((uint)Marshal.GetLastWin32Error()));
             }
 
-            if (this._context == null)
+            if (this.windowsIdentity == null)
             {
-                throw new Win32Exception("Impersonation not successfull. Error: " + ErrorHelper.GetErrorMessage((uint)Marshal.GetLastWin32Error()));
+                throw new Win32Exception("Impersonation not successful. Error: " + ErrorHelper.GetErrorMessage((uint)Marshal.GetLastWin32Error()));
             }
         }
 
         public void Dispose()
         {
-            this._context.Undo();
-            this._context.Dispose();
+            if (!this.isImpersonating)
+            {
+                return;
+            }
+
+            this.windowsIdentity?.Dispose();
+            this.isImpersonating = false;
         }
 
         public static Impersonation LogonUserForUsing(string domain, string username, string password, bool useNetworkCreds)
@@ -86,16 +88,38 @@ namespace FSV.ShareServices.Interop
             return new Impersonation(domain, username, password, useNetworkCreds);
         }
 
-        public Impersonation LogonUser(string domain, string username, string password, bool useNetworkCreds)
+        public static Impersonation LogonUser(string domain, string username, string password, bool useNetworkCreds)
         {
-            this._impersonation = new Impersonation(domain, username, password, useNetworkCreds);
-            return this._impersonation;
+            return new Impersonation(domain, username, password, useNetworkCreds);
+        }
+
+        public void RunImpersonated([NotNull] Action action)
+        {
+            ArgumentNullException.ThrowIfNull(action);
+
+            if (this.windowsIdentity == null || !this.isImpersonating)
+            {
+                throw new InvalidOperationException("No user is currently being impersonated.");
+            }
+
+            WindowsIdentity.RunImpersonated(this.windowsIdentity.AccessToken, action);
+        }
+
+        public T RunImpersonated<T>([NotNull] Func<T> func)
+        {
+            ArgumentNullException.ThrowIfNull(func);
+
+            if (this.windowsIdentity == null || !this.isImpersonating)
+            {
+                throw new InvalidOperationException("No user is currently being impersonated.");
+            }
+
+            return WindowsIdentity.RunImpersonated(this.windowsIdentity.AccessToken, func);
         }
 
         public void UndoImpersonation()
         {
-            this._context.Undo();
-            this._context.Dispose();
+            
         }
     }
 }

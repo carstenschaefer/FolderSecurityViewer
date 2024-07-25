@@ -1,200 +1,63 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E16FAF7B-85FF-4F41-B555-2FA1BC7AE662}</ProjectGuid>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FSV.Console</RootNamespace>
     <AssemblyName>fsv</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <LangVersion>latest</LangVersion>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <LangVersion>latest</LangVersion>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <AnalysisLevel>none</AnalysisLevel>
+    <AssemblyTitle>FSV.Console</AssemblyTitle>
+    <AssemblyVersion>2.8.0.0</AssemblyVersion>
+    <Company>G-TAC Software UG, Katzweiler, Germany</Company>
+    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Description>Part of G-TAC's NTFS Permissions Reporter "FolderSecurityViewer"</Description>
+    <FileVersion>2.8.0.0</FileVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Product>FolderSecurityViewer</Product>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Abstractions\IArgumentValidationService.cs" />
-    <Compile Include="Abstractions\ICommand.cs" />
-    <Compile Include="Abstractions\IDisplayService.cs" />
-    <Compile Include="Abstractions\IExport.cs" />
-    <Compile Include="Abstractions\IExportBuilder.cs" />
-    <Compile Include="Abstractions\IReportManager.cs" />
-    <Compile Include="Abstractions\IReportManagerBuilder.cs" />
-    <Compile Include="App.cs" />
-    <Compile Include="AppModule.cs" />
-    <Compile Include="Managers\FeatureNotAccessibleException.cs" />
-    <Compile Include="Managers\FolderReportExceptionExtensions.cs" />
-    <Compile Include="Managers\InvalidExportTypeException.cs" />
-    <Compile Include="Managers\ReportManagerException.cs" />
-    <Compile Include="Managers\ShareData.cs" />
-    <Compile Include="Managers\ShareReportManager.cs" />
-    <Compile Include="Managers\UserPermissionReportManager.cs" />
-    <Compile Include="Commands\ShareReportCommand.cs" />
-    <Compile Include="Commands\UserReportCommand.cs" />
-    <Compile Include="Commands\ValidationArgument.cs" />
-    <Compile Include="Commands\DirectoryArgument.cs" />
-    <Compile Include="Managers\FolderData.cs" />
-    <Compile Include="Managers\FolderReportManager.cs" />
-    <Compile Include="Managers\ReportManagerBuilder.cs" />
-    <Compile Include="Managers\UserFolderData.cs" />
-    <Compile Include="Managers\OwnerReportManager.cs" />
-    <Compile Include="Managers\PermissionData.cs" />
-    <Compile Include="Managers\PermissionReportManager.cs" />
-    <Compile Include="Commands\FolderReportCommand.cs" />
-    <Compile Include="Commands\OwnerReportCommand.cs" />
-    <Compile Include="Commands\PermissionReportCommand.cs" />
-    <Compile Include="Exporter\Csv.cs" />
-    <Compile Include="Exporter\Excel.cs" />
-    <Compile Include="Exporter\ExportBuilder.cs" />
-    <Compile Include="Exporter\ExportFilePath.cs" />
-    <Compile Include="Exporter\ExportTableGenerator.cs" />
-    <Compile Include="Abstractions\IExportTableGenerator.cs" />
-    <Compile Include="Exporter\Html.cs" />
-    <Compile Include="ITaskCreator.cs" />
-    <Compile Include="Models\DifferenceExportItem.cs" />
-    <Compile Include="Models\FolderItem.cs" />
-    <Compile Include="Commands\NameArgument.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Update="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ServiceCollectionExtensions.cs" />
-    <Compile Include="Services\ArgumentValidationService.cs" />
-    <Compile Include="Services\DisplayService.cs" />
-    <Compile Include="Services\DisplayServiceExtensions.cs" />
-    <Compile Include="TaskCreator.cs" />
-    <Compile Include="Window.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <ProjectReference Include="..\FSV.AdServices\FSV.AdServices.csproj" />
+    <ProjectReference Include="..\FSV.Business\FSV.Business.csproj" />
+    <ProjectReference Include="..\FSV.Configuration.Abstractions\FSV.Configuration.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.Configuration\FSV.Configuration.csproj" />
+    <ProjectReference Include="..\FSV.Crypto.Abstractions\FSV.Crypto.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.Crypto\FSV.Crypto.csproj" />
+    <ProjectReference Include="..\FSV.CsvExporter\FSV.CsvExporter.csproj" />
+    <ProjectReference Include="..\FSV.Database\FSV.Database.csproj" />
+    <ProjectReference Include="..\FSV.ExcelExporter\FSV.ExcelExporter.csproj" />
+    <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj" />
+    <ProjectReference Include="..\FSV.Extensions.Logging\FSV.Extensions.Logging.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Abstractions\FSV.FileSystem.Interop.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Core.Abstractions\FSV.FileSystem.Interop.Core.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Core\FSV.FileSystem.Interop.Core.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop\FSV.FileSystem.Interop.csproj" />
+    <ProjectReference Include="..\FSV.HtmlExporter\FSV.HtmlExporter.csproj" />
+    <ProjectReference Include="..\FSV.Models\FSV.Models.csproj" />
+    <ProjectReference Include="..\FSV.Resources\FSV.Resources.csproj" />
+    <ProjectReference Include="..\FSV.ShareServices\FSV.ShareServices.csproj" />
+    <ProjectReference Include="..\FSV.ViewModel\FSV.ViewModel.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FSV.AdServices\FSV.AdServices.csproj">
-      <Project>{544ef25e-75dc-4166-9ff2-f0005388146f}</Project>
-      <Name>FSV.AdServices</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Business\FSV.Business.csproj">
-      <Project>{f637cdfc-d5e9-419a-bd7f-f7d320bea3c0}</Project>
-      <Name>FSV.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Configuration.Abstractions\FSV.Configuration.Abstractions.csproj">
-      <Project>{6ef8b753-c9ef-4f1a-bdeb-58efa7dd3487}</Project>
-      <Name>FSV.Configuration.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Configuration\FSV.Configuration.csproj">
-      <Project>{0bdc0c6c-06bb-4dcd-ab93-e7fc035eb0af}</Project>
-      <Name>FSV.Configuration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Crypto.Abstractions\FSV.Crypto.Abstractions.csproj">
-      <Project>{A9DBBA78-EE29-43D0-A67F-A92AF66531E1}</Project>
-      <Name>FSV.Crypto.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Crypto\FSV.Crypto.csproj">
-      <Project>{210dedb1-6edf-4d10-8251-5aa27bdb8ef9}</Project>
-      <Name>FSV.Crypto</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.CsvExporter\FSV.CsvExporter.csproj">
-      <Project>{10d9c1e5-d90d-40ec-a445-2c0038bbcf85}</Project>
-      <Name>FSV.CsvExporter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Database\FSV.Database.csproj">
-      <Project>{aa409f5f-9d8c-430a-b7ed-ca3dcfd66550}</Project>
-      <Name>FSV.Database</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.ExcelExporter\FSV.ExcelExporter.csproj">
-      <Project>{c5b80996-6771-4d23-9136-1cf9c4230579}</Project>
-      <Name>FSV.ExcelExporter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj">
-      <Project>{0b87440c-ce77-4d3f-ad5d-1ea72363a51e}</Project>
-      <Name>FSV.Extensions.DependencyInjection</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Extensions.Logging\FSV.Extensions.Logging.csproj">
-      <Project>{10ef5d74-77e9-4f8c-b0fb-ab44fb908119}</Project>
-      <Name>FSV.Extensions.Logging</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop.Abstractions\FSV.FileSystem.Interop.Abstractions.csproj">
-      <Project>{2c724fb3-debf-4044-ab29-f31f3f35da3b}</Project>
-      <Name>FSV.FileSystem.Interop.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop.Core.Abstractions\FSV.FileSystem.Interop.Core.Abstractions.csproj">
-      <Project>{150c7c23-af8d-4e03-bbec-0c75d31e4a64}</Project>
-      <Name>FSV.FileSystem.Interop.Core.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop.Core\FSV.FileSystem.Interop.Core.csproj">
-      <Project>{afa58ad0-d547-4d95-87de-03443e02066c}</Project>
-      <Name>FSV.FileSystem.Interop.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop\FSV.FileSystem.Interop.csproj">
-      <Project>{cd590216-ff4e-4ab6-a6d3-f1d45e3615a0}</Project>
-      <Name>FSV.FileSystem.Interop</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.HtmlExporter\FSV.HtmlExporter.csproj">
-      <Project>{86ceef74-77c9-48cc-af44-a8d0d9a139b1}</Project>
-      <Name>FSV.HtmlExporter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Models\FSV.Models.csproj">
-      <Project>{f268923f-4e6d-4c52-9b38-b4e370582283}</Project>
-      <Name>FSV.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Resources\FSV.Resources.csproj">
-      <Project>{7f0dcb46-1b42-4000-a481-6bdfb2103a87}</Project>
-      <Name>FSV.Resources</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.ShareServices\FSV.ShareServices.csproj">
-      <Project>{f0fdd4e2-0047-452c-9980-227c2c41c4f3}</Project>
-      <Name>FSV.ShareServices</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.ViewModel\FSV.ViewModel.csproj">
-      <Project>{c0fdc758-241d-4925-a74c-4816d9191ca1}</Project>
-      <Name>FSV.ViewModel</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.de-DE.resx" />
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
@@ -204,34 +67,20 @@
     <PackageReference Include="Microsoft.Extensions.CommandLineUtils">
       <Version>1.1.1</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection">
-      <Version>3.1.32</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging">
-      <Version>3.1.32</Version>
-    </PackageReference>
     <PackageReference Include="Prism.Core">
       <Version>8.1.97</Version>
     </PackageReference>
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="System.Data.SQLite.Core">
       <Version>1.0.118</Version>
     </PackageReference>
     <PackageReference Include="System.Data.SQLite.EF6">
       <Version>1.0.118</Version>
     </PackageReference>
-    <PackageReference Include="System.Data.SQLite.Linq">
-      <Version>1.0.118</Version>
-    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-         Other similar extension points exist, see Microsoft.Common.targets.
-    <Target Name="BeforeBuild">
-    </Target>
-    <Target Name="AfterBuild">
-    </Target>
-    -->
 </Project>

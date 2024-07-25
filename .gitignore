@@ -11,3 +11,5 @@ obj/
 
 *.csproj.user
 *.DotSettings.user
+
+upgrade-reports/

@@ -37,7 +37,7 @@ If you want to automate your NTFS permissions reporting, you can use the Command
 
 The application can be compiled on Windows, and depends on the following Frameworks and utilities:
 
-* .NET Framework 4.7.2, and .NET Framework 4.8
+* .NET Framework 8.0 SDK
 * Optional: Visual Studio 2022
 * MSBuild version 17.9.8 or above
 
@@ -45,10 +45,15 @@ The application can be compiled on Windows, and depends on the following Framewo
 
 ````bash
 $ cd sourcecodes
-$ msbuild ./FolderSecurityViewer.sln /t:restore /p:Configuration=Release
+$ dotnet build ./FolderSecurityViewer.sln --configuration Release
 ````
 
+### Run tests
 
+````bash
+$ dotnet clean && dotnet build
+$ dotnet test --framework net8.0-windows
+````
 
 
 Copyright (C) 2015 - 2024 by Carsten Schäfer, Matthias Friedrich, and Ritesh Gite

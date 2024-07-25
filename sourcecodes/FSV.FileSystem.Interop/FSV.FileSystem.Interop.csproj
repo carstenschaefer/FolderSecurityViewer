@@ -1,115 +1,39 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CD590216-FF4E-4AB6-A6D3-F1D45E3615A0}</ProjectGuid>
+    <TargetFramework>net8.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FSV.FileSystem.Interop</RootNamespace>
-    <AssemblyName>FSV.FileSystem.Interop</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
-    <Prefer32Bit>false</Prefer32Bit>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
-    <Prefer32Bit>false</Prefer32Bit>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <AnalysisLevel>none</AnalysisLevel>
+    <AssemblyTitle>FSV.FileSystem.Interop</AssemblyTitle>
+    <AssemblyVersion>2.8.0</AssemblyVersion>
+    <Authors>Matthias Friedrich</Authors>
+    <Company>G-TAC Software UG, Katzweiler, Germany</Company>
+    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Description>Part of G-TAC's NTFS Permissions Reporter "FolderSecurityViewer"</Description>
+    <FileVersion>2.8.0</FileVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Product>FolderSecurityViewer</Product>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
+    <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Abstractions\FSV.FileSystem.Interop.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Core.Abstractions\FSV.FileSystem.Interop.Core.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Core\FSV.FileSystem.Interop.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AclModelExtensions.cs" />
-    <Compile Include="AclViewProvider.cs" />
-    <Compile Include="DirectoryEnumerator.cs" />
-    <Compile Include="DirectoryFolderEnumeratorExtensions.cs" />
-    <Compile Include="FileManagementService.cs" />
-    <Compile Include="DirectoryFolderEnumerator.cs" />
-    <Compile Include="DirectoryInfoExtensions.cs" />
-    <Compile Include="DirectorySizeService.cs" />
-    <Compile Include="FileManagement.cs" />
-    <Compile Include="FileSystemAccessRuleExtensions.cs" />
-    <Compile Include="InteropModule.cs" />
-    <Compile Include="Types\AclAccountModel.cs" />
-    <Compile Include="Types\CompletedFolderReport.cs" />
-    <Compile Include="Types\FolderReportExtensions.cs" />
-    <Compile Include="Types\InaccessibleFolderReport.cs" />
-    <Compile Include="MarshalExtensions.cs" />
-    <Compile Include="MemberExpressionVisitor.cs" />
-    <Compile Include="Acl.cs" />
-    <Compile Include="Types\AclModel.cs" />
-    <Compile Include="Types\AclModelBuilder.cs" />
-    <Compile Include="Types\Folder.cs" />
-    <Compile Include="Types\FolderReport.cs" />
-    <Compile Include="ObjectExtensions.cs" />
-    <Compile Include="Owner.cs" />
-    <Compile Include="OwnerLookupException.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceCollectionExtensions.cs" />
-    <Compile Include="SidUtil.cs" />
-    <Compile Include="Win32FindDataExtensions.cs" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
+    <PackageReference Include="System.Security.AccessControl" Version="6.0.1" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj">
-      <Project>{0b87440c-ce77-4d3f-ad5d-1ea72363a51e}</Project>
-      <Name>FSV.Extensions.DependencyInjection</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop.Abstractions\FSV.FileSystem.Interop.Abstractions.csproj">
-      <Project>{2c724fb3-debf-4044-ab29-f31f3f35da3b}</Project>
-      <Name>FSV.FileSystem.Interop.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop.Core.Abstractions\FSV.FileSystem.Interop.Core.Abstractions.csproj">
-      <Project>{150c7c23-af8d-4e03-bbec-0c75d31e4a64}</Project>
-      <Name>FSV.FileSystem.Interop.Core.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop.Core\FSV.FileSystem.Interop.Core.csproj">
-      <Project>{afa58ad0-d547-4d95-87de-03443e02066c}</Project>
-      <Name>FSV.FileSystem.Interop.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions">
-      <Version>3.1.32</Version>
-    </PackageReference>
-    <PackageReference Include="System.Security.AccessControl">
-      <Version>5.0.0</Version>
-    </PackageReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-         Other similar extension points exist, see Microsoft.Common.targets.
-    <Target Name="BeforeBuild">
-    </Target>
-    <Target Name="AfterBuild">
-    </Target>
-    -->
 </Project>

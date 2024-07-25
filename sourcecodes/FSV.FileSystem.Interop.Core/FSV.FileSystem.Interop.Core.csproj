@@ -1,23 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <SignAssembly>true</SignAssembly>
-        <LangVersion>latest</LangVersion>
-        <Copyright>Copyright © 2015 - 2022 G-TAC Software UG</Copyright>
-        <Description>Part of G-TAC's NTFS Permissions Reporter 'FolderSecurityViewer'</Description>
-        <PackageVersion>2.4.4</PackageVersion>
-        <Title>FSV.FileSystem.Interop.Core</Title>
-        <AssemblyVersion>2.7.0.0</AssemblyVersion>
-        <FileVersion>2.7.0.0</FileVersion>
-        <Authors>G-TAC</Authors>
-        <Company>G-TAC Software UG, Katzweiler, Germany</Company>
-        <Version>2.6.0.0</Version>
-        <Product>FolderSecurityViewer</Product>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\FSV.FileSystem.Interop.Core.Abstractions\FSV.FileSystem.Interop.Core.Abstractions.csproj"/>
-    </ItemGroup>
-
+  <PropertyGroup>
+    <AnalysisLevel>none</AnalysisLevel>
+    <AssemblyVersion>2.8.0.0</AssemblyVersion>
+    <Authors>Matthias Friedrich</Authors>
+    <Company>G-TAC Software UG, Katzweiler, Germany</Company>
+    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Description>Part of G-TAC's NTFS Permissions Reporter "FolderSecurityViewer"</Description>
+    <FileVersion>2.8.0.0</FileVersion>
+    <LangVersion>latest</LangVersion>
+    <PackageVersion>2.4.4</PackageVersion>
+    <Product>FolderSecurityViewer</Product>
+    <TargetFramework>net8.0</TargetFramework>
+    <Title>FSV.FileSystem.Interop.Core</Title>
+    <Version>2.6.0.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Core.Abstractions\FSV.FileSystem.Interop.Core.Abstractions.csproj" />
+  </ItemGroup>
 </Project>

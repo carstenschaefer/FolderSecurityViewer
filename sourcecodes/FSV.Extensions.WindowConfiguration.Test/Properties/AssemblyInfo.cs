@@ -16,20 +16,9 @@
 
 using System.Reflection;
 using System.Runtime.InteropServices;
-
-[assembly: AssemblyTitle("FSV.Extensions.WindowConfiguration.Test")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FSV.Extensions.WindowConfiguration.Test")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 [assembly: ComVisible(false)]
 
 [assembly: Guid("99dc535b-5253-4338-9fe9-93ba849f879d")]
-
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]

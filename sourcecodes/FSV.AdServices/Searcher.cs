@@ -27,7 +27,6 @@ namespace FSV.AdServices
     using System.Threading.Tasks;
     using Abstractions;
     using EnumOU;
-    using JetBrains.Annotations;
     using Microsoft.Extensions.Logging;
 
     [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
@@ -132,7 +131,7 @@ namespace FSV.AdServices
             return result;
         }
 
-        public async Task<IEnumerable<AdTreeViewModel>> SearchAdUserAccountsLogonDisplayName([NotNull] string search)
+        public async Task<IEnumerable<AdTreeViewModel>> SearchAdUserAccountsLogonDisplayName([JetBrains.Annotations.NotNull] string search)
         {
             if (string.IsNullOrWhiteSpace(search))
             {

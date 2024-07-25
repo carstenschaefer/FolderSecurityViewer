@@ -45,7 +45,7 @@ namespace FSV.FileSystem.Interop.UnitTest
         {
             // Arrange
             string path = Environment.CurrentDirectory;
-            const string expected = "Debug";
+            const string expected = "net8.0-windows";
 
             var kernel32 = new Kernel32Wrapper();
             var kernel32FindFile = new Kernel32FindFileWrapper();

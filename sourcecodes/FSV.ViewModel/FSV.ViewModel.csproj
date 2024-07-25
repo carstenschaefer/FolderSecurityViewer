@@ -1,378 +1,59 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C0FDC758-241D-4925-A74C-4816D9191CA1}</ProjectGuid>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FSV.ViewModel</RootNamespace>
-    <AssemblyName>FSV.ViewModel</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <LangVersion>latest</LangVersion>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <LangVersion>latest</LangVersion>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <AnalysisLevel>none</AnalysisLevel>
+    <AssemblyTitle>FSV.ViewModel</AssemblyTitle>
+    <AssemblyVersion>2.8.0</AssemblyVersion>
+    <Company>G-TAC Software UG, Katzweiler, Germany</Company>
+    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Description>Part of G-TAC's NTFS Permissions Reporter "FolderSecurityViewer"</Description>
+    <FileVersion>2.8.0</FileVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Product>FolderSecurityViewer</Product>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Net" />
-    <Reference Include="System.Xaml" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
+    <ProjectReference Include="..\FSV.AdServices\FSV.AdServices.csproj" />
+    <ProjectReference Include="..\FSV.Business\FSV.Business.csproj" />
+    <ProjectReference Include="..\FSV.Configuration.Abstractions\FSV.Configuration.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.Configuration\FSV.Configuration.csproj" />
+    <ProjectReference Include="..\FSV.Crypto.Abstractions\FSV.Crypto.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.CsvExporter\FSV.CsvExporter.csproj" />
+    <ProjectReference Include="..\FSV.Database\FSV.Database.csproj" />
+    <ProjectReference Include="..\FSV.ExcelExporter\FSV.ExcelExporter.csproj" />
+    <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj" />
+    <ProjectReference Include="..\FSV.Extensions.Logging\FSV.Extensions.Logging.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Abstractions\FSV.FileSystem.Interop.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Core.Abstractions\FSV.FileSystem.Interop.Core.Abstractions.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop.Core\FSV.FileSystem.Interop.Core.csproj" />
+    <ProjectReference Include="..\FSV.FileSystem.Interop\FSV.FileSystem.Interop.csproj" />
+    <ProjectReference Include="..\FSV.FolderTree\FSV.FolderTree.csproj" />
+    <ProjectReference Include="..\FSV.HtmlExporter\FSV.HtmlExporter.csproj" />
+    <ProjectReference Include="..\FSV.Models\FSV.Models.csproj" />
+    <ProjectReference Include="..\FSV.Resources\FSV.Resources.csproj" />
+    <ProjectReference Include="..\FSV.Security\FSV.Security.csproj" />
+    <ProjectReference Include="..\FSV.ShareServices\FSV.ShareServices.csproj" />
+    <ProjectReference Include="..\FSV.Templates\FSV.Templates.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstractions\ExportServiceException.cs" />
-    <Compile Include="Abstractions\FolderTreeItemSelectorException.cs" />
-    <Compile Include="Abstractions\IAdBrowserService.cs" />
-    <Compile Include="Abstractions\ICompareService.cs" />
-    <Compile Include="Abstractions\IDialogService.cs" />
-    <Compile Include="Abstractions\IDispatcherService.cs" />
-    <Compile Include="Abstractions\IExportService.cs" />
-    <Compile Include="Abstractions\IFlyOutService.cs" />
-    <Compile Include="Abstractions\IFolderTreeItemSelector.cs" />
-    <Compile Include="Abstractions\INavigationService.cs" />
-    <Compile Include="Abstractions\IPrincipalViewModel.cs" />
-    <Compile Include="Abstractions\IShareScanner.cs" />
-    <Compile Include="Abstractions\IShareScannerFactory.cs" />
-    <Compile Include="Abstractions\IShareServerScanner.cs" />
-    <Compile Include="Abstractions\ISortable.cs" />
-    <Compile Include="Abstractions\IStartUpSequence.cs" />
-    <Compile Include="Abstractions\IUserReportService.cs" />
-    <Compile Include="Abstractions\IWorkspaceViewModel.cs" />
-    <Compile Include="Abstractions\NavigationEventArgs.cs" />
-    <Compile Include="Abstractions\SortOrder.cs" />
-    <Compile Include="AdBrowser\ADBrowserType.cs" />
-    <Compile Include="AdBrowser\ADBrowserViewModel.cs" />
-    <Compile Include="AdBrowser\AddServersViewModel.cs" />
-    <Compile Include="AdBrowser\BasePrincipalViewModel.cs" />
-    <Compile Include="AdBrowser\DomainViewModel.cs" />
-    <Compile Include="AdMembers\GroupMemberItemViewModel.cs" />
-    <Compile Include="AdMembers\GroupMembersViewModel.cs" />
-    <Compile Include="AdMembers\PrincipalMembershipViewModel.cs" />
-    <Compile Include="CloseCommandEventArgs.cs" />
-    <Compile Include="CommandViewModel.cs" />
-    <Compile Include="Common\ResultEnumerableViewModel.cs" />
-    <Compile Include="Common\ResultViewModel.cs" />
-    <Compile Include="Compare\CompareOptions.cs" />
-    <Compile Include="Compare\CompareState.cs" />
-    <Compile Include="Core\AsyncRelayCommand.cs" />
-    <Compile Include="Abstractions\IAsyncCommand.cs" />
-    <Compile Include="Core\IRelayCommand.cs" />
-    <Compile Include="Core\TaskExtensions.cs" />
-    <Compile Include="Events\DirectoryTreeOpenRequested.cs" />
-    <Compile Include="Events\DirectoryTreeOpenRequestedData.cs" />
-    <Compile Include="Events\EditTemplateEvent.cs" />
-    <Compile Include="Events\HomeFloaterCloseRequested.cs" />
-    <Compile Include="Events\HomeFolderTreeOpenEvent.cs" />
-    <Compile Include="Events\RemoveServerEvent.cs" />
-    <Compile Include="Events\RemoveTemplateEvent.cs" />
-    <Compile Include="Events\SavedPermissionRemovedEvent.cs" />
-    <Compile Include="Events\SavedPermissionUpdatedEvent.cs" />
-    <Compile Include="Events\SavedUserReportsDeletedEvent.cs" />
-    <Compile Include="Events\UserReportSavedEvent.cs" />
-    <Compile Include="Exporter\ExportOpenType.cs" />
-    <Compile Include="Exporter\ExportTableGenerator.cs" />
-    <Compile Include="Folder\DataColumnModel.cs" />
-    <Compile Include="Folder\DataColumnsModel.cs" />
-    <Compile Include="Folder\FoldersTableViewModel.cs" />
-    <Compile Include="Home\FolderTreeItemViewModel.cs" />
-    <Compile Include="Home\FolderTreeViewModel.cs" />
-    <Compile Include="Home\LoadingFolderTreeItemViewModel.cs" />
-    <Compile Include="Home\SavedReportItems.cs" />
-    <Compile Include="Abstractions\IUserPermissionReportManager.cs" />
-    <Compile Include="Abstractions\IPermissionReportManager.cs" />
-    <Compile Include="Abstractions\PermissionReportDataServiceException.cs" />
-    <Compile Include="Managers\TemplateFileCorruptException.cs" />
-    <Compile Include="ModelBuilder.cs" />
-    <Compile Include="ModelBuilderServiceCollectionExtensions.cs" />
-    <Compile Include="PageChangeEventArgs.cs" />
-    <Compile Include="PageChangeMode.cs" />
-    <Compile Include="Passables\CompareObjects.cs" />
-    <Compile Include="Exporter\ExportContentType.cs" />
-    <Compile Include="Home\HomeCommand.cs" />
-    <Compile Include="Home\HomeContentBaseViewModel.cs" />
-    <Compile Include="Home\LandingOptionViewModel.cs" />
-    <Compile Include="Home\HomeViewModel.cs" />
-    <Compile Include="Home\LandingViewModel.cs" />
-    <Compile Include="Home\ReportContainerViewModel.cs" />
-    <Compile Include="Home\SplashViewModel.cs" />
-    <Compile Include="Home\TreeViewModel.cs" />
-    <Compile Include="Passables\ExportObjects.cs" />
-    <Compile Include="Passables\ServerShare.cs" />
-    <Compile Include="Passables\UserPath.cs" />
-    <Compile Include="Abstractions\DesignTimeCtorAttribute.cs" />
-    <Compile Include="Permission\DifferentItemState.cs" />
-    <Compile Include="Permission\GridMetadataModel.cs" />
-    <Compile Include="Permission\GroupPermissionsViewModel.cs" />
-    <Compile Include="Permission\SavedReportItemViewModel.cs" />
-    <Compile Include="ReportType.cs" />
-    <Compile Include="ReportViewModel.cs" />
-    <Compile Include="Services\AdBrowserService.cs" />
-    <Compile Include="Services\FlyOutService.cs" />
-    <Compile Include="Abstractions\ISavedReportService.cs" />
-    <Compile Include="Services\Home\FolderTreeItemSelector.cs" />
-    <Compile Include="Services\Home\SavedReportService.cs" />
-    <Compile Include="Services\ExportService.cs" />
-    <Compile Include="Services\NavigationService.cs" />
-    <Compile Include="Services\NavigationServiceExtensions.cs" />
-    <Compile Include="ServiceCollectionExtensions.cs" />
-    <Compile Include="Services\Setting\ISettingShareService.cs" />
-    <Compile Include="Services\Setting\SettingShareService.cs" />
-    <Compile Include="Services\Shares\ShareScanner.cs" />
-    <Compile Include="Services\Shares\ShareScannerFactory.cs" />
-    <Compile Include="Services\Shares\ShareServerScanner.cs" />
-    <Compile Include="Services\UserReport\UserReportService.cs" />
-    <Compile Include="Setting\TranslationItem.cs" />
-    <Compile Include="StartUpSequence.cs" />
-    <Compile Include="SubspaceContainerViewModel.cs" />
-    <Compile Include="SubspaceItemBase.cs" />
-    <Compile Include="UserReport\UserReportSkippedFoldersViewModel.cs" />
-    <Compile Include="ViewModelsModule.cs" />
-    <Compile Include="Setting\CultureInfoViewModel.cs" />
-    <Compile Include="Setting\DatabaseNoneViewModel.cs" />
-    <Compile Include="Setting\ReportShareViewModel.cs" />
-    <Compile Include="Setting\ReportWorkspaceViewModel.cs" />
-    <Compile Include="ShareReport\ExportShareReportViewModel.cs" />
-    <Compile Include="Templates\TemplateType.cs" />
-    <Compile Include="UserReport\CompareUserReportItemViewModel.cs" />
-    <Compile Include="UserReport\CompareUserReportViewModel.cs" />
-    <Compile Include="UserReport\SavedFolderUserReportListViewModel.cs" />
-    <Compile Include="UserReport\UserReportDetailListItemViewModel.cs" />
-    <Compile Include="AdBrowser\ComputerPrincipalViewModel.cs" />
-    <Compile Include="Core\DisplayOrderAttribute.cs" />
-    <Compile Include="Core\RangeObservableCollection.cs" />
-    <Compile Include="Events\CloseApplicationEvent.cs" />
-    <Compile Include="Events\TemplateStartedEvent.cs" />
-    <Compile Include="Events\SavedUserPermissionDescriptionUpdatedEvent.cs" />
-    <Compile Include="Permission\GroupInheritanceViewModel.cs" />
-    <Compile Include="HeaderViewModel.cs" />
-    <Compile Include="LimitDataViewModel.cs" />
-    <Compile Include="Events\AddServersEvent.cs" />
-    <Compile Include="FlyoutViewModel.cs" />
-    <Compile Include="Managers\TemplateManager.cs" />
-    <Compile Include="Managers\UserPermissionReportManager.cs" />
-    <Compile Include="PaginationViewModel.cs" />
-    <Compile Include="Permission\PermissionItemACLDifferenceViewModel.cs" />
-    <Compile Include="Permission\PermissionItemACLViewModel.cs" />
-    <Compile Include="Permission\ComparePermissionItemViewModel.cs" />
-    <Compile Include="Core\Extensions.cs" />
-    <Compile Include="Core\SymmetricCryptoProvider.cs" />
-    <Compile Include="AdBrowser\EmptyPrincipalViewModel.cs" />
-    <Compile Include="Events\PermissionSavedEvent.cs" />
-    <Compile Include="ExportViewModel.cs" />
-    <Compile Include="Common\FolderItemViewModel.cs" />
-    <Compile Include="Folder\FolderViewModel.cs" />
-    <Compile Include="Managers\PermissionReportManager.cs" />
-    <Compile Include="Owner\OwnerReportViewModel.cs" />
-    <Compile Include="Permission\PermissionItemBase.cs" />
-    <Compile Include="Permission\PermissionItemOwnerViewModel.cs" />
-    <Compile Include="Permission\PermissionReportBaseViewModel.cs" />
-    <Compile Include="Permission\PermissionItemSavedReportsViewModel.cs" />
-    <Compile Include="AdBrowser\PrincipalViewModel.cs" />
-    <Compile Include="Permission\AllSavedReportListViewModel.cs" />
-    <Compile Include="Permission\ComparePermissionViewModel.cs" />
-    <Compile Include="Permission\SavedReportDetailListViewModel.cs" />
-    <Compile Include="Permission\SavedReportDetailItemViewModel.cs" />
-    <Compile Include="Permission\FolderSavedReportListViewModel.cs" />
-    <Compile Include="ShareReport\ServersContainerViewModel.cs" />
-    <Compile Include="Services\DispatcherService.cs" />
-    <Compile Include="Services\UserReport\CompareService.cs" />
-    <Compile Include="Setting\ReportUserViewModel.cs" />
-    <Compile Include="ShareReport\ShareDetailTrusteeViewModel.cs" />
-    <Compile Include="ShareReport\ShareDetailViewModel.cs" />
-    <Compile Include="ShareReport\SharedServerViewModel.cs" />
-    <Compile Include="Setting\AboutViewModel.cs" />
-    <Compile Include="Setting\BuiltInGroupListViewModel.cs" />
-    <Compile Include="Setting\BuiltInGroupViewModel.cs" />
-    <Compile Include="Core\NotifyChangeObject.cs" />
-    <Compile Include="Core\RelayCommand.cs" />
-    <Compile Include="Core\ViewModelBase.cs" />
-    <Compile Include="Core\WindowClosingBehavior.cs" />
-    <Compile Include="Exporter\Csv.cs" />
-    <Compile Include="Exporter\Excel.cs" />
-    <Compile Include="Exporter\Html.cs" />
-    <Compile Include="Exporter\ExporterBase.cs" />
-    <Compile Include="Setting\GroupListItem.cs" />
-    <Compile Include="Interop\DirectoryCommands.cs" />
-    <Compile Include="Interop\ShellExecuteInfo.cs" />
-    <Compile Include="Setting\DatabaseSQLiteViewModel.cs" />
-    <Compile Include="Setting\DatabaseSqlServerViewModel.cs" />
-    <Compile Include="Setting\DatabaseTypeViewModel.cs" />
-    <Compile Include="Setting\DatabaseViewModel.cs" />
-    <Compile Include="MessageViewModel.cs" />
-    <Compile Include="Setting\NetworkViewModel.cs" />
-    <Compile Include="Setting\SearchExclusionGroupViewModel.cs" />
-    <Compile Include="Setting\LogViewModel.cs" />
-    <Compile Include="ViewModelServicesModule.cs" />
-    <Compile Include="Setting\ConfigurationViewModel.cs" />
-    <Compile Include="Permission\DifferentItemViewModel.cs" />
-    <Compile Include="Permission\PermissionsViewModel.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Setting\ReportFolderViewModel.cs" />
-    <Compile Include="Setting\ReportPermissionViewModel.cs" />
-    <Compile Include="Setting\ReportViewModel.cs" />
-    <Compile Include="Setting\SettingViewModel.cs" />
-    <Compile Include="Setting\SettingWorkspaceViewModel.cs" />
-    <Compile Include="Setting\SoftwareUpdateViewModel.cs" />
-    <Compile Include="Setting\TranslationRightsViewModel.cs" />
-    <Compile Include="ShareReport\ShareViewModel.cs" />
-    <Compile Include="Templates\TemplateContainerViewModel.cs" />
-    <Compile Include="Templates\TemplateEditViewModel.cs" />
-    <Compile Include="Templates\TemplateItemViewModel.cs" />
-    <Compile Include="Templates\TemplateNewViewModel.cs" />
-    <Compile Include="UserReport\UserReportViewModel.cs" />
-    <Compile Include="UserReport\SavedFolderItemViewModel.cs" />
-    <Compile Include="UserReport\SavedUserReportListItemViewModel.cs" />
-    <Compile Include="UserReport\SavedUserReportListViewModel.cs" />
-    <Compile Include="UserReport\SavedUserReportViewModel.cs" />
-    <Compile Include="UserReport\UserReportBaseViewModel.cs" />
-    <Compile Include="WorkspaceViewModel.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FSV.AdServices\FSV.AdServices.csproj">
-      <Project>{544ef25e-75dc-4166-9ff2-f0005388146f}</Project>
-      <Name>FSV.AdServices</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Business\FSV.Business.csproj">
-      <Project>{f637cdfc-d5e9-419a-bd7f-f7d320bea3c0}</Project>
-      <Name>FSV.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Configuration.Abstractions\FSV.Configuration.Abstractions.csproj">
-      <Project>{6ef8b753-c9ef-4f1a-bdeb-58efa7dd3487}</Project>
-      <Name>FSV.Configuration.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Configuration\FSV.Configuration.csproj">
-      <Project>{0bdc0c6c-06bb-4dcd-ab93-e7fc035eb0af}</Project>
-      <Name>FSV.Configuration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Crypto.Abstractions\FSV.Crypto.Abstractions.csproj">
-      <Project>{A9DBBA78-EE29-43D0-A67F-A92AF66531E1}</Project>
-      <Name>FSV.Crypto.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.CsvExporter\FSV.CsvExporter.csproj">
-      <Project>{10d9c1e5-d90d-40ec-a445-2c0038bbcf85}</Project>
-      <Name>FSV.CsvExporter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Database\FSV.Database.csproj">
-      <Project>{aa409f5f-9d8c-430a-b7ed-ca3dcfd66550}</Project>
-      <Name>FSV.Database</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.ExcelExporter\FSV.ExcelExporter.csproj">
-      <Project>{c5b80996-6771-4d23-9136-1cf9c4230579}</Project>
-      <Name>FSV.ExcelExporter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj">
-      <Project>{0B87440C-CE77-4D3F-AD5D-1EA72363A51E}</Project>
-      <Name>FSV.Extensions.DependencyInjection</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Extensions.Logging\FSV.Extensions.Logging.csproj">
-      <Project>{10ef5d74-77e9-4f8c-b0fb-ab44fb908119}</Project>
-      <Name>FSV.Extensions.Logging</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop.Abstractions\FSV.FileSystem.Interop.Abstractions.csproj">
-      <Project>{2c724fb3-debf-4044-ab29-f31f3f35da3b}</Project>
-      <Name>FSV.FileSystem.Interop.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop.Core.Abstractions\FSV.FileSystem.Interop.Core.Abstractions.csproj">
-      <Project>{150c7c23-af8d-4e03-bbec-0c75d31e4a64}</Project>
-      <Name>FSV.FileSystem.Interop.Core.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop.Core\FSV.FileSystem.Interop.Core.csproj">
-      <Project>{afa58ad0-d547-4d95-87de-03443e02066c}</Project>
-      <Name>FSV.FileSystem.Interop.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FileSystem.Interop\FSV.FileSystem.Interop.csproj">
-      <Project>{cd590216-ff4e-4ab6-a6d3-f1d45e3615a0}</Project>
-      <Name>FSV.FileSystem.Interop</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.FolderTree\FSV.FolderTree.csproj">
-      <Project>{FD1D8BAE-014C-4941-BA49-33182955689C}</Project>
-      <Name>FSV.FolderTree</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.HtmlExporter\FSV.HtmlExporter.csproj">
-      <Project>{86ceef74-77c9-48cc-af44-a8d0d9a139b1}</Project>
-      <Name>FSV.HtmlExporter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Models\FSV.Models.csproj">
-      <Project>{F268923F-4E6D-4C52-9B38-B4E370582283}</Project>
-      <Name>FSV.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Resources\FSV.Resources.csproj">
-      <Project>{7f0dcb46-1b42-4000-a481-6bdfb2103a87}</Project>
-      <Name>FSV.Resources</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Security\FSV.Security.csproj">
-      <Project>{98992e64-a68a-42bd-a083-695bd84c8f66}</Project>
-      <Name>FSV.Security</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.ShareServices\FSV.ShareServices.csproj">
-      <Project>{f0fdd4e2-0047-452c-9980-227c2c41c4f3}</Project>
-      <Name>FSV.ShareServices</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FSV.Templates\FSV.Templates.csproj">
-      <Project>{255c8131-0b4a-48a0-a318-b51ea6d8225f}</Project>
-      <Name>FSV.Templates</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection">
-      <Version>3.1.32</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <Version>3.1.32</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions">
-      <Version>3.1.32</Version>
-    </PackageReference>
     <PackageReference Include="Prism.Core">
       <Version>8.1.97</Version>
     </PackageReference>
-    <PackageReference Include="System.Security.Cryptography.Xml">
-      <Version>4.7.1</Version>
-    </PackageReference>
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-         Other similar extension points exist, see Microsoft.Common.targets.
-    <Target Name="BeforeBuild">
-    </Target>
-    <Target Name="AfterBuild">
-    </Target>
-    -->
 </Project>

@@ -16,20 +16,9 @@
 
 using System.Reflection;
 using System.Runtime.InteropServices;
-
-[assembly: AssemblyTitle("FSV.Configuration.UnitTest")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FSV.Configuration.UnitTest")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 [assembly: ComVisible(false)]
 
 [assembly: Guid("cad6a1ad-d0d3-441a-b416-b9ae9e6424f8")]
-
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]

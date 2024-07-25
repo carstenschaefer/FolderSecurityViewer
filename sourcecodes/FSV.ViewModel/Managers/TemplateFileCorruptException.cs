@@ -33,11 +33,5 @@ namespace FSV.ViewModel.Managers
         public TemplateFileCorruptException(string message, Exception inner) : base(message, inner)
         {
         }
-
-        protected TemplateFileCorruptException(
-            SerializationInfo info,
-            StreamingContext context) : base(info, context)
-        {
-        }
     }
 }

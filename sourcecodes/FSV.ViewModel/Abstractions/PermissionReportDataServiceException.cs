@@ -1,4 +1,4 @@
-﻿// FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
+// FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
 // Copyright (C) 2015 - 2024  Carsten Schäfer, Matthias Friedrich, and Ritesh Gite
 // 
 // This program is free software: you can redistribute it and/or modify
@@ -32,12 +32,6 @@ namespace FSV.ViewModel.Managers
         }
 
         public PermissionReportDataServiceException(string message, Exception inner) : base(message, inner)
-        {
-        }
-
-        protected PermissionReportDataServiceException(
-            SerializationInfo info,
-            StreamingContext context) : base(info, context)
         {
         }
     }
