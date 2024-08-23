@@ -70,8 +70,8 @@
     <Resource Include="Resources\Images\AppIcon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ControlzEx">
-      <Version>6.0.0</Version>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf">
+      <Version>1.1.122</Version>
     </PackageReference>
     <PackageReference Include="Serilog.Extensions.Logging">
       <Version>8.0.0</Version>
