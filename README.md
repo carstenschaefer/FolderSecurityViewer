@@ -41,6 +41,11 @@ The application can be compiled on Windows, and depends on the following Framewo
 * Optional: Visual Studio 2022
 * MSBuild version 17.9.8 or above
 
+### Platform compatibility
+
+Ensure your target platform is supported by .NET 8; check the supported OS versions in the  [.NET 8 Release Notes](https://github.com/dotnet/core/blob/main/release-notes/8.0/supported-os.md#net-8---supported-os-versions). If you need a build compatible with Windows 7 or 8, please refer to version [v2.7.0-beta.1](https://github.com/carstenschaefer/FolderSecurityViewer/releases/tag/v2.7.0-beta.1), which depends on .NET Framework 4.7 and Visual Studio.
+
+
 ### Build
 
 ````bash
