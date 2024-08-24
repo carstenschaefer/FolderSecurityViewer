@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.8.1-beta.1] - 2024-08-24
+
+### Changed
+
+- Removes `ControlzEx` NuGet package reference
+- References `Microsoft.Xaml.Behaviors.Wpf` to fix issues related to XAML behaviors
+
+### Fixed
+
+- Calculates correct system menu position (takes DPI scaling into account)
+
+
 ## [v2.8.0-beta.1] - 2024-07-25
 
 ### Changed

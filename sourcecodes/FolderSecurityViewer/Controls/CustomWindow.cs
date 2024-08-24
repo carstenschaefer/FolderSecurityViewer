@@ -17,13 +17,10 @@
 namespace FolderSecurityViewer.Controls
 {
     using System.Windows;
-    using ControlzEx.Behaviors;
-    using Microsoft.Xaml.Behaviors;
 
     public class CustomWindow : Window
     {
-        public static readonly DependencyProperty StartLocationProperty =
-            DependencyProperty.Register("StartLocation", typeof(WindowStartupLocation), typeof(CustomWindow), new PropertyMetadata(WindowStartupLocation.Manual, OnStartLocationChanged));
+        public static readonly DependencyProperty StartLocationProperty = DependencyProperty.Register(nameof(StartLocation), typeof(WindowStartupLocation), typeof(CustomWindow), new PropertyMetadata(WindowStartupLocation.Manual, OnStartLocationChanged));
 
         public CustomWindow()
         {
@@ -46,17 +43,6 @@ namespace FolderSecurityViewer.Controls
             {
                 window.WindowStartupLocation = window.StartLocation;
             }
-        }
-
-        private void InitializeWindowChromeBehavior()
-        {
-            var behavior = new WindowChromeBehavior();
-            //BindingOperations.SetBinding(behavior, WindowChromeBehavior.EnableMinimizeProperty, new Binding { Path = new PropertyPath(ShowMinButtonProperty), Source = this });
-            //BindingOperations.SetBinding(behavior, WindowChromeBehavior.EnableMaxRestoreProperty, new Binding { Path = new PropertyPath(ShowMaxRestoreButtonProperty), Source = this });
-
-            // this.SetBinding(IsNCActiveProperty, new Binding { Path = new PropertyPath(WindowChromeBehavior.IsNCActiveProperty), Source = behavior });
-
-            Interaction.GetBehaviors(this).Add(behavior);
         }
     }
 }

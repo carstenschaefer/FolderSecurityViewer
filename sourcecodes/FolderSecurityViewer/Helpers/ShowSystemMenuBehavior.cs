@@ -1,4 +1,4 @@
-﻿// FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
+// FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
 // Copyright (C) 2015 - 2024  Carsten Schäfer, Matthias Friedrich, and Ritesh Gite
 // 
 // This program is free software: you can redistribute it and/or modify
@@ -16,52 +16,64 @@
 
 namespace FolderSecurityViewer.Helpers
 {
-#pragma warning disable 618
     using System.Windows;
     using System.Windows.Input;
-
-#pragma warning restore 618
+    using System.Windows.Media;
 
     public static class ShowSystemMenuBehavior
     {
-        #region RightButtonShow handlers
+        public static readonly DependencyProperty TargetWindowProperty = DependencyProperty.RegisterAttached("TargetWindow", typeof(Window), typeof(ShowSystemMenuBehavior), new UIPropertyMetadata(OnTargetWindowChanged));
 
-        private static void RightButtonDownShow(object sender, MouseButtonEventArgs e)
+        private static void HandleMouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Window targetWindow = GetTargetWindow((UIElement)sender);
+            if (sender is not Window targetWindow)
+            {
+                return;
+            }
 
-            // var showMenuAt = targetWindow.PointToScreen(Mouse.GetPosition((targetWindow)));
+            Point systemMenuPosition = GetAdjustedWindowPosition(targetWindow);
 
-            // SystemMenuManager.ShowMenu(targetWindow, showMenuAt);
-#pragma warning disable CS0618 // Type or member is obsolete
-            SystemCommands.ShowSystemMenu(targetWindow, e.GetPosition(targetWindow));
-#pragma warning restore CS0618 // Type or member is obsolete
+            SystemCommands.ShowSystemMenu(targetWindow, systemMenuPosition);
         }
 
-        #endregion
+        private static Point GetAdjustedWindowPosition(Window targetWindow)
+        {
+            Point position = Mouse.GetPosition(targetWindow);
+            Point systemMenuPosition = targetWindow.PointToScreen(position);
 
-        #region TargetWindow
+            PresentationSource source = PresentationSource.FromVisual(targetWindow);
+            if (source?.CompositionTarget == null)
+            {
+                return systemMenuPosition;
+            }
+
+            Matrix matrix = source.CompositionTarget.TransformToDevice;
+            systemMenuPosition = new Point(systemMenuPosition.X / matrix.M11, systemMenuPosition.Y / matrix.M22);
+
+            return systemMenuPosition;
+        }
 
         public static Window GetTargetWindow(DependencyObject obj)
         {
-            return (Window)obj.GetValue(TargetWindow);
+            return (Window)obj.GetValue(TargetWindowProperty);
         }
 
         public static void SetTargetWindow(DependencyObject obj, Window window)
         {
-            obj.SetValue(TargetWindow, window);
+            obj.SetValue(TargetWindowProperty, window);
         }
-
-        public static readonly DependencyProperty TargetWindow = DependencyProperty.RegisterAttached("TargetWindow", typeof(Window), typeof(ShowSystemMenuBehavior), new UIPropertyMetadata(OnTargetWindowChanged));
 
         private static void OnTargetWindowChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is UIElement element)
+            if (e.OldValue is Window oldTarget)
             {
-                element.MouseRightButtonDown += RightButtonDownShow;
+                oldTarget.MouseRightButtonDown -= HandleMouseRightButtonDown;
+            }
+
+            if (e.NewValue is Window newTarget)
+            {
+                newTarget.MouseRightButtonDown += HandleMouseRightButtonDown;
             }
         }
-
-        #endregion
     }
 }
