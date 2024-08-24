@@ -1,4 +1,4 @@
-﻿// FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
+// FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
 // Copyright (C) 2015 - 2024  Carsten Schäfer, Matthias Friedrich, and Ritesh Gite
 // 
 // This program is free software: you can redistribute it and/or modify
@@ -21,21 +21,21 @@ namespace FolderSecurityViewer.Helpers
 
     public static class WindowDragBehavior
     {
-        public static readonly DependencyProperty LeftMouseButtonDrag = DependencyProperty.RegisterAttached("LeftMouseButtonDrag",
+        public static readonly DependencyProperty LeftMouseButtonDragProperty = DependencyProperty.RegisterAttached("LeftMouseButtonDrag",
             typeof(Window), typeof(WindowDragBehavior),
-            new UIPropertyMetadata(null, OnLeftMouseButtonDragChanged));
+            new UIPropertyMetadata(null, LeftMouseButtonDragPropertyChangedCallback));
 
         public static Window GetLeftMouseButtonDrag(DependencyObject obj)
         {
-            return (Window)obj.GetValue(LeftMouseButtonDrag);
+            return (Window)obj.GetValue(LeftMouseButtonDragProperty);
         }
 
         public static void SetLeftMouseButtonDrag(DependencyObject obj, Window window)
         {
-            obj.SetValue(LeftMouseButtonDrag, window);
+            obj.SetValue(LeftMouseButtonDragProperty, window);
         }
 
-        private static void OnLeftMouseButtonDragChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private static void LeftMouseButtonDragPropertyChangedCallback(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (sender is UIElement element)
             {
@@ -45,8 +45,7 @@ namespace FolderSecurityViewer.Helpers
 
         private static void ButtonDown(object sender, MouseButtonEventArgs e)
         {
-            var element = sender as UIElement;
-            if (element.GetValue(LeftMouseButtonDrag) is Window targetWindow)
+            if (sender is UIElement element && element.GetValue(LeftMouseButtonDragProperty) is Window targetWindow)
             {
                 targetWindow.DragMove();
             }
