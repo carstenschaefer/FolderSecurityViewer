@@ -1,4 +1,10 @@
-This README is just a fast quick start document. You can find more detailed information in the [official docs](https://g-tac.gitbook.io/foldersecurityviewer).
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/carstenschaefer/FolderSecurityViewer/dotnet.yml)
+![GitHub License](https://img.shields.io/github/license/carstenschaefer/FolderSecurityViewer)
+![GitHub Release](https://img.shields.io/github/v/release/carstenschaefer/FolderSecurityViewer?include_prereleases&display_name=tag)
+![Static Badge](https://img.shields.io/badge/Platform-Windows-7119FF)
+
+
+This README is just a quick-start document. For more detailed information, see the [official docs](https://g-tac.gitbook.io/foldersecurityviewer).
 
 ## What is FolderSecurityViewer?
 
