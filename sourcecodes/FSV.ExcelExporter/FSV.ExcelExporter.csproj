@@ -28,7 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ClosedXML">
-      <Version>0.102.3</Version>
+      <Version>0.105.0</Version>
     </PackageReference>
   </ItemGroup>
 </Project>
