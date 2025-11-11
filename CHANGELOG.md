@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v2.9.0-beta.1] - 2025-11-11
+
+### Changed
+
+- Changed the target framework to .NET 9.0 across all projects [#12](https://github.com/carstenschaefer/FolderSecurityViewer/pull/12)
+- Updated GitHub Actions workflow to use .NET 9.0 [#12](https://github.com/carstenschaefer/FolderSecurityViewer/pull/12)
+- Updated all NuGet packackages in the whole solution [#12](https://github.com/carstenschaefer/FolderSecurityViewer/pull/12)
+- Updated test framework target from net8.0-windows to net9.0-windows [#12](https://github.com/carstenschaefer/FolderSecurityViewer/pull/12)
+
+
 ## [v2.8.1-beta.1] - 2024-08-24
 
 ### Changed
