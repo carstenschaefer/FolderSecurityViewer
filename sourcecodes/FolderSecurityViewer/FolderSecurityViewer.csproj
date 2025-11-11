@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Authors>Carsten Schäfer, Matthias Friedrich, and Ritesh Gite</Authors>
-    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Copyright>Copyright © 2015 - 2025 G-TAC Software UG</Copyright>
     <Description>FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.</Description>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <IsPackable>false</IsPackable>
