@@ -14,11 +14,11 @@
   <PropertyGroup>
     <AnalysisLevel>none</AnalysisLevel>
     <AssemblyTitle>FSV.CsvExporter</AssemblyTitle>
-    <AssemblyVersion>2.8.1</AssemblyVersion>
+    <AssemblyVersion>2.9.0</AssemblyVersion>
     <Company>G-TAC Software UG, Katzweiler, Germany</Company>
     <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
     <Description>Part of G-TAC's NTFS Permissions Reporter "FolderSecurityViewer"</Description>
-    <FileVersion>2.8.1</FileVersion>
+    <FileVersion>2.9.0</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <Product>FolderSecurityViewer</Product>
   </PropertyGroup>

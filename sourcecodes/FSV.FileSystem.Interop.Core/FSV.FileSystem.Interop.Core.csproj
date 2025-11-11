@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AnalysisLevel>none</AnalysisLevel>
-    <AssemblyVersion>2.8.1</AssemblyVersion>
+    <AssemblyVersion>2.9.0</AssemblyVersion>
     <Authors>Matthias Friedrich</Authors>
     <Company>G-TAC Software UG, Katzweiler, Germany</Company>
     <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
     <Description>Part of G-TAC's NTFS Permissions Reporter "FolderSecurityViewer"</Description>
-    <FileVersion>2.8.1</FileVersion>
+    <FileVersion>2.9.0</FileVersion>
     <LangVersion>latest</LangVersion>
     <PackageVersion>2.4.4</PackageVersion>
     <Product>FolderSecurityViewer</Product>
