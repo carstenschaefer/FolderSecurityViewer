@@ -6,6 +6,16 @@
 
 This README is just a quick-start document. For more detailed information, see the [official docs](https://g-tac.gitbook.io/foldersecurityviewer).
 
+
+## Notice
+
+This project is **actively maintained** and remains the official source of the software.
+
+* **Important:** The previous domain associated with this project has **expired** and is no longer under our control. We do **not** have any connection to its current owner, and we cannot verify its content or use. This repository and its contents are licensed under the **GNU AGPL v3**. 
+
+* **No commercial licenses are being sold or required.** All users should rely only on this GitHub repository as the official source of the project.
+
+
 ## What is FolderSecurityViewer?
 
 FolderSecurityViewer is an NTFS permissions reporter that helps you analyze your Windows folders or network shares and report all NTFS permissions' owners. Tracing down users' effective NTFS permissions creates visibility into your data's effective permissions and access rights. It gives insights into whether rights assignments are made for a group or direct assignment.
