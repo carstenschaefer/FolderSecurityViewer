@@ -2,30 +2,28 @@ name: .NET Core Desktop
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
-
   build:
-
-    runs-on: windows-latest  # For a list of available runner types, refer to
-                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+    runs-on: windows-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    - name: Install .NET Core
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
+      - name: Install .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+          cache: true
 
-    - name: Execute unit tests
-      run: |
-        cd sourcecodes
-        dotnet build --configuration Release
-        dotnet test ./FolderSecurityViewer.sln --framework net8.0-windows --configuration Release
+      - name: Execute unit tests
+        run: |
+          cd sourcecodes
+          dotnet build --configuration Release
+          dotnet test ./FolderSecurityViewer.sln --framework net9.0-windows --configuration Release
