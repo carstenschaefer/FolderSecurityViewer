@@ -9,7 +9,7 @@
     <LangVersion>default</LangVersion>
     <OutputType>Library</OutputType>
     <Product>FSV.ShareServices.UnitTest</Product>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk">

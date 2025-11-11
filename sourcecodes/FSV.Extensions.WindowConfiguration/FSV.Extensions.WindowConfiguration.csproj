@@ -5,7 +5,7 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <LangVersion>latest</LangVersion>
     <OutputType>Library</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <PropertyGroup>

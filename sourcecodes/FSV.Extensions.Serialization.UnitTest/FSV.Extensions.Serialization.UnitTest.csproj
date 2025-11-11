@@ -3,7 +3,7 @@
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
     <LangVersion>latest</LangVersion>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />

@@ -73,7 +73,7 @@ $ dotnet build ./FolderSecurityViewer.sln --configuration Release
 
 ````bash
 $ dotnet clean && dotnet build
-$ dotnet test --framework net8.0-windows
+$ dotnet test --framework net9.0-windows
 ````
 
 

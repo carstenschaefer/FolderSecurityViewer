@@ -7,7 +7,7 @@
     <FileVersion>2.8.1</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <Product>FolderSecurityViewer</Product>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <Version>2.4.1</Version>
   </PropertyGroup>
 </Project>
