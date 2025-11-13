@@ -29,12 +29,6 @@
     <PackageReference Include="MSTest.TestFramework">
       <Version>4.0.2</Version>
     </PackageReference>
-    <PackageReference Include="xunit">
-      <Version>2.9.3</Version>
-    </PackageReference>
-    <PackageReference Include="Xunit.StaFact">
-      <Version>3.0.13</Version>
-    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FolderSecurityViewer\FolderSecurityViewer.csproj" />

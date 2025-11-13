@@ -1,4 +1,4 @@
-﻿// FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
+// FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
 // Copyright (C) 2015 - 2024  Carsten Schäfer, Matthias Friedrich, and Ritesh Gite
 // 
 // This program is free software: you can redistribute it and/or modify
@@ -17,6 +17,7 @@
 namespace FSV.ViewModel.UnitTest
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -25,12 +26,13 @@ namespace FSV.ViewModel.UnitTest
     using AdServices.EnumOU;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Moq;
-    using Xunit;
 
+    [TestClass]
     public class DomainViewModelTest
     {
-        [Fact]
+        [TestMethod]
         public async Task DomainViewModel_Initialize_for_computers_test()
         {
             const string domainName = "test.local";
@@ -45,18 +47,18 @@ namespace FSV.ViewModel.UnitTest
             await sut.InitializeAsync();
 
             // Assert
-            Assert.NotNull(sut.Items);
-            Assert.Null(sut.Parent);
+            Assert.IsNotNull(sut.Items);
+            Assert.IsNull(sut.Parent);
 
-            Assert.All(sut.Items,
-                item =>
-                {
-                    Assert.IsType<ComputerPrincipalViewModel>(item);
-                    Assert.NotNull(item.Parent);
-                });
+            ICollection list = sut.Items.ToList();
+            CollectionAssert.AllItemsAreInstancesOfType(list, typeof(ComputerPrincipalViewModel));
+            foreach (IPrincipalViewModel item in sut.Items)
+            {
+                Assert.IsNotNull(item.Parent);
+            }
         }
 
-        [Fact]
+        [TestMethod]
         public async Task DomainViewModel_Initialize_for_principals_test()
         {
             const string domainName = "test.local";
@@ -71,15 +73,14 @@ namespace FSV.ViewModel.UnitTest
             await sut.InitializeAsync();
 
             // Assert
-            Assert.NotNull(sut.Items);
-            Assert.Null(sut.Parent);
+            Assert.IsNotNull(sut.Items);
+            Assert.IsNull(sut.Parent);
 
-            Assert.All(sut.Items,
-                item =>
-                {
-                    Assert.IsType<PrincipalViewModel>(item);
-                    Assert.NotNull(item.Parent);
-                });
+            CollectionAssert.AllItemsAreInstancesOfType(sut.Items.ToList(), typeof(PrincipalViewModel));
+            foreach (IPrincipalViewModel item in sut.Items)
+            {
+                Assert.IsNotNull(item.Parent);
+            }
         }
 
         private IServiceProvider ConfigureAllServices(IAdBrowserService adBrowserService)

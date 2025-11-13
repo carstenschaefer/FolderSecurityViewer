@@ -1,5 +1,5 @@
 // FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
-// Copyright (C) 2015 - 2024  Carsten Sch‰fer, Matthias Friedrich, and Ritesh Gite
+// Copyright (C) 2015 - 2024  Carsten Sch√§fer, Matthias Friedrich, and Ritesh Gite
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -16,17 +16,24 @@
 
 namespace FSV.Extensions.WindowConfiguration.Test
 {
+    using Abstractions;
+
+    using Configuration.Abstractions;
+
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging.Abstractions;
+
+    using Moq;
+
+    using Serialization.Abstractions;
+
     using System.IO;
     using System.IO.Abstractions;
     using System.IO.Abstractions.TestingHelpers;
-    using Abstractions;
-    using Configuration.Abstractions;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Logging.Abstractions;
-    using Moq;
-    using Serialization.Abstractions;
+    using System.Threading.Tasks;
+
     using Xunit;
-    
+
     public class WindowConfigurationManagerTest
     {
         [Fact]
@@ -134,7 +141,7 @@ namespace FSV.Extensions.WindowConfiguration.Test
         }
 
         [Fact]
-        public void WindowConfigurationManager_SaveAsync_Test()
+        public async Task WindowConfigurationManager_SaveAsync_Test()
         {
             // Arrange
             const WindowState windowState = WindowState.Maximized;
@@ -142,7 +149,7 @@ namespace FSV.Extensions.WindowConfiguration.Test
             var settings = new Settings(expectedPosition);
 
             IMockFileDataAccessor mockFileDataAccessor = new MockFileSystem();
-            using var stream = new MockFileStream(mockFileDataAccessor, "Window.json", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            await using var stream = new MockFileStream(mockFileDataAccessor, "Window.json", FileMode.OpenOrCreate, FileAccess.ReadWrite);
 
             var serializerMock = new Mock<ISerializationWrapper>();
             serializerMock.Setup(wrapper => wrapper.SerializeAsync(stream, settings)).Verifiable();
@@ -168,7 +175,7 @@ namespace FSV.Extensions.WindowConfiguration.Test
 
             // Act
             sut.SetPosition(expectedPosition);
-            sut.SaveAsync();
+            await sut.SaveAsync();
 
             // Assert
             fileMock.Verify(file => file.Open(It.IsAny<string>(), FileMode.OpenOrCreate), Times.Once);

@@ -1,5 +1,5 @@
 // FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
-// Copyright (C) 2015 - 2024  Carsten Sch‰fer, Matthias Friedrich, and Ritesh Gite
+// Copyright (C) 2015 - 2024  Carsten Sch√§fer, Matthias Friedrich, and Ritesh Gite
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -38,7 +38,7 @@ namespace FSV.ShareServices.UnitTest
             await manager.GetServerListAsync();
             bool result = manager.ServerExists("MyServer");
 
-            Assert.AreEqual(false, result);
+            Assert.IsFalse(result);
         }
 
         [TestMethod]
@@ -51,7 +51,7 @@ namespace FSV.ShareServices.UnitTest
             await manager.GetServerListAsync();
             bool result = manager.ServerExists("WinServers");
 
-            Assert.AreEqual(true, result);
+            Assert.IsTrue(result);
         }
 
         [TestMethod]
@@ -67,7 +67,7 @@ namespace FSV.ShareServices.UnitTest
 
             Assert.AreEqual(ServerState.NotScanned, serverItem.State);
             Assert.AreEqual(serverName, serverItem.Name);
-            Assert.AreEqual(0, serverItem.Shares.Count);
+            Assert.IsEmpty(serverItem.Shares);
         }
 
         [TestMethod]
@@ -85,7 +85,7 @@ namespace FSV.ShareServices.UnitTest
             ServerItem serverItem = manager.CreateServer(serverName);
             ShareItem shareItem = manager.CreateShare(serverItem, shareName, sharePath);
 
-            Assert.AreEqual(1, serverItem.Shares.Count);
+            Assert.HasCount(1, serverItem.Shares);
             Assert.AreEqual(shareName, shareItem.Name);
             Assert.AreEqual(sharePath, shareItem.Path);
         }

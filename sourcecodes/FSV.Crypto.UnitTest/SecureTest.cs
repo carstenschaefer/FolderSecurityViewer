@@ -1,5 +1,5 @@
 // FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
-// Copyright (C) 2015 - 2024  Carsten Sch‰fer, Matthias Friedrich, and Ritesh Gite
+// Copyright (C) 2015 - 2024  Carsten Sch√§fer, Matthias Friedrich, and Ritesh Gite
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -26,7 +26,7 @@ namespace FSV.Crypto.UnitTest
     [TestClass]
     public class SecureTest
     {
-        private const string password = "Abc#123";
+        private const string Password = "Abc#123";
 
         [TestMethod]
         public void Secure_EncryptFromSecureString_Empty_test()
@@ -42,18 +42,18 @@ namespace FSV.Crypto.UnitTest
         public void Secure_EncryptFromSecureString_Entropy_test()
         {
             ISecure secure = new Secure();
-            SecureString secureString = this.GetSecureString(password);
+            SecureString secureString = this.GetSecureString(Password);
             string encrypted = secure.EncryptFromSecureString(secureString);
 
             Assert.IsNotNull(encrypted);
-            Assert.IsFalse(password.Equals(encrypted));
+            Assert.IsFalse(Password.Equals(encrypted));
         }
 
         [TestMethod]
         public void Secure_EncryptFromSecureString_NoEntropy_test()
         {
             ISecure secure = new Secure();
-            SecureString secureString = this.GetSecureString(password);
+            SecureString secureString = this.GetSecureString(Password);
 
             string encryptedWithEntropy = secure.EncryptFromSecureString(secureString);
             string encryptedWithoutEntropy = secure.EncryptFromSecureString(secureString, false);
@@ -79,10 +79,10 @@ namespace FSV.Crypto.UnitTest
         {
             ISecure secure = new Secure();
 
-            string encrypted = secure.EncryptFromSecureString(this.GetSecureString(password));
+            string encrypted = secure.EncryptFromSecureString(this.GetSecureString(Password));
             SecureString decrypted = secure.DecryptToSecureString(encrypted);
 
-            Assert.AreEqual(password.Length, decrypted.Length);
+            Assert.AreEqual(Password.Length, decrypted.Length);
         }
 
         [TestMethod]
@@ -90,10 +90,10 @@ namespace FSV.Crypto.UnitTest
         {
             ISecure secure = new Secure();
 
-            string encrypted = secure.EncryptFromSecureString(this.GetSecureString(password), false);
+            string encrypted = secure.EncryptFromSecureString(this.GetSecureString(Password), false);
             SecureString decrypted = secure.DecryptToSecureString(encrypted, false);
 
-            Assert.AreEqual(password.Length, decrypted.Length);
+            Assert.AreEqual(Password.Length, decrypted.Length);
         }
 
         [TestMethod]
@@ -101,9 +101,9 @@ namespace FSV.Crypto.UnitTest
         {
             ISecure secure = new Secure();
 
-            string encrypted = secure.EncryptFromSecureString(this.GetSecureString(password), false);
+            string encrypted = secure.EncryptFromSecureString(this.GetSecureString(Password), false);
 
-            Assert.ThrowsException<CryptographicException>(() => secure.DecryptToSecureString(encrypted));
+            Assert.Throws<CryptographicException>(() => secure.DecryptToSecureString(encrypted));
         }
 
         [TestMethod]
@@ -111,16 +111,16 @@ namespace FSV.Crypto.UnitTest
         {
             ISecure secure = new Secure();
 
-            string encrypted = secure.EncryptFromSecureString(this.GetSecureString(password));
+            string encrypted = secure.EncryptFromSecureString(this.GetSecureString(Password));
 
-            Assert.ThrowsException<CryptographicException>(() => secure.DecryptToSecureString(encrypted, false));
+            Assert.Throws<CryptographicException>(() => secure.DecryptToSecureString(encrypted, false));
         }
 
         [TestMethod]
         public void Secure_GetBytes_test()
         {
             ISecure secure = new Secure();
-            using SecureString secureString = this.GetSecureString(password);
+            using SecureString secureString = this.GetSecureString(Password);
 
             IEnumerable<byte> bytes = secure.GetBytes(secureString);
 

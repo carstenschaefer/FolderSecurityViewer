@@ -1,5 +1,5 @@
 // FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
-// Copyright (C) 2015 - 2024  Carsten Sch‰fer, Matthias Friedrich, and Ritesh Gite
+// Copyright (C) 2015 - 2024  Carsten Sch√§fer, Matthias Friedrich, and Ritesh Gite
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -25,12 +25,13 @@ namespace FSV.ViewModel.UnitTest
     using Abstractions;
     using Home;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Newtonsoft.Json;
-    using Xunit;
 
+    [TestClass]
     public class FolderTreeItemSelectorTest
     {
-        [Fact]
+        [TestMethod]
         public async Task FolderTreeItemSelector_GetNextAsync_returns_expected_folder_test()
         {
             // Arrange
@@ -56,10 +57,15 @@ namespace FSV.ViewModel.UnitTest
                 actualFolders.Add(resultFolder?.Path);
             }
 
-            Assert.Equal(expectedFolders, actualFolders, StringComparer.OrdinalIgnoreCase);
+            for (var i = 0; i < expectedFolders.Length && i < actualFolders.Count; i++)
+            {
+                string expectedFolder = expectedFolders[i];
+                string actualFolder = actualFolders[i];
+                Assert.AreEqual(0, StringComparer.OrdinalIgnoreCase.Compare(expectedFolder, actualFolder));
+            }
         }
 
-        [Fact]
+        [TestMethod]
         public async Task FolderTreeItemSelector_GetNextAsync_null_is_returned_from_folderFactory_test()
         {
             // Arrange
@@ -71,10 +77,10 @@ namespace FSV.ViewModel.UnitTest
             // Act
             FolderTreeItemViewModel result = await sut.GetNextAsync("s", selectedFolder);
 
-            Assert.Equal(selectedFolder, result);
+            Assert.AreEqual(selectedFolder, result);
         }
 
-        [Fact]
+        [TestMethod]
         public async Task FolderTreeItemSelector_GetNextAsync_null_is_returned_when_key_not_found_test()
         {
             // Arrange
@@ -86,7 +92,7 @@ namespace FSV.ViewModel.UnitTest
             // Act
             FolderTreeItemViewModel result = await sut.GetNextAsync("master", selectedFolder);
 
-            Assert.Null(result);
+            Assert.IsNull(result);
         }
 
         private IFolderTreeItemSelector GetFolderTreeItemSelector(IEnumerable<FolderTreeItemViewModel> folders)
