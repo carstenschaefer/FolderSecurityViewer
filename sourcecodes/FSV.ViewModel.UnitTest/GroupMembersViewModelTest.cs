@@ -1,5 +1,5 @@
 // FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
-// Copyright (C) 2015 - 2024  Carsten Sch‰fer, Matthias Friedrich, and Ritesh Gite
+// Copyright (C) 2015 - 2024  Carsten Sch√§fer, Matthias Friedrich, and Ritesh Gite
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -45,12 +45,12 @@ namespace FSV.ViewModel.UnitTest
 
             await sut.InitializeAsync();
 
-            Assert.AreEqual(sut.GroupMembers.Count, 2);
-            Assert.AreEqual(sut.GroupMembers.First().AccountName, "User One");
-            Assert.AreEqual(sut.GroupMembers.First().IsGroup, false);
+            Assert.HasCount(2, sut.GroupMembers);
+            Assert.AreEqual("User One", sut.GroupMembers.First().AccountName);
+            Assert.IsFalse(sut.GroupMembers.First().IsGroup);
 
-            Assert.AreEqual(sut.GroupMembers.Last().AccountName, "Group Two");
-            Assert.AreEqual(sut.GroupMembers.Last().IsGroup, true);
+            Assert.AreEqual("Group Two", sut.GroupMembers.Last().AccountName);
+            Assert.IsTrue(sut.GroupMembers.Last().IsGroup);
         }
 
         [TestMethod]
@@ -68,7 +68,7 @@ namespace FSV.ViewModel.UnitTest
             DataTable exportTable = sut.GetGroupMembersDataTable(vm);
 
             Assert.IsNotNull(exportTable);
-            Assert.AreEqual(vm.GroupMembers.Count, exportTable.Rows.Count);
+            Assert.HasCount(vm.GroupMembers.Count, exportTable.Rows);
         }
 
         private IServiceProvider ConfigureAllServices(ServiceCollection services)

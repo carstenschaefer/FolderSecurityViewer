@@ -3,7 +3,7 @@
     <AnalysisLevel>none</AnalysisLevel>
     <AssemblyTitle>FSV.Business.UnitTest</AssemblyTitle>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Copyright>Copyright © 2015 - 2025 G-TAC Software UG</Copyright>
     <FileVersion>1.0.0.0</FileVersion>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <IsPackable>false</IsPackable>
@@ -11,13 +11,16 @@
     <LangVersion>latest</LangVersion>
     <OutputType>Library</OutputType>
     <Product>FSV.Business.UnitTest</Product>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
-    <PackageReference Include="Moq" Version="4.20.70" />
-    <PackageReference Include="xunit" Version="2.9.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageReference Include="Moq" Version="4.20.72" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FSV.AdServices\FSV.AdServices.csproj" />

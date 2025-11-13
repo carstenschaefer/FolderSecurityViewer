@@ -1,4 +1,4 @@
-﻿// FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
+// FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
 // Copyright (C) 2015 - 2024  Carsten Schäfer, Matthias Friedrich, and Ritesh Gite
 // 
 // This program is free software: you can redistribute it and/or modify
@@ -26,13 +26,14 @@ namespace FSV.ViewModel.UnitTest
     using AdServices.EnumOU;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Moq;
     using Prism.Events;
-    using Xunit;
 
+    [TestClass]
     public class AdBrowserViewModelTest
     {
-        [Fact]
+        [TestMethod]
         public async Task AdBrowserViewModel_SearchPrincipals_no_result_test()
         {
             const string principalName = "user_1202";
@@ -49,13 +50,13 @@ namespace FSV.ViewModel.UnitTest
             await sut.SearchPrincipalCommand.ExecuteAsync(null);
 
             // Assert
-            Assert.Equal(principalName, sut.PrincipalName);
-            Assert.Empty(sut.UserPrincipals);
-            Assert.False(sut.ShowUserList);
-            Assert.False(sut.CanReport);
+            Assert.AreEqual(principalName, sut.PrincipalName);
+            Assert.IsEmpty(sut.UserPrincipals);
+            Assert.IsFalse(sut.ShowUserList);
+            Assert.IsFalse(sut.CanReport);
         }
 
-        [Fact]
+        [TestMethod]
         public async Task AdBrowserViewModel_SearchPrincipals_single_result_test()
         {
             const string principalName = "user_1202";
@@ -72,24 +73,23 @@ namespace FSV.ViewModel.UnitTest
             await sut.SearchPrincipalCommand.ExecuteAsync(null);
 
             // Assert
-            Assert.Equal(principalName, sut.PrincipalName);
-            Assert.False(sut.ShowUserList);
-            Assert.True(sut.CanReport);
+            Assert.AreEqual(principalName, sut.PrincipalName);
+            Assert.IsFalse(sut.ShowUserList);
+            Assert.IsTrue(sut.CanReport);
 
-            Assert.Collection(sut.UserPrincipals,
-                item =>
+            foreach (AdTreeViewModel item in sut.UserPrincipals)
+            {
+                if (item is null)
                 {
-                    if (item is null)
-                    {
-                        throw new ArgumentNullException(nameof(item));
-                    }
+                    throw new ArgumentNullException(nameof(item));
+                }
 
-                    Assert.Equal(principalName, item.SamAccountName);
-                    Assert.Equal(TreeViewNodeType.User, item.Type);
-                });
+                Assert.AreEqual(principalName, item.SamAccountName);
+                Assert.AreEqual(TreeViewNodeType.User, item.Type);
+            }
         }
 
-        [Fact]
+        [TestMethod]
         public async Task AdBrowserViewModel_SearchPrincipals_collection_result_test()
         {
             const string principalName = "*12*";
@@ -106,31 +106,30 @@ namespace FSV.ViewModel.UnitTest
             await sut.SearchPrincipalCommand.ExecuteAsync(null);
 
             // Assert
-            Assert.True(sut.ShowUserList);
-            Assert.Collection(sut.UserPrincipals,
-                item =>
+            Assert.IsTrue(sut.ShowUserList);
+            foreach (AdTreeViewModel item in sut.UserPrincipals)
+            {
+                if (item is null)
                 {
-                    if (item is null)
-                    {
-                        throw new ArgumentNullException(nameof(item));
-                    }
+                    throw new ArgumentNullException(nameof(item));
+                }
 
-                    Assert.Equal("user_display", item.DistinguishedName);
-                    Assert.Equal(TreeViewNodeType.User, item.Type);
-                },
-                item =>
+                switch (item.Type)
                 {
-                    if (item is null)
-                    {
-                        throw new ArgumentNullException(nameof(item));
-                    }
-
-                    Assert.Equal("group_display", item.DistinguishedName);
-                    Assert.Equal(TreeViewNodeType.Group, item.Type);
-                });
+                    case TreeViewNodeType.User:
+                        Assert.AreEqual("user_display", item.DistinguishedName);
+                        break;
+                    case TreeViewNodeType.Group:
+                        Assert.AreEqual("group_display", item.DistinguishedName);
+                        break;
+                    default:
+                        Assert.Fail("unexpected item type");
+                        break;
+                }
+            }
         }
 
-        [Fact]
+        [TestMethod]
         public async Task AdBrowserViewModel_selection_test()
         {
             const string principalName = "user1203";
@@ -154,9 +153,13 @@ namespace FSV.ViewModel.UnitTest
             IPrincipalViewModel selectedItem = GetSelectedPrincipal(sut.Principals);
 
             // Assert
-            Assert.Collection(sut.Principals, item => Assert.Equal("the_domain.test", item.DisplayName));
-            Assert.NotNull(selectedItem);
-            Assert.Equal(principalName, selectedItem.SamAccountName);
+            foreach (IPrincipalViewModel item in sut.Principals)
+            {
+                Assert.AreEqual("the_domain.test", item.DisplayName);
+            }
+
+            Assert.IsNotNull(selectedItem);
+            Assert.AreEqual(principalName, selectedItem.SamAccountName);
         }
 
         private IServiceProvider ConfigureAllServices(Mock<IAdBrowserService> mockAdBrowserService)

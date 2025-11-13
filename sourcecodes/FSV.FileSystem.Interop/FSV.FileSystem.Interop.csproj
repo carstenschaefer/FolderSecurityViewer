@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
@@ -17,12 +17,12 @@
   <PropertyGroup>
     <AnalysisLevel>none</AnalysisLevel>
     <AssemblyTitle>FSV.FileSystem.Interop</AssemblyTitle>
-    <AssemblyVersion>2.8.1</AssemblyVersion>
+    <AssemblyVersion>2.9.0</AssemblyVersion>
     <Authors>Matthias Friedrich</Authors>
     <Company>G-TAC Software UG, Katzweiler, Germany</Company>
-    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Copyright>Copyright © 2015 - 2025 G-TAC Software UG</Copyright>
     <Description>Part of G-TAC's NTFS Permissions Reporter "FolderSecurityViewer"</Description>
-    <FileVersion>2.8.1</FileVersion>
+    <FileVersion>2.9.0</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <Product>FolderSecurityViewer</Product>
   </PropertyGroup>
@@ -33,7 +33,7 @@
     <ProjectReference Include="..\FSV.FileSystem.Interop.Core\FSV.FileSystem.Interop.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0" />
     <PackageReference Include="System.Security.AccessControl" Version="6.0.1" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 // FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
-// Copyright (C) 2015 - 2024  Carsten Sch‰fer, Matthias Friedrich, and Ritesh Gite
+// Copyright (C) 2015 - 2024  Carsten Sch√§fer, Matthias Friedrich, and Ritesh Gite
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -50,7 +50,7 @@ namespace FSV.ViewModel.UnitTest
 
             _ = sut.ShowTemplateEditor(TemplateType.PermissionReport, "some/test/path");
 
-            Assert.AreEqual(3, sut.Templates.Count);
+            Assert.HasCount(3, sut.Templates);
             Assert.AreEqual(TestTemplateName, sut.Templates.Last().Name);
         }
 
@@ -68,7 +68,7 @@ namespace FSV.ViewModel.UnitTest
 
             sut.RemoveTemplateCommand.Execute(null);
 
-            Assert.AreEqual(1, sut.Templates.Count);
+            Assert.HasCount(1, sut.Templates);
             Assert.AreEqual("Three One", sut.Templates.First().Name);
         }
 
@@ -119,7 +119,7 @@ namespace FSV.ViewModel.UnitTest
                 </Templates>";
 
             XDocument document = XDocument.Parse(xml);
-            List<Template> templateList = document.Root.Elements().Select(el => new Template(el)).ToList();
+            List<Template> templateList = document.Root!.Elements().Select(el => new Template(el)).ToList();
 
             var mock = new Mock<ITemplateFile>();
             mock.SetupGet(m => m.Templates)

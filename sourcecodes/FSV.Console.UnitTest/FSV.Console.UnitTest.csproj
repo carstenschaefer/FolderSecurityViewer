@@ -2,25 +2,25 @@
   <PropertyGroup>
     <AssemblyTitle>FSV.Console.UnitTest</AssemblyTitle>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Copyright>Copyright © 2015 - 2025 G-TAC Software UG</Copyright>
     <FileVersion>1.0.0.0</FileVersion>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <OutputType>Library</OutputType>
     <Product>FSV.Console.UnitTest</Product>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk">
-      <Version>17.10.0</Version>
+      <Version>18.0.1</Version>
     </PackageReference>
     <PackageReference Include="Moq">
-      <Version>4.20.70</Version>
+      <Version>4.20.72</Version>
     </PackageReference>
     <PackageReference Include="MSTest.TestAdapter">
-      <Version>3.5.0</Version>
+      <Version>4.0.2</Version>
     </PackageReference>
     <PackageReference Include="MSTest.TestFramework">
-      <Version>3.5.0</Version>
+      <Version>4.0.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

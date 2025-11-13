@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.10.35027.167
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11205.157 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FSV.FolderTree", "FSV.FolderTree\FSV.FolderTree.csproj", "{FD1D8BAE-014C-4941-BA49-33182955689C}"
 EndProject
@@ -306,7 +306,7 @@ Global
 		{546EB7C8-691A-4D3F-844D-B92486C3CF7A} = {0E252AB3-1E8E-4FE2-82FC-C207CA1B5970}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		VisualSVNWorkingCopyRoot = .
 		SolutionGuid = {CD022600-DA06-4B78-B1B4-7B3B1F02C19B}
+		VisualSVNWorkingCopyRoot = .
 	EndGlobalSection
 EndGlobal

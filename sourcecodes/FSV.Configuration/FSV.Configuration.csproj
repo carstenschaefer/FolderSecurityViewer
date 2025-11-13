@@ -5,7 +5,7 @@
     <OutputType>Library</OutputType>
     <RestorePackages>true</RestorePackages>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -18,11 +18,11 @@
   <PropertyGroup>
     <AnalysisLevel>none</AnalysisLevel>
     <AssemblyTitle>FSV.Configuration</AssemblyTitle>
-    <AssemblyVersion>2.8.1</AssemblyVersion>
+    <AssemblyVersion>2.9.0</AssemblyVersion>
     <Company>G-TAC Software UG, Katzweiler, Germany</Company>
-    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Copyright>Copyright © 2015 - 2025 G-TAC Software UG</Copyright>
     <Description>Part of G-TAC's NTFS Permissions Reporter "FolderSecurityViewer"</Description>
-    <FileVersion>2.8.1</FileVersion>
+    <FileVersion>2.9.0</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <Product>FolderSecurityViewer</Product>
   </PropertyGroup>
@@ -36,10 +36,11 @@
     <EmbeddedResource Include="Defaults\ShareConfig.xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
     <PackageReference Include="System.Data.SQLite">
-      <Version>1.0.118</Version>
+      <Version>2.0.2</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FSV.Configuration.Abstractions\FSV.Configuration.Abstractions.csproj" />

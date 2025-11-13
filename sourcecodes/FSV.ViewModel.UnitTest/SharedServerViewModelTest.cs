@@ -1,5 +1,5 @@
 // FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
-// Copyright (C) 2015 - 2024  Carsten Sch‰fer, Matthias Friedrich, and Ritesh Gite
+// Copyright (C) 2015 - 2024  Carsten Sch√§fer, Matthias Friedrich, and Ritesh Gite
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -43,7 +43,7 @@ namespace FSV.ViewModel.UnitTest
 
             sut.ListSharesCommand.Execute(null);
 
-            Assert.AreEqual(2, sut.Shares.Count);
+            Assert.HasCount(2, sut.Shares);
         }
 
         private ServerItem GetServer()
@@ -91,7 +91,7 @@ namespace FSV.ViewModel.UnitTest
 
         private Mock<IShareScanner> GetMockShareScanner()
         {
-            Share GetShare(string server, string name)
+            static Share GetShare(string name)
             {
                 return new Share
                 {
@@ -104,7 +104,19 @@ namespace FSV.ViewModel.UnitTest
                 };
             }
 
-            IList<Share> GetSharesOfServer(string server)
+            var mockShareScanner = new Mock<IShareScanner>();
+            mockShareScanner.Setup(m => m.GetShare(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns((string _, string name) => GetShare(name));
+
+            mockShareScanner.Setup(m => m.GetShareAsync(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns((string _, string name) => Task.FromResult(GetShare(name)));
+
+            mockShareScanner.Setup(m => m.GetSharesOfServerAsync(It.IsAny<string>()))
+                .Returns((string _) => Task.FromResult(GetSharesOfServer()));
+
+            return mockShareScanner;
+
+            static IList<Share> GetSharesOfServer()
             {
                 return new List<Share>
                 {
@@ -128,18 +140,6 @@ namespace FSV.ViewModel.UnitTest
                     }
                 };
             }
-
-            var mockShareScanner = new Mock<IShareScanner>();
-            mockShareScanner.Setup(m => m.GetShare(It.IsAny<string>(), It.IsAny<string>()))
-                .Returns((string server, string name) => GetShare(server, name));
-
-            mockShareScanner.Setup(m => m.GetShareAsync(It.IsAny<string>(), It.IsAny<string>()))
-                .Returns((string server, string name) => Task.FromResult(GetShare(server, name)));
-
-            mockShareScanner.Setup(m => m.GetSharesOfServerAsync(It.IsAny<string>()))
-                .Returns((string server) => Task.FromResult(GetSharesOfServer(server)));
-
-            return mockShareScanner;
         }
 
         private Mock<IDispatcherService> GetMockDispatcherService()
@@ -164,7 +164,7 @@ namespace FSV.ViewModel.UnitTest
 
             mockShareServersManager
                 .Setup(m => m.CreateShare(It.IsAny<ServerItem>(), It.IsAny<string>(), It.IsAny<string>()))
-                .Returns((ServerItem server, string name, string path) => new ShareItem(name, path));
+                .Returns((ServerItem _, string name, string path) => new ShareItem(name, path));
 
             return mockShareServersManager;
         }

@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
@@ -14,11 +14,11 @@
   <PropertyGroup>
     <AnalysisLevel>none</AnalysisLevel>
     <AssemblyTitle>FSV.Crypto</AssemblyTitle>
-    <AssemblyVersion>2.8.1</AssemblyVersion>
+    <AssemblyVersion>2.9.0</AssemblyVersion>
     <Company>G-TAC Software UG, Katzweiler, Germany</Company>
-    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Copyright>Copyright © 2015 - 2025 G-TAC Software UG</Copyright>
     <Description>Part of G-TAC's NTFS Permissions Reporter "FolderSecurityViewer"</Description>
-    <FileVersion>2.8.1</FileVersion>
+    <FileVersion>2.9.0</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <Product>FolderSecuriyViewer</Product>
   </PropertyGroup>
@@ -27,8 +27,8 @@
     <ProjectReference Include="..\FSV.Extensions.DependencyInjection\FSV.Extensions.DependencyInjection.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
-    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="10.0.0" />
   </ItemGroup>
 </Project>

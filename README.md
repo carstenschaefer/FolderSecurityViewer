@@ -53,13 +53,16 @@ If you want to automate your NTFS permissions reporting, you can use the Command
 
 The application can be compiled on Windows, and depends on the following Frameworks and utilities:
 
-* .NET Framework 8.0 SDK
-* Optional: Visual Studio 2022
-* MSBuild version 17.9.8 or above
+* .NET Framework 9.0 SDK
+* Optional: Visual Studio 2026
 
 ### Platform compatibility
 
-Ensure your target platform is supported by .NET 8; check the supported OS versions in the  [.NET 8 Release Notes](https://github.com/dotnet/core/blob/main/release-notes/8.0/supported-os.md#net-8---supported-os-versions). If you need a build compatible with Windows 7 or 8, please refer to version [v2.7.0-beta.1](https://github.com/carstenschaefer/FolderSecurityViewer/releases/tag/v2.7.0-beta.1), which depends on .NET Framework 4.7 and Visual Studio.
+Ensure your target platform is supported by .NET 9; check the supported OS versions in the  [.NET 9 Release Notes](https://github.com/dotnet/core/blob/main/release-notes/9.0/supported-os.md).
+
+* If you need a built targeting .NET 8, please refer to version [v2.8.1-beta.1](https://github.com/carstenschaefer/FolderSecurityViewer/releases/tag/v2.8.1-beta.1).
+
+* If you need a build compatible with Windows 7 or 8, please refer to version [v2.7.0-beta.1](https://github.com/carstenschaefer/FolderSecurityViewer/releases/tag/v2.7.0-beta.1), which depends on .NET Framework 4.7 and Visual Studio.
 
 
 ### Build
@@ -73,8 +76,8 @@ $ dotnet build ./FolderSecurityViewer.sln --configuration Release
 
 ````bash
 $ dotnet clean && dotnet build
-$ dotnet test --framework net8.0-windows
+$ dotnet test --framework net9.0-windows
 ````
 
 
-Copyright (C) 2015 - 2024 by Carsten Schäfer, Matthias Friedrich, and Ritesh Gite
+Copyright (C) 2015 - 2025 by Carsten Schäfer, Matthias Friedrich, and Ritesh Gite

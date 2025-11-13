@@ -3,29 +3,29 @@
     <AnalysisLevel>none</AnalysisLevel>
     <AssemblyTitle>FolderSecurityViewer.UnitTest</AssemblyTitle>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Copyright>Copyright © 2015 - 2025 G-TAC Software UG</Copyright>
     <FileVersion>1.0.0.0</FileVersion>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <LangVersion>latest</LangVersion>
     <OutputType>Library</OutputType>
     <Product>FolderSecurityViewer.UnitTest</Product>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\FolderSecurityViewer\FolderSecurityViewer.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="coverlet.collector" Version="6.0.2">
+    <PackageReference Include="coverlet.collector" Version="6.0.4">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk">
-      <Version>17.10.0</Version>
+      <Version>18.0.1</Version>
     </PackageReference>
     <PackageReference Include="xunit">
-      <Version>2.9.0</Version>
+      <Version>2.9.3</Version>
     </PackageReference>
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

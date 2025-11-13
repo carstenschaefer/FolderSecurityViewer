@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
@@ -14,11 +14,11 @@
   <PropertyGroup>
     <AnalysisLevel>none</AnalysisLevel>
     <AssemblyTitle>FSV.Database</AssemblyTitle>
-    <AssemblyVersion>2.8.1</AssemblyVersion>
+    <AssemblyVersion>2.9.0</AssemblyVersion>
     <Company>G-TAC Software UG, Katzweiler, Germany</Company>
-    <Copyright>Copyright © 2015 - 2024 G-TAC Software UG</Copyright>
+    <Copyright>Copyright © 2015 - 2025 G-TAC Software UG</Copyright>
     <Description>Part of G-TAC's NTFS Permissions Reporter "FolderSecurityViewer"</Description>
-    <FileVersion>2.8.1</FileVersion>
+    <FileVersion>2.9.0</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <Product>FolderSecurityViewer</Product>
   </PropertyGroup>
@@ -53,8 +53,8 @@
     </PackageReference>
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="System.Data.SQLite">
-      <Version>1.0.118</Version>
+      <Version>2.0.2</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-﻿// FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
+// FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
 // Copyright (C) 2015 - 2024  Carsten Schäfer, Matthias Friedrich, and Ritesh Gite
 // 
 // This program is free software: you can redistribute it and/or modify
@@ -20,15 +20,16 @@ namespace FSV.ViewModel.UnitTest
     using FolderTree;
     using Home;
     using JetBrains.Annotations;
-    using Xunit;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+    [TestClass]
     public class FolderTreeItemViewModelTest
     {
-        [Fact]
+        [TestMethod]
         public void FolderTreeItemViewModel_null_equality_test()
         {
             // Arrange
-            FolderModel model = this.GetFolerModel("Folder", @"path\to\some\folder");
+            FolderModel model = this.GetFolderModel("Folder", @"path\to\some\folder");
 
             var sut = new FolderTreeItemViewModel(model);
 
@@ -36,14 +37,14 @@ namespace FSV.ViewModel.UnitTest
             bool result = sut.Equals(null);
 
             // Assert
-            Assert.False(result);
+            Assert.IsFalse(result);
         }
 
-        [Fact]
+        [TestMethod]
         public void FolderTreeItemViewModel_same_reference_equality_test()
         {
             // Arrange
-            FolderModel model = this.GetFolerModel("Folder", @"path\to\some\folder");
+            FolderModel model = this.GetFolderModel("Folder", @"path\to\some\folder");
 
             var sut = new FolderTreeItemViewModel(model);
             FolderTreeItemViewModel reference = sut;
@@ -52,15 +53,15 @@ namespace FSV.ViewModel.UnitTest
             bool result = sut.Equals(reference);
 
             // Assert
-            Assert.True(result);
+            Assert.IsTrue(result);
         }
 
-        [Fact]
+        [TestMethod]
         public void FolderTreeItemViewModel_path_equality_test()
         {
             // Arrange
-            FolderModel modelOne = this.GetFolerModel("Folder", @"path\to\some\folder");
-            FolderModel modelTwo = this.GetFolerModel("Folder", @"path\to\some\folder");
+            FolderModel modelOne = this.GetFolderModel("Folder", @"path\to\some\folder");
+            FolderModel modelTwo = this.GetFolderModel("Folder", @"path\to\some\folder");
 
             var sut = new FolderTreeItemViewModel(modelOne);
             var other = new FolderTreeItemViewModel(modelTwo);
@@ -69,10 +70,10 @@ namespace FSV.ViewModel.UnitTest
             bool result = sut.Equals(other);
 
             // Assert
-            Assert.True(result);
+            Assert.IsTrue(result);
         }
 
-        private FolderModel GetFolerModel([NotNull] string name, [NotNull] string path)
+        private FolderModel GetFolderModel([NotNull] string name, [NotNull] string path)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
