@@ -1,4 +1,4 @@
-﻿// FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
+// FolderSecurityViewer is an easy-to-use NTFS permissions tool that helps you effectively trace down all security owners of your data.
 // Copyright (C) 2015 - 2024  Carsten Schäfer, Matthias Friedrich, and Ritesh Gite
 // 
 // This program is free software: you can redistribute it and/or modify
@@ -37,7 +37,7 @@ namespace FSV.FileSystem.Interop.UnitTest
             using var sut = new FindFileEnumerator(kernel32, kernel32FindFile, path);
 
             // Assert
-            Assert.AreEqual(sut.Current, default);
+            Assert.IsNull(sut.Current);
         }
 
         [TestMethod]
@@ -57,7 +57,8 @@ namespace FSV.FileSystem.Interop.UnitTest
 
             // Assert
             Assert.IsTrue(actual);
-
+            Assert.IsNotNull(sut.Current);
+            
             Win32FindData current = sut.Current.GetWin32FindData(false);
             Assert.AreNotEqual(default, current);
             Assert.AreEqual(expected, current.cFileName);
@@ -77,11 +78,11 @@ namespace FSV.FileSystem.Interop.UnitTest
             sut.MoveNext();
 
             // Act
-            bool actual = sut.MoveNext();
+            sut.MoveNext();
             sut.Reset();
 
             // Assert
-            Assert.AreEqual(sut.Current, default);
+            Assert.IsNull(sut.Current);
         }
     }
 }
